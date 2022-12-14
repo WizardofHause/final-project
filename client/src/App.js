@@ -7,7 +7,7 @@ function App() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    fetch("/hello")
+    fetch("/visits")
       .then((r) => r.json())
       .then((data) => setCount(data.count));
   }, []);

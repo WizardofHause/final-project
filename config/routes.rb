@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users
-  # route to test your configuration
-  get '/hello', to: 'application#hello_world'
+  # route that counts page visits and incriments with refresh
+  get '/visits', to: 'application#page_visits'
 
   # handle requests that aren't established routes
   get '*path',
