@@ -3,8 +3,8 @@ class UsersController < ApplicationController
     
     # '/authorized_user' => confirms login & loads user info 
     def show
-		# user = User.find(session[:user_id])
-		render json: current_user, status: :ok
+		user = User.find(session[:user_id])
+		render json: user, status: :ok
     end
 
     # new user signup

@@ -27,10 +27,12 @@ function App() {
           res.json()
             .then((user) => {
               updateUser(user)
+              console.log(user)
             })
-        } else {
-          updateUser(false)
-        }
+        } 
+        // else {
+        //   updateUser(false)
+        // }
       })
   }, [])
 
@@ -61,7 +63,7 @@ function App() {
               <h1>Tom's Route!</h1>
             </Route>
             <Route exact path="/">
-              <Welcome />
+              <Welcome currentUser={currentUser}/>
             </Route>
             <Route path="/login">
               <LogIn updateUser={updateUser} />
