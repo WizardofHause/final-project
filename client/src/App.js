@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import spiral from './triskelion-symbol.png'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -22,7 +23,7 @@ function App() {
               <h1>Tom's Route!</h1>
             </Route>
             <Route path="/">
-              <img src={logo} className="App-logo" alt="logo" />
+              <img src={spiral} className="App-logo" alt="logo" />
               <h1>Page Count: {count}</h1>
             </Route>
           </Switch>
