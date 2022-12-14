@@ -31,7 +31,7 @@ function SignUp({ updateUser }) {
                 if (res.ok) {
                     res.json().then(user => {
                         updateUser(user)
-                        history.push(`/users/${user.id}`) // <-- sends directly to user profile
+                        history.push(`/users/${user.id}/edit`) 
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
@@ -62,7 +62,6 @@ function SignUp({ updateUser }) {
                     Password
                 </label>
                 <input type='password' name='password' value={password} onChange={handleChange} />
-
 
                 <input type='submit' value='Sign up!' />
             </form>

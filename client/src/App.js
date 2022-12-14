@@ -5,6 +5,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Welcome from './components/Welcome'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
+import UserBank from './components/UserBank'
+import UserEdit from './components/UserEdit'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -64,6 +66,12 @@ function App() {
             </Route>
             <Route path="/signup">
               <SignUp updateUser={updateUser}/>
+            </Route>
+            <Route path="/bank">
+              <UserBank />
+            </Route>
+            <Route path='/users/:id/edit'>
+              <UserEdit />
             </Route>
           </Switch>
         </header>
