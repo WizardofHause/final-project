@@ -1,17 +1,51 @@
-import logo from './logo.svg';
 import './App.css';
 import { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
-import spiral from './triskelion-symbol.png'
+
+import Welcome from './components/Welcome'
+import LogIn from './components/LogIn'
+import SignUp from './components/SignUp'
 
 function App() {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
+  // const [errors, setErrors] = useState([])
+  // const [memories, setMemories] = useState([])
+  const [currentUser, setCurrentUser] = useState(false)
+
+  // useEffect(() => {
+  //   fetch("/visits")
+  //     .then((r) => r.json())
+  //     .then((data) => setCount(data.count));
+  // }, []);
 
   useEffect(() => {
-    fetch("/visits")
-      .then((r) => r.json())
-      .then((data) => setCount(data.count));
-  }, []);
+    fetch('/authorized_user')
+    .then((res) => {
+      if(res.ok) {
+        res.json()
+        .then((user) => {
+          updateUser(user)
+        })
+      } 
+    })
+  }, [])
+
+  const updateUser = (user) => setCurrentUser(user)
+
+  // const fetchMemories = () => {
+  //   fetch('/memories')
+  //   .then(res => {
+  //     if(res.ok){
+  //       res.json()
+  //       .then(setMemories)
+  //     } else {
+  //       res.json()
+  //       .then(data => setErrors(data.error))
+  //     }
+  //   })
+  // }
+
+  // if(errors) return <h1>Sorry - {errors}</h1>
 
   return (
     <BrowserRouter>
@@ -22,9 +56,14 @@ function App() {
               <img src='https://pbs.twimg.com/profile_images/1237550450/mstom_400x400.jpg' className="App-logo" alt="Oops! ¯\_(ツ)_/¯" />
               <h1>Tom's Route!</h1>
             </Route>
-            <Route path="/">
-              <img src={spiral} className="App-logo" alt="logo" />
-              <h1>Page Count: {count}</h1>
+            <Route exact path="/">
+              <Welcome />
+            </Route>
+            <Route path="/login">
+              <LogIn updateUser={updateUser}/>
+            </Route>
+            <Route path="/signup">
+              <SignUp updateUser={updateUser}/>
             </Route>
           </Switch>
         </header>
@@ -33,5 +72,4 @@ function App() {
   );
 }
 
-<img src={logo} className="App-logo" alt="logo" />
 export default App;
