@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :memories
   resources :users
 
   # auth routes
