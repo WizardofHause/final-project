@@ -30,9 +30,9 @@ function App() {
               console.log(user)
             })
         } 
-        // else {
-        //   updateUser(false)
-        // }
+        else {
+          updateUser(false)
+        }
       })
   }, [])
 
