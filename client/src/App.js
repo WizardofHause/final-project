@@ -22,14 +22,16 @@ function App() {
 
   useEffect(() => {
     fetch('/authorized_user')
-    .then((res) => {
-      if(res.ok) {
-        res.json()
-        .then((user) => {
-          updateUser(user)
-        })
-      } 
-    })
+      .then((res) => {
+        if (res.ok) {
+          res.json()
+            .then((user) => {
+              updateUser(user)
+            })
+        } else {
+          updateUser(false)
+        }
+      })
   }, [])
 
   const updateUser = (user) => setCurrentUser(user)
@@ -62,13 +64,13 @@ function App() {
               <Welcome />
             </Route>
             <Route path="/login">
-              <LogIn updateUser={updateUser}/>
+              <LogIn updateUser={updateUser} />
             </Route>
             <Route path="/signup">
-              <SignUp updateUser={updateUser}/>
+              <SignUp updateUser={updateUser} />
             </Route>
             <Route path="/bank">
-              <UserBank />
+              <UserBank updateUser={updateUser} currentUser={currentUser}/>
             </Route>
             <Route path='/users/:id/edit'>
               <UserEdit />

@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-    skip_before_action :authorized_user, only: [:show, :create]
+    skip_before_action :authorized_user, only: [:create]
     
     # '/authorized_user' => confirms login & loads user info 
     def show
-		user = User.find(session[:user_id])
-		render json: user, status: :ok
+		# user = User.find(session[:user_id])
+		render json: current_user, status: :ok
     end
 
     # new user signup
