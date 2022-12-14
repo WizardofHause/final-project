@@ -22,6 +22,15 @@ u14 = User.create(name: "Judy", email: "judy@email.com", password: "jud123")
 
 puts "Making Memories..."
 m1 = Memory.create(title: "Trip to the Dunes", type: "vacation", status: "completed", main_img: "https://www.nps.gov/common/uploads/grid_builder/grsa/crop16_9/2E8879CA-EF95-283E-C88B7FE90F149C36.jpg?width=950&quality=90&mode=crop", description: "Mel and I went to the Sand Dunes and had a lovely time.", likes: 5, user_id: u2 )
+m2 = Memory.create(title: "Wedding: Season 2", type: "celebration", status: "completed", main_img: "https://ktrg.net/wp-content/uploads/2020/10/Loft-Entrance-Front-View-1.jpg", description: "Melody's wedding was as magical as she is.", likes: 600, user_id: u2)
+m3 = Memory.create(title: "Wedding: Season 1", type: "celebration", status: "completed", main_img: "https://i0.wp.com/jeanhedrenrealtor.com/wp-content/uploads/2021/05/Heilig-34.jpg?fit=1200%2C800&ssl=1", description: "Jon's wedding was the dopest dope I've ever smoked! SEND THAT SHIIIIT!", likes: 25, user_id: u3)
+m4 = Memory.create(title: "", type: "", status: "", main_img: "", description: "", likes: "", user_id: )
+m5 = Memory.create(title: "", type: "", status: "", main_img: "", description: "", likes: "", user_id: )
+m6 = Memory.create(title: "", type: "", status: "", main_img: "", description: "", likes: "", user_id: )
+m7 = Memory.create(title: "", type: "", status: "", main_img: "", description: "", likes: "", user_id: )
+m8 = Memory.create(title: "", type: "", status: "", main_img: "", description: "", likes: "", user_id: )
+m9 = Memory.create(title: "", type: "", status: "", main_img: "", description: "", likes: "", user_id: )
+m10 = Memory.create(title: "", type: "", status: "", main_img: "", description: "", likes: "", user_id: )
 
 puts "Generating Comments..."
 Comment.create(user_id: u1, memory_id: m1, body: "What a great trip!")
