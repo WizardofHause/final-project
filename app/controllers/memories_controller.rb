@@ -20,7 +20,6 @@ class MemoriesController < ApplicationController
     end
 
     def destroy
-        # @memory.comments.destroy_all
         @memory.destroy
         head :no_content
     end
