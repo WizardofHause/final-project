@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Welcome from './components/Welcome'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
-import UserBank from './components/UserBank'
+import MainBank from './components/MainBank'
 import UserEdit from './components/UserEdit'
 
 function App() {
@@ -72,7 +72,7 @@ function App() {
               <SignUp updateUser={updateUser} />
             </Route>
             <Route path="/bank">
-              <UserBank updateUser={updateUser} currentUser={currentUser}/>
+              <MainBank updateUser={updateUser} currentUser={currentUser}/>
             </Route>
             <Route path='/users/:id/edit'>
               <UserEdit />

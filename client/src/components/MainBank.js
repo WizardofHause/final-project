@@ -1,6 +1,6 @@
 import Navigation from './Navigation'
 
-function UserBank({ updateUser, currentUser }) {
+function MainBank({ updateUser, currentUser }) {
     return (
         <>
             <h1>This is the main feed!</h1>
@@ -9,4 +9,4 @@ function UserBank({ updateUser, currentUser }) {
     )
 }
 
-export default UserBank
+export default MainBank
