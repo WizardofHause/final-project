@@ -1,4 +1,4 @@
-import { useHistory, Link } from 'react-router-dom'
+import { useHistory, NavLink } from 'react-router-dom'
 
 function Navigation({ updateUser, currentUser }) {
     const history = useHistory()
@@ -18,14 +18,14 @@ function Navigation({ updateUser, currentUser }) {
     return (
         <nav>
             <div>
-                <button><Link to='/'>Home</Link></button>
+                <button><NavLink to='/'>Home</NavLink></button>
             </div>
 
-            {currentUser ? (<button><Link to='/profile'>View Profile</Link></button>) : (<button><Link to='/signup'>Sign Up</Link></button>)}
+            {currentUser ? (<button><NavLink to='/profile'>View Profile</NavLink></button>) : (<button><NavLink to='/signup'>Sign Up</NavLink></button>)}
 
-            {currentUser ? <button onClick={handleLogOut}>Log Out</button> : <button><Link to='/login'>Log In</Link></button>}
+            {currentUser ? <button onClick={handleLogOut}>Log Out</button> : <button><NavLink to='/login'>Log In</NavLink></button>}
 
-            {currentUser ? <button><Link to='/memories/new'>Make a Memry</Link></button> : null}
+            {currentUser ? <button><NavLink to='/memories/new'>Make a Memry</NavLink></button> : null}
 
         </nav>
     )

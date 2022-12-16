@@ -8,6 +8,7 @@ import SignUp from './components/SignUp'
 import MainBank from './components/MainBank'
 import UserEdit from './components/UserEdit'
 import MemoryNew from './components/MemoryNew'
+import MemoryEdit from './components/MemoryEdit'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -59,16 +60,16 @@ function App() {
     setMemories((memories) => [...memories, newMemory])
   }
 
-  // const editMemory = (editedMemory) => {
-  //   const editedMemories = memories.map((originalMemory) => {
-  //     if (originalMemory.id === editedMemory.id) {
-  //       return editedMemory;
-  //     } else {
-  //       return originalMemory;
-  //     }
-  //   })
-  //   setMemories(editedMemories)
-  // }
+  const editMemory = (editedMemory) => {
+    const editedMemories = memories.map((originalMemory) => {
+      if (originalMemory.id === editedMemory.id) {
+        return editedMemory;
+      } else {
+        return originalMemory;
+      }
+    })
+    setMemories(editedMemories)
+  }
 
   // const deleteMemory = (deletedMemory) => {
   //   const updatedMemories = memories.filter(
@@ -108,6 +109,9 @@ function App() {
             </Route>
             <Route path='/memories/new'>
               <MemoryNew addMemory={addMemory} currentUser={currentUser}/>
+            </Route>
+            <Route>
+              <MemoryEdit editMemory={editMemory}/>
             </Route>
           </Switch>
         </header>

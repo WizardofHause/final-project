@@ -7,10 +7,11 @@ export default function MemoryNew({ addMemory, currentUser }) {
         status: '',
         main_img: '',
         description: '',
-        likes: '',
         user_id: ''
     })
     const [errors, setErrors] = useState([])
+
+    const { title, category, status, main_img, description } = formData
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -37,24 +38,39 @@ export default function MemoryNew({ addMemory, currentUser }) {
     }
     return (
         <div>
-            { errors ? errors.map(e => <div>{e}</div>) : null }
+            {errors ? errors.map(e => <div>{e}</div>) : null}
             <form onSubmit={onSubmit}>
-                <label>Title</label>
-                <input type='text' name='title' value={formData.title} onChange={handleChange} />
+                <label htmlFor='title'>Title</label>
+                <input type='text' name='title' value={title} onChange={handleChange} />
 
-                <label>Category</label>
-                <input type='text' name='category' value={formData.category} onChange={handleChange} />
+                <label htmlFor='category'>Category</label>
+                <select name='category' id='category' value={category} onChange={handleChange}>
+                    <option value='vacation'>Vacation</option>
+                    <option value='romance'>Romance</option>
+                    <option value='event'>Event</option>
+                    <option value='meeting'>Meeting</option>
+                    <option value='appointment'>Appointment</option>
+                    <option value='holiday'>Holiday</option>
+                    <option value='celebration'>Celebration</option>
+                    <option value='in_memoriam'>In Memoriam</option>
+                    <option value='just_because'>Just Because</option>
+                    <option value='private'>Private</option>
+                </select>
 
-                <label>Status</label>
-                <input type='number' name='status' value={formData.status} onChange={handleChange} />
+                <label htmlFor='status'>Status</label>
+                <select name='status' id='status' value={status} onChange={handleChange}>
+                    <option value='past'>Past</option>
+                    <option value='present'>Present</option>
+                    <option value='future'>Future</option>
+                </select>
 
-                <label>Display Image</label>
-                <input type='text' name='main_img' value={formData.main_img} onChange={handleChange} />
+                <label htmlFor='main_img'>Display Image</label>
+                <input type='text' name='main_img' value={main_img} onChange={handleChange} />
 
                 <label>Description</label>
-                <input type='text' name='description' value={formData.description} onChange={handleChange} />
+                <input type='text' name='description' value={description} onChange={handleChange} />
 
-                <input type='submit' value='Create' />
+                <button type='submit'>Memory Made</button>
             </form>
             {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
         </div>
