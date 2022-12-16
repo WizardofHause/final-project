@@ -18,14 +18,14 @@ class UsersController < ApplicationController
 		render json: user, status: :created
 	end
 
-	# edit user details (to be: UserProfileController)
+	# edit user details (to become: UserProfileController)
 	def update
 		user = User.find(session[:user_id])
 		user.update!(user_params)
 		render json: user, status: :accepted
 	end
 
-	# delete user entirely
+	# delete user & associated data
 	def destroy
 		user = User.find(session[:user_id])
 		user.destroy

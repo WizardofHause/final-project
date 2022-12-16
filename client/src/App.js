@@ -10,8 +10,8 @@ import UserEdit from './components/UserEdit'
 
 function App() {
   // const [count, setCount] = useState(0);
-  // const [errors, setErrors] = useState([])
-  // const [memories, setMemories] = useState([])
+  const [errors, setErrors] = useState([])
+  const [memories, setMemories] = useState([])
   const [currentUser, setCurrentUser] = useState(false)
 
   // useEffect(() => {
@@ -27,7 +27,7 @@ function App() {
           res.json()
             .then((user) => {
               updateUser(user)
-              console.log(user)
+              fetchMemories()
             })
         } 
         else {
@@ -38,18 +38,18 @@ function App() {
 
   const updateUser = (user) => setCurrentUser(user)
 
-  // const fetchMemories = () => {
-  //   fetch('/memories')
-  //   .then(res => {
-  //     if(res.ok){
-  //       res.json()
-  //       .then(setMemories)
-  //     } else {
-  //       res.json()
-  //       .then(data => setErrors(data.error))
-  //     }
-  //   })
-  // }
+  const fetchMemories = () => {
+    fetch('/memories')
+    .then(res => {
+      if(res.ok){
+        res.json()
+        .then(setMemories)
+      } else {
+        res.json()
+        .then(data => setErrors(data.error))
+      }
+    })
+  }
 
   // if(errors) return <h1>Sorry - {errors}</h1>
 
@@ -58,10 +58,10 @@ function App() {
       <div className="App">
         <header className="App-header">
           <Switch>
-            <Route path="/tom">
+            {/* <Route path="/tom">
               <img src='https://pbs.twimg.com/profile_images/1237550450/mstom_400x400.jpg' className="App-logo" alt="Oops! ¯\_(ツ)_/¯" />
               <h1>Tom's Route!</h1>
-            </Route>
+            </Route> */}
             <Route exact path="/">
               <Welcome currentUser={currentUser}/>
             </Route>
@@ -72,9 +72,9 @@ function App() {
               <SignUp updateUser={updateUser} />
             </Route>
             <Route path="/bank">
-              <MainBank updateUser={updateUser} currentUser={currentUser}/>
+              <MainBank updateUser={updateUser} currentUser={currentUser} memories={memories}/>
             </Route>
-            <Route path='/users/:id/edit'>
+            <Route path='/profile/:id/edit'>
               <UserEdit />
             </Route>
           </Switch>
