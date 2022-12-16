@@ -25,6 +25,8 @@ function Navigation({ updateUser, currentUser }) {
 
             {currentUser ? <button onClick={handleLogOut}>Log Out</button> : <button><Link to='/login'>Log In</Link></button>}
 
+            {currentUser ? <button><Link to='/memories/new'>Make a Memry</Link></button> : null}
+
         </nav>
     )
 }

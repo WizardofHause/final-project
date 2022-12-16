@@ -7,6 +7,7 @@ import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import MainBank from './components/MainBank'
 import UserEdit from './components/UserEdit'
+import MemoryNew from './components/MemoryNew'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -53,6 +54,30 @@ function App() {
 
   // if(errors) return <h1>Sorry - {errors}</h1>
 
+  // --------------------------- HANDLER FUNCTIONS TO CONTROL MEMORY CRUD --------------------------
+  const addMemory = (newMemory) => {
+    setMemories((memories) => [...memories, newMemory])
+  }
+
+  // const editMemory = (editedMemory) => {
+  //   const editedMemories = memories.map((originalMemory) => {
+  //     if (originalMemory.id === editedMemory.id) {
+  //       return editedMemory;
+  //     } else {
+  //       return originalMemory;
+  //     }
+  //   })
+  //   setMemories(editedMemories)
+  // }
+
+  // const deleteMemory = (deletedMemory) => {
+  //   const updatedMemories = memories.filter(
+  //     (memory) => memory.id !== deletedMemory.id
+  //   );
+  //   setMemories(updatedMemories)
+  // }
+
+  // ------------------------------------ RETURNED JSX WITH APP ROUTES ------------------------------
   return (
     <BrowserRouter>
       <div className="App">
@@ -72,10 +97,17 @@ function App() {
               <SignUp updateUser={updateUser} />
             </Route>
             <Route path="/bank">
-              <MainBank updateUser={updateUser} currentUser={currentUser} memories={memories}/>
+              <MainBank 
+              updateUser={updateUser} 
+              currentUser={currentUser} 
+              memories={memories}
+              />
             </Route>
             <Route path='/profile/:id/edit'>
               <UserEdit />
+            </Route>
+            <Route path='/memories/new'>
+              <MemoryNew addMemory={addMemory} currentUser={currentUser}/>
             </Route>
           </Switch>
         </header>
