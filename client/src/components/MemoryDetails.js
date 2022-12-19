@@ -1,30 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-const MemoryDetails = () => {
-  const [memoryLikes, setMemoryLikes] = useState(likes);
+const MemoryDetails = ({ currentUser, deleteMemory }) => {
+  const [memoryLikes, setMemoryLikes] = useState(0);
   const [memory, setMemory] = useState(null);
 //   const [isLoaded, setIsLoaded] = useState(false);
 
-  const { memoryId } = useParams();
+  const { id } = useParams();
   const history = useHistory()
 
   useEffect(() => {
-    fetch(`/memories/${memoryId}`)
+    fetch(`/memories/${id}`)
       .then((r) => r.json())
       .then((memory) => {
         setMemory(memory);
         // setIsLoaded(true);
+        console.log(memory)
       });
-  }, [memoryId]);
+  }, [id]);
 
-  if (!isLoaded) return <h2>Loading...</h2>;
+  if (!memory) return <h1>"Oops! There's nothing here ¯\_(ツ)_/¯"</h1>;
 
-  const { title, category, status, main_img, description, likes, comments } = memory;
 
-  function likeButton() {
-    setMemoryLikes((likes) => likes + 1);
-  }
+  const { title, category, status, main_img, description, user } = memory;
 
   const handleDelete = () => {
     fetch(`/memories/${id}`, {
@@ -35,13 +33,17 @@ const MemoryDetails = () => {
     // window.location.reload();
 }
 
+function likeButton() {
+    setMemoryLikes((likes) => likes + 1);
+  }
+
   return (
     <section>
       <div>
         <div>
           <img src={main_img} alt={title} />
           <button className="likes" onClick={likeButton}>
-            ❤️{likes}
+            ❤️{memoryLikes}
           </button>
         </div>
         <div className="details">
@@ -51,7 +53,7 @@ const MemoryDetails = () => {
             <span>{description}</span>
           </div>
         </div>
-        {place.user_id === currentUser.id ? (<button onClick={handleDelete}></button>) : null}
+        {user.id === currentUser.id ? (<button onClick={handleDelete}>DELETE</button>) : null}
       </div>
     </section>
   );
