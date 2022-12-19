@@ -17,8 +17,8 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
       .then((memory) => {
         setMemory(memory);
         setMemoryLikes(memory.likes)
-        // setIsLoaded(true);
-        console.log(memory)
+        setMemoryComments(memory.comments)
+        // console.log(memory)
       });
   }, [id]);
 
@@ -28,11 +28,11 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
   const { title, category, status, main_img, description, user, comments } = memory;
 
   const handleDelete = () => {
-    fetch(`/memories/${memory.id}`, {
+    fetch(`/memories/${id}`, {
       method: 'DELETE',
     })
-    deleteMemory()
-    history.push('/');
+    deleteMemory(memory);
+    history.push('/')
   }
 
   function likeButton() {
@@ -40,7 +40,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
   }
 
   const handleDeleteComment = (id) => {
-    const newComments = memoryComments.filter((comment) => comment.id !== id);
+    const newComments = comments.filter((comment) => comment.id !== id);
     setMemoryComments(newComments)
   }
 
@@ -50,7 +50,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
         <div>
           <img src={main_img} alt={title} width='400' />
           <button onClick={likeButton}>
-            ❤️{memoryLikes}
+            ❤️ {memoryLikes}
           </button>
         </div>
         <div>

@@ -1,12 +1,12 @@
 function CommentCard({ comment, onDeleteComment, currentUser }) {
     const { body, user } = comment
 
-    // DELETES THE COMMENT
+    // DELETES USER COMMENT
     const handleDelete = () => {
         fetch(`/comments/${comment.id}`, {
             method: 'DELETE',
         })
-        onDeleteComment();
+        onDeleteComment(comment.id);
     }
 
     return (
