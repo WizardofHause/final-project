@@ -12,8 +12,7 @@ MVP TO-DOS:
 - make memories render as timeline display
 
 Bugs:
-- initial data load is an insanely long query to the db, set up custom serializers depending on route
-- DELETE memory has an agreement issue with the id variable in App.js => function deletes the memory, but React still renders an error message to the console
+- initial data load is an insanely long query to the db, adjust serializers depending on route
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
