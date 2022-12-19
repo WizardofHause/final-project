@@ -9,6 +9,7 @@ import MainBank from './components/MainBank'
 import UserEdit from './components/UserEdit'
 import MemoryNew from './components/MemoryNew'
 import MemoryEdit from './components/MemoryEdit'
+import MemoryDetails from './components/MemoryDetails'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -71,12 +72,12 @@ function App() {
     setMemories(editedMemories)
   }
 
-  // const deleteMemory = (deletedMemory) => {
-  //   const updatedMemories = memories.filter(
-  //     (memory) => memory.id !== deletedMemory.id
-  //   );
-  //   setMemories(updatedMemories)
-  // }
+  const deleteMemory = (deletedMemory) => {
+    const updatedMemories = memories.filter(
+      (memory) => memory.id !== deletedMemory.id
+    );
+    setMemories(updatedMemories)
+  }
 
   // ------------------------------------ RETURNED JSX WITH APP ROUTES ------------------------------
   return (
@@ -110,8 +111,11 @@ function App() {
             <Route path='/memories/new'>
               <MemoryNew addMemory={addMemory} currentUser={currentUser}/>
             </Route>
-            <Route>
+            <Route path='/memories/:id/edit'>
               <MemoryEdit editMemory={editMemory}/>
+            </Route>
+            <Route path='/memories/:id'>
+              <MemoryDetails deleteMemory={deleteMemory} currentUser={currentUser}/>
             </Route>
           </Switch>
         </header>
