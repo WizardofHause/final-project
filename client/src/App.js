@@ -10,12 +10,14 @@ import UserEdit from './components/UserEdit'
 import MemoryNew from './components/MemoryNew'
 import MemoryEdit from './components/MemoryEdit'
 import MemoryDetails from './components/MemoryDetails'
+import Search from './components/Search'
 
 function App() {
   // const [count, setCount] = useState(0);
   const [errors, setErrors] = useState([])
   const [memories, setMemories] = useState([])
   const [currentUser, setCurrentUser] = useState(false)
+  const [search, setSearch] = useState('')
 
   // useEffect(() => {
   //   fetch("/visits")
@@ -79,6 +81,12 @@ function App() {
     setMemories(updatedMemories)
   }
 
+  // ------------------------------------ UTILITIES -------------------------------------------------
+  //SEARCH HANDLER
+  const handleSearch = (e) => {
+    setSearch(e.target.value)
+  }
+
   // ------------------------------------ RETURNED JSX WITH APP ROUTES ------------------------------
   return (
     <BrowserRouter>
@@ -99,10 +107,12 @@ function App() {
               <SignUp updateUser={updateUser} />
             </Route>
             <Route path="/bank">
+              <Search search={search} onSearch={handleSearch}/>
               <MainBank 
               updateUser={updateUser} 
               currentUser={currentUser} 
               memories={memories}
+              search={search}
               />
             </Route>
             <Route path='/profile/:id/edit'>

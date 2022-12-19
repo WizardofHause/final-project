@@ -1,9 +1,6 @@
 # README
 
 EOD FRIDAY TO-DOS:
-- set up edit memory ROUTE
-- set up memory details COMPONENT
-- set up DELETE memory
 - set up userprofile COMPONENT / CRUD
 - set up comment COMPONENT / CRUD
 
