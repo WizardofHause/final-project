@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom"; 
+import CommentsContainer from './CommentsContainer'
 
 const MemoryDetails = ({ currentUser, deleteMemory }) => {
   const [memoryLikes, setMemoryLikes] = useState(0);
   const [memory, setMemory] = useState(null);
-//   const [isLoaded, setIsLoaded] = useState(false);
+  const [memoryComments, setMemoryComments] = useState([])
+  //   const [isLoaded, setIsLoaded] = useState(false);
 
   const { id } = useParams();
   const history = useHistory()
@@ -14,6 +16,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
       .then((r) => r.json())
       .then((memory) => {
         setMemory(memory);
+        setMemoryLikes(memory.likes)
         // setIsLoaded(true);
         console.log(memory)
       });
@@ -22,26 +25,30 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
   if (!memory) return <h1>"Oops! There's nothing here ¯\_(ツ)_/¯"</h1>;
 
 
-  const { title, category, status, main_img, description, user } = memory;
+  const { title, category, status, main_img, description, user, comments } = memory;
 
   const handleDelete = () => {
     fetch(`/memories/${memory.id}`, {
-        method: 'DELETE',
+      method: 'DELETE',
     })
     deleteMemory()
     history.push('/');
-    // window.location.reload();
-}
+  }
 
-function likeButton() {
+  function likeButton() {
     setMemoryLikes((likes) => likes + 1);
+  }
+
+  const handleDeleteComment = (id) => {
+    const newComments = memoryComments.filter((comment) => comment.id !== id);
+    setMemoryComments(newComments)
   }
 
   return (
     <section>
       <div>
         <div>
-          <img src={main_img} alt={title} />
+          <img src={main_img} alt={title} width='400' />
           <button onClick={likeButton}>
             ❤️{memoryLikes}
           </button>
@@ -50,8 +57,9 @@ function likeButton() {
           <h2>{title}</h2>
           <p>{category} - {status}</p>
           <div>
-            <span>{description}</span>
+            <span>Description: {description}</span>
           </div>
+          <CommentsContainer comments={comments} currentUser={currentUser} onDeleteComment={handleDeleteComment}/>
         </div>
         {user.id === currentUser.id ? (<button onClick={handleDelete}>DELETE</button>) : null}
       </div>
