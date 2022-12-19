@@ -25,7 +25,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
   if (!memory) return <h1>"Oops! There's nothing here ¯\_(ツ)_/¯"</h1>;
 
 
-  const { title, category, status, main_img, description, user, comments } = memory;
+  const { title, category, status, main_img, description, user } = memory;
 
   const handleDelete = () => {
     fetch(`/memories/${id}`, {
@@ -40,7 +40,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
   }
 
   const handleDeleteComment = (id) => {
-    const newComments = comments.filter((comment) => comment.id !== id);
+    const newComments = memory.comments.filter((comment) => comment.id !== id);
     setMemoryComments(newComments)
   }
 
@@ -59,7 +59,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
           <div>
             <span>Description: {description}</span>
           </div>
-          <CommentsContainer comments={comments} currentUser={currentUser} onDeleteComment={handleDeleteComment}/>
+          <CommentsContainer comments={memoryComments} currentUser={currentUser} onDeleteComment={handleDeleteComment}/>
         </div>
         {user.id === currentUser.id ? (<button onClick={handleDelete}>DELETE</button>) : null}
       </div>

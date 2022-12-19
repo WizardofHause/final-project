@@ -5,7 +5,6 @@ function MainBank({ updateUser, currentUser, memories, search }) {
 
     const searchedMemory = memories.filter((memory) => 
         memory.title.toLowerCase().includes(search.toLowerCase()))
-        // || memory.location.toLowerCase().includes(search.toLowerCase()))
 
     const memoryCard = searchedMemory.map(memory => {
         return(

@@ -2,7 +2,6 @@ import CommentCard from './CommentCard'
 
 function CommentsContainer({ comments, onDeleteComment, currentUser }) {
 
-
     const commentCard = comments.map(comment => {
         return (
             <li>
