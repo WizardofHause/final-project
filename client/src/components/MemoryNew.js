@@ -1,4 +1,6 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom'
+
 
 export default function MemoryNew({ addMemory, currentUser }) {
     const [formData, setFormData] = useState({
@@ -10,6 +12,7 @@ export default function MemoryNew({ addMemory, currentUser }) {
         user_id: ''
     })
     const [errors, setErrors] = useState([])
+    const history = useHistory()
 
     const { title, category, status, main_img, description } = formData
 
@@ -29,7 +32,8 @@ export default function MemoryNew({ addMemory, currentUser }) {
             .then(res => {
                 if (res.ok) {
                     res.json()
-                        .then(addMemory)
+                        .then(addMemory);
+                        history.push(`/bank`)
                 } else {
                     res.json()
                         .then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))

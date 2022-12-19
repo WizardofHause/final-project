@@ -6,7 +6,7 @@ function Welcome({ currentUser }) {
         <>
             <img src={spiral} className="App-logo" alt="logo" />
             <h1>Memry</h1>
-            {currentUser ? <button><Link to='/bank'>Bank</Link></button>
+            {currentUser ? <button><Link to='/bank'>My Bank</Link></button>
                 : (
                     <>
                         <button><Link to='/login'>Log In</Link></button>
