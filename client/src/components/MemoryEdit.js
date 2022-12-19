@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 
-export default function MemoryNew({ editMemory }) {
+export default function MemoryEdit({ editMemory }) {
     // set state for edit form data & errors
     const [formData, setFormData] = useState({
         title: '',
@@ -13,14 +13,14 @@ export default function MemoryNew({ editMemory }) {
     })
     const [errors, setErrors] = useState([])
 
-    // initialize useParams and useHistory with variables
+    // initialize useParams and useHistory
     const { id } = useParams()
     const history = useHistory()
 
-    // destructured formData object keys to use as value in edit form
+    // destructure formData object keys to use as values in edit form
     const { title, category, status, main_img, description } = formData
 
-    // fetch the data for the memory that was selected by user
+    // fetch data for memory selected by user
     useEffect(() => {
         fetch(`/memories/${id}`)
             .then((res) => res.json())
