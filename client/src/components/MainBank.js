@@ -1,10 +1,13 @@
 import Navigation from './Navigation'
 import MemoryCard from './MemoryCard'
 
-function MainBank({ updateUser, currentUser, memories }) {
-    console.log(currentUser)
+function MainBank({ updateUser, currentUser, memories, search }) {
 
-    const memoryCard = memories.map(memory => {
+    const searchedMemory = memories.filter((memory) => 
+        memory.title.toLowerCase().includes(search.toLowerCase()))
+        // || memory.location.toLowerCase().includes(search.toLowerCase()))
+
+    const memoryCard = searchedMemory.map(memory => {
         return(
             <MemoryCard
                 key={memory.id}
@@ -14,7 +17,7 @@ function MainBank({ updateUser, currentUser, memories }) {
     })
     return (
         <>
-            <h1>This is the main feed!</h1>
+            <h1>The Collective Unconscious</h1>
             <Navigation updateUser={updateUser} currentUser={currentUser}/>
             {memoryCard}
         </>
