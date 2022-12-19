@@ -2,6 +2,7 @@ import Navigation from './Navigation'
 import MemoryCard from './MemoryCard'
 
 function MainBank({ updateUser, currentUser, memories }) {
+    console.log(currentUser)
 
     const memoryCard = memories.map(memory => {
         return(

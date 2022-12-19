@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 function MemoryCard({ memory }){
     const { title, category, status, main_img, description, likes, user } = memory
     return(
@@ -7,6 +9,7 @@ function MemoryCard({ memory }){
             <img src={main_img} alt="Render Error!" width="200"/>
             <p>Likes: {likes}</p>
             <p>{description}</p>
+            <Link to={`/memories/${memory.id}`}><button> See More Details!</button></Link>
         </div>
     )
 }
