@@ -25,7 +25,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
   const { title, category, status, main_img, description, user } = memory;
 
   const handleDelete = () => {
-    fetch(`/memories/${id}`, {
+    fetch(`/memories/${memory.id}`, {
         method: 'DELETE',
     })
     deleteMemory()
