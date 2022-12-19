@@ -58,7 +58,7 @@ function App() {
 
   // if(errors) return <h1>Sorry - {errors}</h1>
 
-  // --------------------------- HANDLER FUNCTIONS TO CONTROL MEMORY CRUD --------------------------
+  // ----------------------------------------------- MEMORY CRUD ------------------------------------------------
   const addMemory = (newMemory) => {
     setMemories((memories) => [...memories, newMemory])
   }
@@ -81,13 +81,13 @@ function App() {
     setMemories(updatedMemories)
   }
 
-  // ------------------------------------ UTILITIES -------------------------------------------------
+  // ------------------------------------------------ UTILITIES -------------------------------------------------
   //SEARCH HANDLER
   const handleSearch = (e) => {
     setSearch(e.target.value)
   }
 
-  // ------------------------------------ RETURNED JSX WITH APP ROUTES ------------------------------
+  // ------------------------------------------------ JSX & ROUTES ------------------------------------------------
   return (
     <BrowserRouter>
       <div className="App">
