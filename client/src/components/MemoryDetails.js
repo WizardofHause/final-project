@@ -42,11 +42,11 @@ function likeButton() {
       <div>
         <div>
           <img src={main_img} alt={title} />
-          <button className="likes" onClick={likeButton}>
+          <button onClick={likeButton}>
             ❤️{memoryLikes}
           </button>
         </div>
-        <div className="details">
+        <div>
           <h2>{title}</h2>
           <p>{category} - {status}</p>
           <div>
