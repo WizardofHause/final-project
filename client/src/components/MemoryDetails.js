@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom"; 
-import CommentsContainer from './CommentsContainer'
+import CommentsContainer from './CommentsContainer';
+import CommentNew from './CommentNew';
 
 const MemoryDetails = ({ currentUser, deleteMemory }) => {
-  const [memoryLikes, setMemoryLikes] = useState(0);
   const [memory, setMemory] = useState(null);
   const [memoryComments, setMemoryComments] = useState([])
-  //   const [isLoaded, setIsLoaded] = useState(false);
+  const [memoryLikes, setMemoryLikes] = useState(0);
 
   const { id } = useParams();
   const history = useHistory()
@@ -18,16 +18,14 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
         setMemory(memory);
         setMemoryLikes(memory.likes)
         setMemoryComments(memory.comments)
-        // console.log(memory)
       });
   }, [id]);
 
   if (!memory) return <h1>"Oops! There's nothing here ¯\_(ツ)_/¯"</h1>;
 
-
   const { title, category, status, main_img, description, user } = memory;
 
-  const handleDelete = () => {
+  const handleDeleteMemory = () => {
     fetch(`/memories/${id}`, {
       method: 'DELETE',
     })
@@ -37,6 +35,10 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
 
   function likeButton() {
     setMemoryLikes((likes) => likes + 1);
+  }
+
+  const handleNewComment = (newComment) => {
+    setMemoryComments((memoryComments) => [...memoryComments, newComment])
   }
 
   const handleDeleteComment = (id) => {
@@ -60,8 +62,9 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
             <span>Description: {description}</span>
           </div>
           <CommentsContainer comments={memoryComments} currentUser={currentUser} onDeleteComment={handleDeleteComment}/>
+          <CommentNew memory={memory} onAddComment={handleNewComment} currentUser={currentUser}/>
         </div>
-        {user.id === currentUser.id ? (<button onClick={handleDelete}>DELETE</button>) : null}
+        {user.id === currentUser.id ? (<button onClick={handleDeleteMemory}>DELETE</button>) : null}
       </div>
     </section>
   );

@@ -4,14 +4,13 @@ function CommentsContainer({ comments, onDeleteComment, currentUser }) {
 
     const commentCard = comments.map(comment => {
         return (
-            <li>
-                <CommentCard
-                    key={comment.id}
-                    comment={comment}
-                    onDeleteComment={onDeleteComment}
-                    currentUser={currentUser}
-                />
-            </li>
+            <CommentCard
+                key={comment.id}
+                commentId={comment.id}
+                comment={comment}
+                onDeleteComment={onDeleteComment}
+                currentUser={currentUser}
+            />
         )
     })
 
@@ -19,7 +18,9 @@ function CommentsContainer({ comments, onDeleteComment, currentUser }) {
         <div>
             <h2>Comments</h2>
             <ul>
-                {commentCard}
+                <li>
+                    {commentCard}
+                </li>
             </ul>
         </div>
     )

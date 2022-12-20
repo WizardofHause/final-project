@@ -1,29 +1,38 @@
 import { useState } from "react"
 
+const initialState = {
+    body: '',
+    memory_id: '',
+    user_id: ''
+}
+
 function CommentNew({ memory, currentUser, onAddComment }) {
     const [errors, setErrors] = useState(false)
     const [formData, setFormData] = useState({
         body: '',
+        memory_id: '',
+        user_id: ''
     })
 
-    // HANDLER FUNCTION SETS STATE FOR FORM DATA BASED ON INPUT
+    // SETS INPUT VALUE TO STATE
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
     }
 
     // PERSISTS FORM DATA TO DB OR RENDERS AN ERROR MESSAGE
-    function onSubmit() {
+    function onSubmit(e) {
+        e.preventDefault()
         fetch('/comments', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ...formData, memory_id: memory.id, user_id: currentUser.id })
         })
             .then(res => {
-                console.log(currentUser)
                 if (res.ok) {
                     res.json()
-                        .then((newComment) => { onAddComment(newComment) })
+                        .then(onAddComment)
+                        .then(setFormData(initialState))
                 }
                 else {
                     res.json().then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
@@ -36,7 +45,7 @@ function CommentNew({ memory, currentUser, onAddComment }) {
             {currentUser ?
                 <form onSubmit={onSubmit}>
                     <label>Comment </label>
-                    <input type='text' name='comment' value={formData.comment} onChange={handleChange} />
+                    <input type='text' name='body' value={formData.body} onChange={handleChange} />
                     <input type='submit' value='create' />
                 </form>
                 : null}

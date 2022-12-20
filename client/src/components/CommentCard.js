@@ -7,6 +7,7 @@ function CommentCard({ comment, onDeleteComment, currentUser }) {
             method: 'DELETE',
         })
         onDeleteComment(comment.id);
+        // window.location.reload();
     }
 
     return (
