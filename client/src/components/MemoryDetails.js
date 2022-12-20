@@ -61,7 +61,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
           <div>
             <span>Description: {description}</span>
           </div>
-          <CommentsContainer comments={memoryComments} currentUser={currentUser} onDeleteComment={handleDeleteComment}/>
+          <CommentsContainer memoryComments={memoryComments} currentUser={currentUser} onDeleteComment={handleDeleteComment}/>
           <CommentNew memory={memory} onAddComment={handleNewComment} currentUser={currentUser}/>
         </div>
         {user.id === currentUser.id ? (<button onClick={handleDeleteMemory}>DELETE</button>) : null}

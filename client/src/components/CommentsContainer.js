@@ -1,8 +1,8 @@
 import CommentCard from './CommentCard'
 
-function CommentsContainer({ comments, onDeleteComment, currentUser }) {
+function CommentsContainer({ memoryComments, onDeleteComment, currentUser }) {
 
-    const commentCard = comments.map(comment => {
+    const commentCard = memoryComments.map(comment => {
         return (
             <CommentCard
                 key={comment.id}
