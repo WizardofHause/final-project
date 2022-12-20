@@ -30,7 +30,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
       method: 'DELETE',
     })
     deleteMemory(memory);
-    history.push('/')
+    history.push('/bank')
   }
 
   function likeButton() {

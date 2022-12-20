@@ -20,7 +20,6 @@ function LogIn({ updateUser }) {
             name,
             password
         }
-        // console.log(user)
         fetch(`/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -30,7 +29,6 @@ function LogIn({ updateUser }) {
                 if (res.ok) {
                     res.json().then(user => {
                         updateUser(user)
-                        // history.push(`/users/${user.id}`)
                         history.push('/bank')
                     })
                 } else {
