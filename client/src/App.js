@@ -34,9 +34,6 @@ function App() {
               updateUser(user)
               fetchMemories()
             })
-        } 
-        else {
-          updateUser(false)
         }
       })
   }, [])
@@ -45,20 +42,20 @@ function App() {
 
   const fetchMemories = () => {
     fetch('/memories')
-    .then(res => {
-      if(res.ok){
-        res.json()
-        .then(setMemories)
-      } else {
-        res.json()
-        .then(data => setErrors(data.error))
-      }
-    })
+      .then(res => {
+        if (res.ok) {
+          res.json()
+            .then(setMemories)
+        } else {
+          res.json()
+            .then(data => setErrors(data.error))
+        }
+      })
   }
 
   // if(errors) return <h1>Sorry - {errors}</h1>
 
-  // ----------------------------------------------- MEMORY CRUD ------------------------------------------------
+  // --------------------------- HANDLER FUNCTIONS TO CONTROL MEMORY CRUD --------------------------
   const addMemory = (newMemory) => {
     setMemories((memories) => [...memories, newMemory])
   }
@@ -81,13 +78,13 @@ function App() {
     setMemories(updatedMemories)
   }
 
-  // ------------------------------------------------ UTILITIES -------------------------------------------------
+  // ------------------------------------ UTILITIES -------------------------------------------------
   //SEARCH HANDLER
   const handleSearch = (e) => {
     setSearch(e.target.value)
   }
 
-  // ------------------------------------------------ JSX & ROUTES ------------------------------------------------
+  // ------------------------------------ RETURNED JSX WITH APP ROUTES ------------------------------
   return (
     <BrowserRouter>
       <div className="App">
@@ -98,7 +95,7 @@ function App() {
               <h1>Tom's Route!</h1>
             </Route> */}
             <Route exact path="/">
-              <Welcome currentUser={currentUser}/>
+              <Welcome currentUser={currentUser} />
             </Route>
             <Route path="/login">
               <LogIn updateUser={updateUser} />
@@ -107,25 +104,25 @@ function App() {
               <SignUp updateUser={updateUser} />
             </Route>
             <Route path="/bank">
-              <Search search={search} onSearch={handleSearch}/>
-              <MainBank 
-              updateUser={updateUser} 
-              currentUser={currentUser} 
-              memories={memories}
-              search={search}
+              <Search search={search} onSearch={handleSearch} />
+              <MainBank
+                updateUser={updateUser}
+                currentUser={currentUser}
+                memories={memories}
+                search={search}
               />
             </Route>
             <Route path='/profile/:id/edit'>
               <UserEdit />
             </Route>
             <Route path='/memories/new'>
-              <MemoryNew addMemory={addMemory} currentUser={currentUser}/>
+              <MemoryNew addMemory={addMemory} currentUser={currentUser} />
             </Route>
             <Route path='/memories/:id/edit'>
-              <MemoryEdit editMemory={editMemory}/>
+              <MemoryEdit editMemory={editMemory} />
             </Route>
             <Route path='/memories/:id'>
-              <MemoryDetails deleteMemory={deleteMemory} currentUser={currentUser}/>
+              <MemoryDetails deleteMemory={deleteMemory} currentUser={currentUser} />
             </Route>
           </Switch>
         </header>

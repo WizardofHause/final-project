@@ -44,7 +44,7 @@ function LogIn({ updateUser }) {
     }
     return (
         <>
-            <Link to='/'><button><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯"/></button></Link>
+            <Link to='/'><button><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" /></button></Link>
             <form onSubmit={onSubmit}>
                 <label>
                     Username
@@ -53,8 +53,8 @@ function LogIn({ updateUser }) {
                 <label>
                     Password
                 </label>
-                <input type='password' name='password' value={password} onChange={handleChange} />
-                <input type='submit' value='Log in!' />
+                <input type='password' name='password' value={password} onChange={handleChange} autoComplete='on' />
+                <input type='submit' value='Log In' />
             </form>
             {errors ? <div>{errors}</div> : null}
         </>

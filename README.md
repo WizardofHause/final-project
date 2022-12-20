@@ -10,6 +10,7 @@ MVP TO-DOS:
 - make memories render as timeline display
 
 Bugs:
+- memory bank doesn't load without page refresh, useEffect in App.js needs to redirect in some way if user isn't authorized yet
 - initial data load is an insanely long query to the db, adjust serializers depending on route
 
 This README would normally document whatever steps are necessary to get the

@@ -31,7 +31,7 @@ function SignUp({ updateUser }) {
                 if (res.ok) {
                     res.json().then(user => {
                         updateUser(user)
-                        history.push(`/profile/${user.id}/edit`) 
+                        history.push(`/profile/${user.id}/edit`)
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
@@ -46,7 +46,7 @@ function SignUp({ updateUser }) {
     }
     return (
         <>
-            <Link to='/'><button><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯"/></button></Link>
+            <Link to='/'><button><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" /></button></Link>
             <form onSubmit={onSubmit}>
                 <label>
                     Username

@@ -33,7 +33,7 @@ export default function MemoryNew({ addMemory, currentUser }) {
                 if (res.ok) {
                     res.json()
                         .then(addMemory);
-                        history.push(`/bank`)
+                    history.push(`/bank`)
                 } else {
                     res.json()
                         .then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))

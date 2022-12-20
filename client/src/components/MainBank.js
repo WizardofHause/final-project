@@ -3,11 +3,11 @@ import MemoryCard from './MemoryCard'
 
 function MainBank({ updateUser, currentUser, memories, search }) {
 
-    const searchedMemory = memories.filter((memory) => 
+    const searchedMemory = memories.filter((memory) =>
         memory.title.toLowerCase().includes(search.toLowerCase()))
 
     const memoryCard = searchedMemory.map(memory => {
-        return(
+        return (
             <MemoryCard
                 key={memory.id}
                 memory={memory}
@@ -17,7 +17,7 @@ function MainBank({ updateUser, currentUser, memories, search }) {
     return (
         <>
             <h1>{currentUser.name}'s Memry Bank</h1>
-            <Navigation updateUser={updateUser} currentUser={currentUser}/>
+            <Navigation updateUser={updateUser} currentUser={currentUser} />
             {memoryCard}
         </>
     )

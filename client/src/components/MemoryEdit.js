@@ -41,11 +41,11 @@ export default function MemoryEdit({ editMemory }) {
             },
             body: JSON.stringify(formData),
         })
-        .then((r)=>r.json())
-        .then((updatedMemory) => {
-            editMemory(updatedMemory);
-            history.push(`/bank`) // <-- currently routes to main bank page!!!
-        })
+            .then((r) => r.json())
+            .then((updatedMemory) => {
+                editMemory(updatedMemory);
+                history.push(`/bank`) // <-- currently routes to main bank page!!!
+            })
         // need to render errors!
     }
 

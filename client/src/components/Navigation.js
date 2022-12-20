@@ -10,7 +10,7 @@ function Navigation({ updateUser, currentUser }) {
             .then(res => {
                 if (res.ok) {
                     updateUser(false)
-                    history.push(`/`) 
+                    history.push(`/`)
                 }
             })
     }
