@@ -1,8 +1,6 @@
 # README
 
 MVP TO-DOS:
-- set up comment COMPONENT / CRUD
-    - CS navigation
 - set up userprofile COMPONENT / CRUD
     - CS navigation
 - Route within memory details to edit memory 

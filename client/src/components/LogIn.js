@@ -20,7 +20,7 @@ function LogIn({ updateUser }) {
             name,
             password
         }
-        console.log(user)
+        // console.log(user)
         fetch(`/login`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
