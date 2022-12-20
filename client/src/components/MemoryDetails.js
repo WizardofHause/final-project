@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import CommentsContainer from './CommentsContainer';
-import CommentNew from './CommentNew';
+// import CommentNew from './CommentNew';
 
 const MemoryDetails = ({ currentUser, deleteMemory }) => {
   const [memory, setMemory] = useState(null);
@@ -42,7 +42,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
   }
 
   const handleDeleteComment = (id) => {
-    const newComments = memory.comments.filter((comment) => comment.id !== id);
+    const newComments = memoryComments.filter((comment) => comment.id !== id);
     setMemoryComments(newComments)
   }
 
@@ -61,8 +61,8 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
           <div>
             <span>Description: {description}</span>
           </div>
-          <CommentsContainer memoryComments={memoryComments} currentUser={currentUser} onDeleteComment={handleDeleteComment} />
-          <CommentNew memory={memory} onAddComment={handleNewComment} currentUser={currentUser} />
+          <CommentsContainer memoryComments={memoryComments} currentUser={currentUser} onDeleteComment={handleDeleteComment} memory={memory} onAddComment={handleNewComment} />
+          {/* <CommentNew memory={memory} onAddComment={handleNewComment} currentUser={currentUser} /> */}
         </div>
         {user.id === currentUser.id ? (<button onClick={handleDeleteMemory}>DELETE</button>) : null}
       </div>

@@ -1,12 +1,12 @@
 import CommentCard from './CommentCard'
+import CommentNew from './CommentNew';
 
-function CommentsContainer({ memoryComments, onDeleteComment, currentUser }) {
+function CommentsContainer({ memoryComments, onDeleteComment, currentUser, memory, onAddComment }) {
 
     const commentCard = memoryComments.map(comment => {
         return (
             <CommentCard
                 key={comment.id}
-                commentId={comment.id}
                 comment={comment}
                 onDeleteComment={onDeleteComment}
                 currentUser={currentUser}
@@ -18,10 +18,9 @@ function CommentsContainer({ memoryComments, onDeleteComment, currentUser }) {
         <div>
             <h2>Comments</h2>
             <ul>
-                <li>
-                    {commentCard}
-                </li>
+                {commentCard}
             </ul>
+            <CommentNew memory={memory} onAddComment={onAddComment} currentUser={currentUser} />
         </div>
     )
 
