@@ -18,7 +18,9 @@ function MainBank({ updateUser, currentUser, memories, search }) {
         <>
             <h1>{currentUser.name}'s Memry Bank</h1>
             <Navigation updateUser={updateUser} />
-            {memoryCard}
+            <div className='tl-container'>
+                {memoryCard}
+            </div>
         </>
     )
 }

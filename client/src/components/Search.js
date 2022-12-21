@@ -3,7 +3,7 @@ import React from 'react'
 export default function Search({ search, onSearch }) {
 
     return (
-        <div>
+        <div className='search'>
             <input
                 id="search"
                 type="text"
