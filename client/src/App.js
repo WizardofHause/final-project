@@ -11,6 +11,7 @@ import MemoryNew from './components/MemoryNew'
 import MemoryEdit from './components/MemoryEdit'
 import MemoryDetails from './components/MemoryDetails'
 import Search from './components/Search'
+import Navigation from './components/Navigation'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -90,52 +91,56 @@ function App() {
   return (
 
     <BrowserRouter>
-          {currentUser ?
-            <Switch>
-              <Route exact path="/">
-                <Welcome currentUser={currentUser} />
-              </Route>
-              <Route path="/login">
-                <LogIn updateUser={updateUser} />
-              </Route>
-              <Route path="/signup">
-                <SignUp updateUser={updateUser} />
-              </Route>
-              <Route path="/bank">
-                <Search search={search} onSearch={handleSearch} />
-                <MainBank
-                  updateUser={updateUser}
-                  currentUser={currentUser}
-                  memories={memories}
-                  search={search}
-                />
-              </Route>
-              <Route path='/profile/:id/edit'>
-                <UserEdit />
-              </Route>
-              <Route path='/memories/new'>
-                <MemoryNew addMemory={addMemory} currentUser={currentUser} />
-              </Route>
-              <Route path='/memories/:id/edit'>
-                <MemoryEdit editMemory={editMemory} />
-              </Route>
-              <Route path='/memories/:id'>
-                <MemoryDetails deleteMemory={deleteMemory} currentUser={currentUser} />
-              </Route>
-            </Switch>
-            :
-            <Switch>
-              <Route exact path="/">
-                <Welcome currentUser={currentUser} />
-              </Route>
-              <Route path="/login">
-                <LogIn updateUser={updateUser} />
-              </Route>
-              <Route path="/signup">
-                <SignUp updateUser={updateUser} />
-              </Route>
-            </Switch>
-          }
+      {currentUser ?
+        <>
+          <Navigation updateUser={updateUser} />
+          <Switch>
+            <Route exact path="/">
+              <Welcome currentUser={currentUser} />
+            </Route>
+            <Route path="/login">
+              <LogIn updateUser={updateUser} />
+            </Route>
+            <Route path="/signup">
+              <SignUp updateUser={updateUser} />
+            </Route>
+            <Route path="/bank">
+              <Search search={search} onSearch={handleSearch} />
+              <MainBank
+                updateUser={updateUser}
+                currentUser={currentUser}
+                memories={memories}
+                search={search}
+              />
+            </Route>
+            <Route path='/profile/:id/edit'>
+              <UserEdit />
+            </Route>
+            <Route path='/memories/new'>
+              <MemoryNew addMemory={addMemory} currentUser={currentUser} />
+            </Route>
+            <Route path='/memories/:id/edit'>
+              <MemoryEdit editMemory={editMemory} />
+            </Route>
+            <Route path='/memories/:id'>
+              <MemoryDetails deleteMemory={deleteMemory} currentUser={currentUser} />
+            </Route>
+          </Switch>
+        </>
+
+        :
+        <Switch>
+          <Route exact path="/">
+            <Welcome currentUser={currentUser} />
+          </Route>
+          <Route path="/login">
+            <LogIn updateUser={updateUser} />
+          </Route>
+          <Route path="/signup">
+            <SignUp updateUser={updateUser} />
+          </Route>
+        </Switch>
+      }
     </BrowserRouter>
   );
 }

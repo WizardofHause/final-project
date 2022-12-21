@@ -27,7 +27,7 @@
   margin-bottom: 5px;
 }
 
-.sidenav > NavLink {
+.sidenav>NavLink {
   text-decoration: none;
 }
 
@@ -37,7 +37,7 @@
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-.sidenav > img {
+.sidenav>img {
   padding: 30px;
 }
 
@@ -162,12 +162,44 @@
   right: 5px;
 } */
 
+/* ----------------------------------------------------------------------- COMMENTS ------------------------------------- */
+.comments-container {
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid red;
+}
+
+/* .comments-container {
+  margin: 2rem auto;
+  display: inline;
+  border: 2px solid red;
+} */
+
+.comment-item {
+  padding: 10px;
+  border: 2px solid blue;
+  display: flex;
+  align-items: center;
+}
+
+.comment-content {
+  margin: left;
+  border: 2px solid green;
+}
+
+.comment-button {
+  margin: 10px;
+  padding: 4px;
+  position: right;
+}
+
 /* ----------------------------------------------------------------------- MOBILE DISPLAY ------------------------------------- */
 
 @media only screen and (max-width: 1023px) {
-    .tl-content {
-        max-width: 100%;
-    }
+  .tl-content {
+    max-width: 100%;
+  }
 }
 
 @media only screen and (max-width: 767px) {
@@ -175,19 +207,23 @@
     margin-right: 30%;
     width: 90%;
   }
+
   button {
     font-size: 30%;
   }
+
   .tl-content,
   .tl-item:nth-child(odd) .tl-content {
-      padding: 15px 10px;
-      text-align: center;
-      align-items: center;
-      font-size: 40%;
+    padding: 15px 10px;
+    text-align: center;
+    align-items: center;
+    font-size: 40%;
   }
+
   .tl-content img {
     width: 100%;
   }
+
   .sidenav button {
     font-size: 50%;
   }

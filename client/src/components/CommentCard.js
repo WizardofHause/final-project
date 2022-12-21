@@ -10,9 +10,9 @@ function CommentCard({ comment, onDeleteComment, currentUser }) {
     }
 
     return (
-        <div>
-            <span>"{body}" - {user.name}</span>
-            {(currentUser.id === user.id) ? (<button onClick={handleDelete}> X </button>) : null}
+        <div className='comment-item'>
+            <span className='comment-content'>"{body}" - {user.name}</span>
+            {(currentUser.id === user.id) ? (<button onClick={handleDelete} className='comment-button'> X </button>) : null}
         </div>
     )
 }

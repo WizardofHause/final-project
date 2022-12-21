@@ -14,13 +14,18 @@ function CommentsContainer({ memoryComments, onDeleteComment, currentUser, memor
         )
     })
 
+    // if (!memoryComments) return()
     return (
-        <div>
+        <div className='comments-container'>
             <h2>Comments</h2>
-            <ul>
-                {commentCard}
-            </ul>
-            <CommentNew memory={memory} onAddComment={onAddComment} currentUser={currentUser} />
+
+            {commentCard}
+
+            <CommentNew
+                memory={memory}
+                onAddComment={onAddComment}
+                currentUser={currentUser}
+            />
         </div>
     )
 
