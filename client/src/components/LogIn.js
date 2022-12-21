@@ -6,7 +6,6 @@ import spiral from '../triskelion-symbol.png'
 function LogIn({ updateUser }) {
     const [formData, setFormData] = useState({
         name: '',
-        email: '',
         password: ''
     })
     const [errors, setErrors] = useState([])

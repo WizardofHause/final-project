@@ -1,4 +1,6 @@
 class MemoriesController < ApplicationController
+    skip_before_action :authorized_user, only: [:index]
+
     before_action :set_memory, only: [:show, :update, :destroy]
     
     def index

@@ -34,6 +34,9 @@ function App() {
               updateUser(user)
               fetchMemories()
             })
+        } else {
+          updateUser(false)
+          fetchMemories();
         }
       })
   }, [])
@@ -78,53 +81,63 @@ function App() {
     setMemories(updatedMemories)
   }
 
-  // ------------------------------------ UTILITIES -------------------------------------------------
-  //SEARCH HANDLER
+  // ------------------------------------ SEARCH HANDLER -------------------------------------------------
   const handleSearch = (e) => {
     setSearch(e.target.value)
   }
 
   // ------------------------------------ RETURNED JSX WITH APP ROUTES ------------------------------
   return (
+
     <BrowserRouter>
       <div className="App">
         <header className="App-header">
-          <Switch>
-            {/* <Route path="/tom">
-              <img src='https://pbs.twimg.com/profile_images/1237550450/mstom_400x400.jpg' className="App-logo" alt="Oops! ¯\_(ツ)_/¯" />
-              <h1>Tom's Route!</h1>
-            </Route> */}
-            <Route exact path="/">
-              <Welcome currentUser={currentUser} />
-            </Route>
-            <Route path="/login">
-              <LogIn updateUser={updateUser} />
-            </Route>
-            <Route path="/signup">
-              <SignUp updateUser={updateUser} />
-            </Route>
-            <Route path="/bank">
-              <Search search={search} onSearch={handleSearch} />
-              <MainBank
-                updateUser={updateUser}
-                currentUser={currentUser}
-                memories={memories}
-                search={search}
-              />
-            </Route>
-            <Route path='/profile/:id/edit'>
-              <UserEdit />
-            </Route>
-            <Route path='/memories/new'>
-              <MemoryNew addMemory={addMemory} currentUser={currentUser} />
-            </Route>
-            <Route path='/memories/:id/edit'>
-              <MemoryEdit editMemory={editMemory} />
-            </Route>
-            <Route path='/memories/:id'>
-              <MemoryDetails deleteMemory={deleteMemory} currentUser={currentUser} />
-            </Route>
-          </Switch>
+          {currentUser ?
+            <Switch>
+              <Route exact path="/">
+                <Welcome currentUser={currentUser} />
+              </Route>
+              <Route path="/login">
+                <LogIn updateUser={updateUser} />
+              </Route>
+              <Route path="/signup">
+                <SignUp updateUser={updateUser} />
+              </Route>
+              <Route path="/bank">
+                <Search search={search} onSearch={handleSearch} />
+                <MainBank
+                  updateUser={updateUser}
+                  currentUser={currentUser}
+                  memories={memories}
+                  search={search}
+                />
+              </Route>
+              <Route path='/profile/:id/edit'>
+                <UserEdit />
+              </Route>
+              <Route path='/memories/new'>
+                <MemoryNew addMemory={addMemory} currentUser={currentUser} />
+              </Route>
+              <Route path='/memories/:id/edit'>
+                <MemoryEdit editMemory={editMemory} />
+              </Route>
+              <Route path='/memories/:id'>
+                <MemoryDetails deleteMemory={deleteMemory} currentUser={currentUser} />
+              </Route>
+            </Switch>
+            :
+            <Switch>
+              <Route exact path="/">
+                <Welcome currentUser={currentUser} />
+              </Route>
+              <Route path="/login">
+                <LogIn updateUser={updateUser} />
+              </Route>
+              <Route path="/signup">
+                <SignUp updateUser={updateUser} />
+              </Route>
+            </Switch>
+          }
         </header>
       </div>
     </BrowserRouter>

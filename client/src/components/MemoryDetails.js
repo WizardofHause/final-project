@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import CommentsContainer from './CommentsContainer';
-// import CommentNew from './CommentNew';
 
 const MemoryDetails = ({ currentUser, deleteMemory }) => {
   const [memory, setMemory] = useState(null);
@@ -37,8 +36,10 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
     setMemoryLikes((likes) => likes + 1);
   }
 
+  // ------------------------------------ HANDLER FUNCTIONS TO ADD & DELETE COMMENTS -------------------------
+
   const handleNewComment = (newComment) => {
-    setMemoryComments((memoryComments) => [...memoryComments, newComment])
+    setMemoryComments((currentComments) => [...currentComments, newComment])
   }
 
   const handleDeleteComment = (id) => {
@@ -61,10 +62,15 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
           <div>
             <span>Description: {description}</span>
           </div>
-          <CommentsContainer memoryComments={memoryComments} currentUser={currentUser} onDeleteComment={handleDeleteComment} memory={memory} onAddComment={handleNewComment} />
-          {/* <CommentNew memory={memory} onAddComment={handleNewComment} currentUser={currentUser} /> */}
+          <CommentsContainer
+            memoryComments={memoryComments}
+            currentUser={currentUser}
+            onDeleteComment={handleDeleteComment}
+            memory={memory}
+            onAddComment={handleNewComment}
+          />
         </div>
-        {user.id === currentUser.id ? (<button onClick={handleDeleteMemory}>DELETE</button>) : null}
+        {user.id === currentUser.id ? (<button onClick={handleDeleteMemory}>DELETE MEMORY</button>) : null}
       </div>
     </section>
   );
