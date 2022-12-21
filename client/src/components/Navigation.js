@@ -17,11 +17,11 @@ function Navigation({ updateUser }) {
 
     return (
         <nav>
-            <div className="nav-container">
-                <button><NavLink to='/'>Home</NavLink></button>
-                <button><NavLink to='/profile'>View Profile</NavLink></button>
+            <div className="sidenav">
+                <NavLink to='/'><button>Home</button></NavLink>
+                <NavLink to='/profile'><button>View Profile</button></NavLink>
+                <NavLink to='/memories/new'><button>Make a Memry</button></NavLink>
                 <button onClick={handleLogOut}>Log Out</button>
-                <button><NavLink to='/memories/new'>Make a Memry</NavLink></button>
             </div>
         </nav>
     )

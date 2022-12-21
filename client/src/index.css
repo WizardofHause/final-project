@@ -23,3 +23,12 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 } */
+
+body {
+  padding: 10px 200px 20px;
+  margin-top: 0;
+}
+
+#root {
+  margin-top: 0;
+}
