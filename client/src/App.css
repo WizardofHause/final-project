@@ -156,5 +156,13 @@
       padding: 15px 10px;
       text-align: center;
       align-items: center;
+      font-size: 40%;
+  }
+
+  .tl-content img {
+    width: 85%;
+  }
+  .sidenav button {
+    font-size: 50%;
   }
 }
