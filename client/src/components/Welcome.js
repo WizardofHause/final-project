@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 function Welcome({ currentUser }) {
     return (
         <>
-            <img src={spiral} className="App-logo" alt="logo" />
+            <img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" />
             <h1>Memry</h1>
             {currentUser ? <button><Link to='/bank'>My Bank</Link></button>
                 : (

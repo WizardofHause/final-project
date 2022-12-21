@@ -42,13 +42,13 @@ function CommentNew({ memory, currentUser, onAddComment }) {
 
     return (
         <div>
-            {currentUser ?
+            {/* {currentUser ? */}
                 <form onSubmit={onSubmit}>
                     <label>Comment </label>
                     <input type='text' name='body' value={formData.body} onChange={handleChange} />
                     <input type='submit' value='create' />
                 </form>
-                : null}
+                 {/* : null} */}
             {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
         </div>
     )

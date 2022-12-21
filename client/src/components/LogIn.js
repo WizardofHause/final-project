@@ -52,7 +52,7 @@ function LogIn({ updateUser }) {
                 <label>
                     Password
                 </label>
-                <input type='password' name='password' value={password} onChange={handleChange} autoComplete='on' />
+                <input type='password' name='password' value={password} onChange={handleChange} autoComplete='off' />
                 <input type='submit' value='Log In' />
             </form>
             {errors ? <div>{errors}</div> : null}

@@ -46,7 +46,7 @@ export default function MemoryEdit({ editMemory }) {
                 editMemory(updatedMemory);
                 history.push(`/bank`) // <-- currently routes to main bank page!!!
             })
-        // need to render errors!
+        // need to render errors if params aren't valid!!
     }
 
     return (

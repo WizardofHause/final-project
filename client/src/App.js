@@ -90,8 +90,6 @@ function App() {
   return (
 
     <BrowserRouter>
-      <div className="App">
-        <header className="App-header">
           {currentUser ?
             <Switch>
               <Route exact path="/">
@@ -138,8 +136,6 @@ function App() {
               </Route>
             </Switch>
           }
-        </header>
-      </div>
     </BrowserRouter>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams, useHistory, Link } from "react-router-dom";
 import CommentsContainer from './CommentsContainer';
 
 const MemoryDetails = ({ currentUser, deleteMemory }) => {
@@ -70,7 +70,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
             onAddComment={handleNewComment}
           />
         </div>
-        {user.id === currentUser.id ? (<button onClick={handleDeleteMemory}>DELETE MEMORY</button>) : null}
+        {user.id === currentUser.id ? (<><button onClick={handleDeleteMemory}>DELETE MEMORY</button><button><Link to={`/memories/${memory.id}/edit`}>EDIT</Link></button></>) : null}
       </div>
     </section>
   );
