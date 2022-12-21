@@ -93,7 +93,7 @@ function App() {
     <BrowserRouter>
       {currentUser ?
         <>
-          <Navigation updateUser={updateUser} />
+          <Navigation updateUser={updateUser} currentUser={currentUser}/>
           <Switch>
             <Route exact path="/">
               <Welcome currentUser={currentUser} />

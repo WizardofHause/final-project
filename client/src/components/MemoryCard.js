@@ -8,7 +8,7 @@ function MemoryCard({ memory }) {
                 <span className='tag'/>
                     <h1>{title} by {user.name}</h1>
                     <h4>{category} - {status}</h4>
-                    <img src={main_img} alt="Render Error!" width="200" />
+                    <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}><img src={main_img} alt="Render Error!" width="200" /></Link>
                     <p>Likes: {likes}</p>
                     <p>{description}</p>
                     <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}><button>More Details!</button></Link>
