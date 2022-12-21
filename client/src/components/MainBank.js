@@ -17,7 +17,7 @@ function MainBank({ updateUser, currentUser, memories, search }) {
     return (
         <>
             <h1>{currentUser.name}'s Memry Bank</h1>
-            <Navigation updateUser={updateUser} currentUser={currentUser} />
+            <Navigation updateUser={updateUser} />
             {memoryCard}
         </>
     )

@@ -1,6 +1,6 @@
 import { useHistory, NavLink } from 'react-router-dom'
 
-function Navigation({ updateUser, currentUser }) {
+function Navigation({ updateUser }) {
     const history = useHistory()
 
     const handleLogOut = () => {
@@ -17,16 +17,12 @@ function Navigation({ updateUser, currentUser }) {
 
     return (
         <nav>
-            <div>
+            <div className="nav-container">
                 <button><NavLink to='/'>Home</NavLink></button>
+                <button><NavLink to='/profile'>View Profile</NavLink></button>
+                <button onClick={handleLogOut}>Log Out</button>
+                <button><NavLink to='/memories/new'>Make a Memry</NavLink></button>
             </div>
-
-            {currentUser ? (<button><NavLink to='/profile'>View Profile</NavLink></button>) : (<button><NavLink to='/signup'>Sign Up</NavLink></button>)}
-
-            {currentUser ? <button onClick={handleLogOut}>Log Out</button> : <button><NavLink to='/login'>Log In</NavLink></button>}
-
-            {currentUser ? <button><NavLink to='/memories/new'>Make a Memry</NavLink></button> : null}
-
         </nav>
     )
 }
