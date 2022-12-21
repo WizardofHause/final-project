@@ -43,7 +43,7 @@ function LogIn({ updateUser }) {
     }
     return (
         <>
-            <Link to='/'><button><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" /></button></Link>
+            <Link to='/' style={{ textDecoration: 'none' }}><button><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" /></button></Link>
             <form onSubmit={onSubmit}>
                 <label>
                     Username

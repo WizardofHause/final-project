@@ -9,7 +9,7 @@
   left: 0;
   padding-top: 60px;
   overflow-x: hidden;
-  background-color: rgba(226, 147, 43, 0.667);
+  background-color: rgba(161, 97, 32, 0.667);
 }
 
 .sidenav button {
@@ -19,9 +19,15 @@
   color: #fdf6f0;
   display: block;
   border: none;
+  border-radius: none;
   background-color: rgba(255, 255, 255, 0.2);
   width: 100%;
   font-weight: bolder;
+  margin-bottom: 1px;
+}
+
+.sidenav > NavLink {
+  text-decoration: none;
 }
 
 .sidenav button:hover {
@@ -34,8 +40,9 @@
 #search {
   width: 100%;
   border-radius: 4px;
-  border: 1px solid transparent;
-  background-color: #fdede0;
+  border: 3px solid transparent;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 }
 
 /* ----------------------------------------------------------------------- TIMELINE ------------------------------------- */

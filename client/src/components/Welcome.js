@@ -6,11 +6,18 @@ function Welcome({ currentUser }) {
         <>
             <img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" />
             <h1>Memry</h1>
-            {currentUser ? <button><Link to='/bank'>My Bank</Link></button>
+            {currentUser ?
+                <Link to='/bank' style={{ textDecoration: 'none' }}>
+                    <button>My Bank</button>
+                </Link>
                 : (
                     <>
-                        <button><Link to='/login'>Log In</Link></button>
-                        <button><Link to='/signup'>Sign Up</Link></button>
+                        <Link to='/login' style={{ textDecoration: 'none' }}>
+                            <button>Log In</button>
+                        </Link>
+                        <Link to='/signup' style={{ textDecoration: 'none' }}>
+                            <button>Sign Up</button>
+                        </Link>
                     </>
                 )}
         </>

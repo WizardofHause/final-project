@@ -18,9 +18,9 @@ function Navigation({ updateUser }) {
     return (
         <nav>
             <div className="sidenav">
-                <NavLink to='/'><button>Home</button></NavLink>
-                <NavLink to='/profile'><button>View Profile</button></NavLink>
-                <NavLink to='/memories/new'><button>Make a Memry</button></NavLink>
+                <NavLink to='/' style={{ textDecoration: 'none' }}><button>Home</button></NavLink>
+                <NavLink to='/profile' style={{ textDecoration: 'none' }}><button>View Profile</button></NavLink>
+                <NavLink to='/memories/new' style={{ textDecoration: 'none' }}><button>Make a Memry</button></NavLink>
                 <button onClick={handleLogOut}>Log Out</button>
             </div>
         </nav>

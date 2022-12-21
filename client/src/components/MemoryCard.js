@@ -11,7 +11,7 @@ function MemoryCard({ memory }) {
                     <img src={main_img} alt="Render Error!" width="200" />
                     <p>Likes: {likes}</p>
                     <p>{description}</p>
-                    <Link to={`/memories/${memory.id}`}><button>More Details!</button></Link>
+                    <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}><button>More Details!</button></Link>
                 <span className="circle" />
             </div>
         </div>

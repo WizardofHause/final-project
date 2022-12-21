@@ -70,8 +70,18 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
             onAddComment={handleNewComment}
           />
         </div>
-        {user.id === currentUser.id ? (<><button onClick={handleDeleteMemory}>DELETE MEMORY</button><button><Link to={`/memories/${memory.id}/edit`}>EDIT</Link></button></>) : null}
+        {user.id === currentUser.id ?
+          (<>
+            <button onClick={handleDeleteMemory}>
+              DELETE MEMRY
+            </button>
+            <Link to={`/memories/${memory.id}/edit`} style={{ textDecoration: 'none' }}>
+              <button>EDIT MEMRY</button>
+            </Link>
+          </>)
+          : null}
       </div>
+      <Link to='/bank' style={{ textDecoration: 'none' }}><button>BACK</button></Link>
     </section>
   );
 };

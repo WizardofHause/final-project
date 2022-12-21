@@ -3,6 +3,7 @@
 body {
   padding: 10px 50px 20px 200px; /* <----------- TOP, RIGHT, BOTTOM, LEFT */
   margin-top: 0;
+  background-image: linear-gradient(to right, rgba(226, 147, 43, 0.3), white);
 }
 
 /* ------------------------------------------------------------------------------------------------- BUTTONS */
@@ -12,7 +13,7 @@ button {
   font-size: 15px;
   color: #fdf6f0;
   display: inline;
-  border: 2px solid;
+  border: 2px solid transparent;
   border-radius: 5px;
   background-color: rgba(226, 147, 43, 0.667);
   font-weight: bolder;
