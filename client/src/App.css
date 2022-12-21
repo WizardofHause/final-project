@@ -7,7 +7,7 @@
   z-index: 1;
   top: 0;
   left: 0;
-  padding-top: 60px;
+  padding-top: 0px;
   overflow-x: hidden;
   background-color: rgba(161, 97, 32, 0.667);
 }
@@ -19,11 +19,12 @@
   color: #fdf6f0;
   display: block;
   border: none;
-  border-radius: none;
+  border-radius: 0px;
   background-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   width: 100%;
   font-weight: bolder;
-  margin-bottom: 1px;
+  margin-bottom: 5px;
 }
 
 .sidenav > NavLink {
@@ -34,6 +35,10 @@
   color: #fff;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidenav > img {
+  padding: 30px;
 }
 
 /* ----------------------------------------------------------------------- SEARCH ------------------------------------- */
@@ -54,11 +59,11 @@
 }
 
 .tl-container::after {
-  background-color: #e1b377;
+  background-color: #e1b377d1;
   content: '';
   position: absolute;
   left: calc(50% - 2px);
-  width: 4px;
+  width: 5px;
   height: 100%;
 }
 
@@ -127,11 +132,17 @@
   width: 20px;
   height: 20px;
   z-index: 100;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
 }
 
 .tl-item:nth-child(odd) .tl-content .circle {
   right: auto;
   left: -90px;
+}
+
+.tl-content img {
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
 }
 
 /* .tl-content .tag {
