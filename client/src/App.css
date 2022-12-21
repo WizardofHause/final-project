@@ -151,6 +151,8 @@
   right: 5px;
 } */
 
+/* ----------------------------------------------------------------------- MOBILE DISPLAY ------------------------------------- */
+
 @media only screen and (max-width: 1023px) {
     .tl-content {
         max-width: 100%;
@@ -158,6 +160,13 @@
 }
 
 @media only screen and (max-width: 767px) {
+  .tl-container {
+    margin-right: 30%;
+    width: 90%;
+  }
+  button {
+    font-size: 30%;
+  }
   .tl-content,
   .tl-item:nth-child(odd) .tl-content {
       padding: 15px 10px;
@@ -166,7 +175,7 @@
       font-size: 40%;
   }
   .tl-content img {
-    width: 85%;
+    width: 100%;
   }
   .sidenav button {
     font-size: 50%;
