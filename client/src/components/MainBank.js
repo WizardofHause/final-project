@@ -2,7 +2,9 @@ import MemoryCard from './MemoryCard'
 
 function MainBank({ currentUser, memories, search }) {
 
-    const searchedMemory = memories.filter((memory) =>
+    const sortedMemories = memories.sort((a,b) => a.date - b.date)
+
+    const searchedMemory = sortedMemories.filter((memory) =>
         memory.title.toLowerCase().includes(search.toLowerCase()))
 
     const memoryCard = searchedMemory.map(memory => {
@@ -17,7 +19,8 @@ function MainBank({ currentUser, memories, search }) {
         <>
             <h1>{currentUser.name}'s Memry Bank</h1>
             <div className='tl-container'>
-                {memoryCard.sort((a,b) => a.date - b.date)}
+                {/* {memoryCard.sort((a,b) => a.date - b.date)} */}
+                {memoryCard}
             </div>
         </>
     )
