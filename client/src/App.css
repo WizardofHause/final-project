@@ -149,7 +149,7 @@
 .tl-content img:hover {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  width: 400px;
+  width: 210px;
 }
 
 /* .tl-content .tag {
@@ -174,7 +174,8 @@
   margin: 2rem auto;
   display: flex;
   flex-direction: column;
-  border: 2px solid red;
+  /* border: 2px solid red; */
+  /* background-color: white; */
 }
 
 /* .comments-container {
@@ -185,21 +186,22 @@
 
 .comment-item {
   padding: 10px;
-  border: 2px solid blue;
+  /* border: 2px solid blue; */
   display: flex;
   align-items: center;
-  
+  background-color: white;
+  margin: 10px 20px 10px 20px;
+  border-radius: 4px;
 }
 
 .comment-content {
   margin: left;
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 .comment-button {
-  margin: 10px;
+  margin-left: auto;
   padding: 4px;
-  position: right;
 }
 
 /* ----------------------------------------------------------------------- MOBILE DISPLAY ------------------------------------- */
