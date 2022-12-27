@@ -9,7 +9,8 @@ export default function MemoryEdit({ editMemory }) {
         status: '',
         main_img: '',
         description: '',
-        user_id: ''
+        user_id: '',
+        date: ''
     })
     const [errors, setErrors] = useState([])
 
@@ -18,7 +19,7 @@ export default function MemoryEdit({ editMemory }) {
     const history = useHistory()
 
     // destructure formData object keys to use as values in edit form
-    const { title, category, status, main_img, description } = formData
+    const { title, category, status, main_img, description, date } = formData
 
     // fetch data for memory selected by user
     useEffect(() => {
@@ -75,6 +76,9 @@ export default function MemoryEdit({ editMemory }) {
                     <option value='present'>Present</option>
                     <option value='future'>Future</option>
                 </select>
+
+                <label htmlFor='date'>Date</label>
+                <input type='date' name='date' value={date} onChange={handleChange}/>
 
                 <label htmlFor='main_img'>Display Image</label>
                 <input type='text' name='main_img' value={main_img} onChange={handleChange} />

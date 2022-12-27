@@ -29,7 +29,7 @@ class MemoriesController < ApplicationController
     private
 
     def memory_params
-        params.permit(:title, :category, :status, :main_img, :description, :likes, :user_id)
+        params.permit(:title, :category, :status, :main_img, :description, :likes, :user_id, :date)
     end
 
     def set_memory

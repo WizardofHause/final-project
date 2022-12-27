@@ -9,12 +9,13 @@ export default function MemoryNew({ addMemory, currentUser }) {
         status: '',
         main_img: '',
         description: '',
-        user_id: ''
+        user_id: '',
+        date: ''
     })
     const [errors, setErrors] = useState([])
     const history = useHistory()
 
-    const { title, category, status, main_img, description } = formData
+    const { title, category, status, main_img, description, date } = formData
 
     const handleChange = (e) => {
         const { name, value } = e.target
@@ -69,7 +70,7 @@ export default function MemoryNew({ addMemory, currentUser }) {
                 </select>
 
                 <label htmlFor='date'>Date</label>
-                <input type='date'/>
+                <input type='date' name='date' value={date} onChange={handleChange}/>
 
                 <label htmlFor='main_img'>Display Image</label>
                 <input type='text' name='main_img' value={main_img} onChange={handleChange} />
