@@ -10,7 +10,7 @@ function MemoryCard({ memory }) {
                     <h4>{category} - {status}</h4>
                     <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}><img src={main_img} alt="Render Error!" width="200" /></Link>
                     <p>Likes: {likes}</p>
-                    <p>Date: {date}</p>
+                    <p>{date}</p>
                     <p>{description}</p>
                     <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}><button>More Details!</button></Link>
                 <span className="circle" />
