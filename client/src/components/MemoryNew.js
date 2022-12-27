@@ -68,6 +68,9 @@ export default function MemoryNew({ addMemory, currentUser }) {
                     <option value='future'>Future</option>
                 </select>
 
+                <label htmlFor='date'>Date</label>
+                <input type='date'/>
+
                 <label htmlFor='main_img'>Display Image</label>
                 <input type='text' name='main_img' value={main_img} onChange={handleChange} />
 
