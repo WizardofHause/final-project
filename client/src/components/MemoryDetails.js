@@ -22,7 +22,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
 
   if (!memory) return <h1>"Oops! There's nothing here ¯\_(ツ)_/¯"</h1>;
 
-  const { title, category, status, main_img, description, user } = memory;
+  const { title, category, status, main_img, description, user, date } = memory;
 
   const handleDeleteMemory = () => {
     fetch(`/memories/${id}`, {
@@ -59,6 +59,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
         <div>
           <h2>{title}</h2>
           <p>{category} - {status}</p>
+          <p>Date: {date}</p>
           <div>
             <span>Description: {description}</span>
           </div>
