@@ -1,7 +1,7 @@
 import MemoryCard from './MemoryCard'
 
 function MainBank({ currentUser, memories, search }) {
-
+    
     const searchedMemory = memories.filter((memory) =>
         memory.title.toLowerCase().includes(search.toLowerCase()))
 
