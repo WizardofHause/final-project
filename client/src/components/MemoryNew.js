@@ -30,16 +30,21 @@ export default function MemoryNew({ addMemory, currentUser }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ...formData, user_id: currentUser.id })
         })
-            .then(res => {
-                if (res.ok) {
-                    res.json()
-                        .then(addMemory);
-                    history.push(`/bank`)
-                } else {
-                    res.json()
-                        .then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
-                }
-            })
+        .then((res) => res.json())
+        .then((memory) => {
+            addMemory(memory);
+            history.push(`/memories/${memory.id}`)
+        })
+            // .then(res => {
+            //     if (res.ok) {
+            //         res.json()
+            //             .then(addMemory);
+            //         history.push(`/bank`)
+            //     } else {
+            //         res.json()
+            //             .then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
+            //     }
+            // })
     }
     return (
         <div>
@@ -70,7 +75,7 @@ export default function MemoryNew({ addMemory, currentUser }) {
                 </select>
 
                 <label htmlFor='date'>Date</label>
-                <input type='date' name='date' value={date} onChange={handleChange}/>
+                <input type='date' name='date' value={date} onChange={handleChange} />
 
                 <label htmlFor='main_img'>Display Image</label>
                 <input type='text' name='main_img' value={main_img} onChange={handleChange} />

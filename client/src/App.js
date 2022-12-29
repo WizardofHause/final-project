@@ -64,6 +64,12 @@ function App() {
     setMemories((memories) => [...memories, newMemory])
   }
 
+  // const addMemory = (newMemory) => {
+  //   const memArray = ((memories) => [...memories, newMemory])
+  //   memArray.sort((a,b) => a.date - b.date)
+  //   setMemories(memArray)
+  // }
+
   const editMemory = (editedMemory) => {
     const editedMemories = memories.map((originalMemory) => {
       if (originalMemory.id === editedMemory.id) {
