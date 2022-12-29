@@ -109,7 +109,6 @@ function App() {
             <Route path="/bank">
               <Search search={search} onSearch={handleSearch} />
               <MainBank
-                // updateUser={updateUser}
                 currentUser={currentUser}
                 sortedMemories={sortedMemories}
                 search={search}
