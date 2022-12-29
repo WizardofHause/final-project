@@ -1,8 +1,13 @@
+// import { useEffect } from 'react'
 import MemoryCard from './MemoryCard'
 
-function MainBank({ currentUser, memories, search }) {
+function MainBank({ currentUser, sortedMemories, search }) {
 
-    const sortedMemories = memories.sort((a,b) => a.date - b.date)
+    // const sortedMemories = memories.sort((a,b) => a.date - b.date)
+
+    // useEffect(() => {
+    //     memories.sort((a,b) => a.date - b.date)
+    // }, [memories])
 
     const searchedMemory = sortedMemories.filter((memory) =>
         memory.title.toLowerCase().includes(search.toLowerCase()))

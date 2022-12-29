@@ -3,14 +3,14 @@ class MemoriesController < ApplicationController
 
     before_action :set_memory, only: [:show, :update, :destroy]
     
-    # def index
-    #     render json: Memory.all, status: :ok
-    # end
-
     def index
-        memories = Memory.all.sort_by { |memory| memory.date }
-        render json: memories.reverse, status: :ok
+        render json: Memory.all, status: :ok
     end
+
+    # def index
+    #     memories = Memory.all.sort_by { |memory| memory.date }
+    #     render json: memories.reverse, status: :ok
+    # end
 
     def show
         render json: @memory, status: :ok

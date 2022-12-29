@@ -45,7 +45,7 @@ export default function MemoryEdit({ editMemory }) {
             .then((r) => r.json())
             .then((updatedMemory) => {
                 editMemory(updatedMemory);
-                history.push(`/bank`) // <-- currently routes to main bank page!!!
+                history.push(`/memories/${updatedMemory.id}`) // <-- currently routes to main bank page!!!
             })
         // need to render errors if params aren't valid!!
     }

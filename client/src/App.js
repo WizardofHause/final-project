@@ -60,15 +60,11 @@ function App() {
   // if(errors) return <h1>Sorry - {errors}</h1>
 
   // --------------------------- HANDLER FUNCTIONS TO CONTROL MEMORY CRUD --------------------------
+  const sortedMemories = (memories.slice(0).sort((a,b) => a.date.localeCompare(b.date))).reverse()
+  
   const addMemory = (newMemory) => {
     setMemories((memories) => [...memories, newMemory])
   }
-
-  // const addMemory = (newMemory) => {
-  //   const memArray = ((memories) => [...memories, newMemory])
-  //   memArray.sort((a,b) => a.date - b.date)
-  //   setMemories(memArray)
-  // }
 
   const editMemory = (editedMemory) => {
     const editedMemories = memories.map((originalMemory) => {
@@ -113,9 +109,9 @@ function App() {
             <Route path="/bank">
               <Search search={search} onSearch={handleSearch} />
               <MainBank
-                updateUser={updateUser}
+                // updateUser={updateUser}
                 currentUser={currentUser}
-                memories={memories}
+                sortedMemories={sortedMemories}
                 search={search}
               />
             </Route>
