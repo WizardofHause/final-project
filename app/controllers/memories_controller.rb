@@ -7,6 +7,7 @@ class MemoriesController < ApplicationController
         render json: Memory.all, status: :ok
     end
 
+    # ------------------- MOVED SORT FUNCTION TO FRONT END FOR NEW MEMORY ADD -----
     # def index
     #     memories = Memory.all.sort_by { |memory| memory.date }
     #     render json: memories.reverse, status: :ok

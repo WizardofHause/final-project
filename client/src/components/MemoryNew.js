@@ -22,6 +22,21 @@ export default function MemoryNew({ addMemory, currentUser }) {
         setFormData({ ...formData, [name]: value })
     }
 
+    // BEFORE IT GOT ALL FUCKED VVV
+    // function onSubmit(e) {
+    //     e.preventDefault()
+
+    //     fetch('/memories', {
+    //         method: 'POST',
+    //         headers: { 'Content-Type': 'application/json' },
+    //         body: JSON.stringify({ ...formData, user_id: currentUser.id })
+    //     })
+    //     .then((res) => res.json())
+    //     .then((memory) => {
+    //         addMemory(memory);
+    //         history.push(`/memories/${memory.id}`)
+    //     })
+
     function onSubmit(e) {
         e.preventDefault()
 
@@ -30,11 +45,17 @@ export default function MemoryNew({ addMemory, currentUser }) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ ...formData, user_id: currentUser.id })
         })
-        .then((res) => res.json())
+        .then((res) => {
+            if (res.ok) {
+                res.json()
         .then((memory) => {
             addMemory(memory);
             history.push(`/memories/${memory.id}`)
-        })
+        })} else {res.json()
+             .then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))}
+    })
+
+        //ERROR HANDLING FROM LECTURE
             // .then(res => {
             //     if (res.ok) {
             //         res.json()
