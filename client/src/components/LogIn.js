@@ -3,7 +3,7 @@ import { useHistory, Link } from 'react-router-dom'
 import spiral from '../triskelion-symbol.png'
 
 
-function LogIn({ updateUser }) {
+function LogIn({ fetchUser }) {
     const [formData, setFormData] = useState({
         name: '',
         password: ''
@@ -27,11 +27,12 @@ function LogIn({ updateUser }) {
             .then(res => {
                 if (res.ok) {
                     res.json().then(user => {
-                        updateUser(user)
+                        fetchUser(user)
                         history.push('/bank')
                     })
                 } else {
                     res.json().then(json => setErrors(json.errors))
+                    console.log(errors)
                 }
             })
 

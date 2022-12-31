@@ -1,5 +1,5 @@
 import './App.css';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Welcome from './components/Welcome'
@@ -26,7 +26,22 @@ function App() {
   //     .then((data) => setCount(data.count));
   // }, []);
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   fetch('/authorized_user')
+  //     .then((res) => {
+  //       if (res.ok) {
+  //         res.json()
+  //           .then((user) => {
+  //             updateUser(user)
+  //             fetchMemories()
+  //           })
+  //       } else {
+  //         updateUser(false)
+  //         // fetchMemories();
+  //       }
+  //     })
+  // }, [])
+const fetchUser = () => {
     fetch('/authorized_user')
       .then((res) => {
         if (res.ok) {
@@ -35,12 +50,9 @@ function App() {
               updateUser(user)
               fetchMemories()
             })
-        } else {
-          updateUser(false)
-          fetchMemories();
-        }
+        } 
       })
-  }, [])
+  }
 
   const updateUser = (user) => setCurrentUser(user)
 
@@ -56,8 +68,6 @@ function App() {
         }
       })
   }
-
-  // if(errors) return <h1>Sorry - {errors}</h1>
 
   // --------------------------- HANDLER FUNCTIONS TO CONTROL MEMORY CRUD --------------------------
   const sortedMemories = (memories.slice(0).sort((a,b) => a.date.localeCompare(b.date))).reverse()
@@ -91,7 +101,6 @@ function App() {
 
   // ------------------------------------ RETURNED JSX WITH APP ROUTES ------------------------------
   return (
-
     <BrowserRouter>
       {currentUser ?
         <>
@@ -101,7 +110,7 @@ function App() {
               <Welcome currentUser={currentUser} />
             </Route>
             <Route path="/login">
-              <LogIn updateUser={updateUser} />
+              <LogIn fetchUser={fetchUser} />
             </Route>
             <Route path="/signup">
               <SignUp updateUser={updateUser} />
@@ -128,14 +137,13 @@ function App() {
             </Route>
           </Switch>
         </>
-
         :
         <Switch>
           <Route exact path="/">
             <Welcome currentUser={currentUser} />
           </Route>
           <Route path="/login">
-            <LogIn updateUser={updateUser} />
+            <LogIn fetchUser={fetchUser} />
           </Route>
           <Route path="/signup">
             <SignUp updateUser={updateUser} />
