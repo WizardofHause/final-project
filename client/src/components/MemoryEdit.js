@@ -42,12 +42,18 @@ export default function MemoryEdit({ editMemory }) {
             },
             body: JSON.stringify(formData),
         })
-            .then((r) => r.json())
-            .then((updatedMemory) => {
-                editMemory(updatedMemory);
-                history.push(`/memories/${updatedMemory.id}`) // <-- currently routes to main bank page!!!
+            .then((res) => {
+                if (res.ok) {
+                    res.json()
+                        .then((updatedMemory) => {
+                            editMemory(updatedMemory);
+                            history.push(`/memories/${updatedMemory.id}`)
+                        })
+                } else {
+                    res.json()
+                        .then(data => setErrors(Object.entries(data.errors).map(e => `${e[1]}`)))
+                }
             })
-        // need to render errors if params aren't valid!!
     }
 
     return (
@@ -78,7 +84,7 @@ export default function MemoryEdit({ editMemory }) {
                 </select>
 
                 <label htmlFor='date'>Date</label>
-                <input type='date' name='date' value={date} onChange={handleChange}/>
+                <input type='date' name='date' value={date} onChange={handleChange} />
 
                 <label htmlFor='main_img'>Display Image</label>
                 <input type='text' name='main_img' value={main_img} onChange={handleChange} />
@@ -88,7 +94,8 @@ export default function MemoryEdit({ editMemory }) {
 
                 <button type='submit'>Memory Made</button>
             </form>
-            {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
+            {errors ? errors.map(e => <div>{e}</div>) : null}
+            {/* {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null} */}
         </div>
     )
 };
