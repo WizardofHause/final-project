@@ -65,7 +65,7 @@ function SignUp({ updateUser }) {
 
                 <input type='submit' value='Sign up!' />
             </form>
-            {errors ? errors.map(e => <div>{e[0] + ': ' + e[1]}</div>) : null}
+            {errors ? errors.map(e => <div>{e[1]}</div>) : null}
         </>
     )
 }
