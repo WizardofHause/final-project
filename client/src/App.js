@@ -66,7 +66,7 @@ function App() {
       })
   }
 
-  // --------------------------- HANDLER FUNCTIONS TO CONTROL MEMORY CRUD --------------------------
+  // --------------------------- MEMORY CRUD HANDLER FUNCTIONS --------------------------
   const sortedMemories = (memories.slice(0).sort((a, b) => a.date.localeCompare(b.date))).reverse()
 
   const addMemory = (newMemory) => {
