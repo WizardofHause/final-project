@@ -32,7 +32,6 @@ function LogIn({ fetchUser }) {
                     })
                 } else {
                     res.json().then(json => setErrors(json.errors))
-                    console.log(errors)
                 }
             })
 

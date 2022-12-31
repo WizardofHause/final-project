@@ -41,7 +41,7 @@ function App() {
   //       }
   //     })
   // }, [])
-const fetchUser = () => {
+  const fetchUser = () => {
     fetch('/authorized_user')
       .then((res) => {
         if (res.ok) {
@@ -50,7 +50,7 @@ const fetchUser = () => {
               updateUser(user)
               fetchMemories()
             })
-        } 
+        }
       })
   }
 
@@ -62,17 +62,13 @@ const fetchUser = () => {
         if (res.ok) {
           res.json()
             .then(setMemories)
-        } 
-        // else {
-        //   res.json()
-        //     .then(data => setErrors(data.error))
-        // }
+        }
       })
   }
 
   // --------------------------- HANDLER FUNCTIONS TO CONTROL MEMORY CRUD --------------------------
-  const sortedMemories = (memories.slice(0).sort((a,b) => a.date.localeCompare(b.date))).reverse()
-  
+  const sortedMemories = (memories.slice(0).sort((a, b) => a.date.localeCompare(b.date))).reverse()
+
   const addMemory = (newMemory) => {
     setMemories((memories) => [...memories, newMemory])
   }
@@ -105,7 +101,7 @@ const fetchUser = () => {
     <BrowserRouter>
       {currentUser ?
         <>
-          <Navigation updateUser={updateUser} currentUser={currentUser}/>
+          <Navigation updateUser={updateUser} currentUser={currentUser} />
           <Switch>
             <Route exact path="/">
               <Welcome currentUser={currentUser} />
