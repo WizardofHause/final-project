@@ -15,7 +15,7 @@ import Navigation from './components/Navigation'
 
 function App() {
   // const [count, setCount] = useState(0);
-  const [errors, setErrors] = useState([])
+  // const [errors, setErrors] = useState([])
   const [memories, setMemories] = useState([])
   const [currentUser, setCurrentUser] = useState(false)
   const [search, setSearch] = useState('')
@@ -62,10 +62,11 @@ const fetchUser = () => {
         if (res.ok) {
           res.json()
             .then(setMemories)
-        } else {
-          res.json()
-            .then(data => setErrors(data.error))
-        }
+        } 
+        // else {
+        //   res.json()
+        //     .then(data => setErrors(data.error))
+        // }
       })
   }
 

@@ -40,13 +40,11 @@ export default function MemoryNew({ addMemory, currentUser }) {
                 } else {
                     res.json()
                     .then(data => setErrors(Object.entries(data.errors).map(e => `${e[1]}`)))
-                        // .then(data => setErrors(Object.entries(data.errors).map(e => `${e[0]} ${e[1]}`)))
                 }
             })
     }
     return (
         <div>
-            {/* {errors ? errors.map(e => <div>{e}</div>) : null} */}
             <form onSubmit={onSubmit}>
                 <label htmlFor='title'>Title</label>
                 <input type='text' name='title' value={title} onChange={handleChange} />
@@ -83,7 +81,8 @@ export default function MemoryNew({ addMemory, currentUser }) {
 
                 <button type='submit'>Memory Made</button>
             </form>
-            {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
+            {errors ? errors.map(e => <div>{e}</div>) : null}
+            {/* {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null} */}
         </div>
     )
 };
