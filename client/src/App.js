@@ -1,5 +1,5 @@
 import './App.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
 import Welcome from './components/Welcome'
@@ -15,7 +15,7 @@ import Navigation from './components/Navigation'
 
 function App() {
   // const [count, setCount] = useState(0);
-  // const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState([])
   const [memories, setMemories] = useState([])
   const [currentUser, setCurrentUser] = useState(false)
   const [search, setSearch] = useState('')
@@ -26,22 +26,9 @@ function App() {
   //     .then((data) => setCount(data.count));
   // }, []);
 
-  // useEffect(() => {
-  //   fetch('/authorized_user')
-  //     .then((res) => {
-  //       if (res.ok) {
-  //         res.json()
-  //           .then((user) => {
-  //             updateUser(user)
-  //             fetchMemories()
-  //           })
-  //       } else {
-  //         updateUser(false)
-  //         // fetchMemories();
-  //       }
-  //     })
-  // }, [])
-  const fetchUser = () => {
+
+  // AUTHO USER - KEEPS SESSION THROUGH PAGE REFRESH
+  useEffect(() => {
     fetch('/authorized_user')
       .then((res) => {
         if (res.ok) {
@@ -50,9 +37,9 @@ function App() {
               updateUser(user)
               fetchMemories()
             })
-        }
+        } 
       })
-  }
+  }, [])
 
   const updateUser = (user) => setCurrentUser(user)
 
@@ -62,6 +49,9 @@ function App() {
         if (res.ok) {
           res.json()
             .then(setMemories)
+        } else {
+          res.json()
+            .then(data => setErrors(data.errors))
         }
       })
   }
@@ -107,10 +97,10 @@ function App() {
               <Welcome currentUser={currentUser} />
             </Route>
             <Route path="/login">
-              <LogIn fetchUser={fetchUser} />
+              <LogIn updateUser={updateUser} fetchMemories={fetchMemories}/>
             </Route>
             <Route path="/signup">
-              <SignUp updateUser={updateUser} />
+              <SignUp updateUser={updateUser} fetchMemories={fetchMemories}/>
             </Route>
             <Route path="/bank">
               <Search search={search} onSearch={handleSearch} />
@@ -140,10 +130,10 @@ function App() {
             <Welcome currentUser={currentUser} />
           </Route>
           <Route path="/login">
-            <LogIn fetchUser={fetchUser} />
+            <LogIn updateUser={updateUser} fetchMemories={fetchMemories}/>
           </Route>
           <Route path="/signup">
-            <SignUp updateUser={updateUser} />
+            <SignUp updateUser={updateUser} fetchMemories={fetchMemories}/>
           </Route>
         </Switch>
       }

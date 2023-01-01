@@ -3,7 +3,7 @@ import { useHistory, Link } from 'react-router-dom'
 import spiral from '../triskelion-symbol.png'
 
 
-function SignUp({ updateUser }) {
+function SignUp({ updateUser, fetchMemories }) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -31,6 +31,7 @@ function SignUp({ updateUser }) {
                 if (res.ok) {
                     res.json().then(user => {
                         updateUser(user)
+                        fetchMemories()
                         history.push(`/profile/${user.id}/edit`)
                     })
                 } else {
