@@ -20,10 +20,10 @@ function Navigation({ updateUser, currentUser }) {
         <nav>
             <div className="sidenav">
                 <NavLink to='/' style={{ textDecoration: 'none' }}><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" /></NavLink>
-                <NavLink to='/bank' style={{ textDecoration: 'none' }}><button>{currentUser.name} Bank</button></NavLink>
-                <NavLink to='/profile' style={{ textDecoration: 'none' }}><button>{currentUser.name} Profile</button></NavLink>
-                <NavLink to='/memories/new' style={{ textDecoration: 'none' }}><button>Make a Memry</button></NavLink>
-                <button onClick={handleLogOut}>Log Out</button>
+                <NavLink to='/bank' style={{ textDecoration: 'none' }}><button>Main</button></NavLink>
+                <NavLink to='/profile' style={{ textDecoration: 'none' }}><button>Profile</button></NavLink>
+                <NavLink to='/memories/new' style={{ textDecoration: 'none' }}><button>New</button></NavLink>
+                <button onClick={handleLogOut}>Exit</button>
             </div>
         </nav>
     )
