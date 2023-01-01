@@ -27,7 +27,7 @@ function App() {
   // }, []);
 
 
-  // AUTHO USER - KEEPS SESSION THROUGH PAGE REFRESH
+  // --------------------------- USER AUTH (USERS.SHOW) --------------------------------------------
   useEffect(() => {
     fetch('/authorized_user')
       .then((res) => {
@@ -37,12 +37,12 @@ function App() {
               updateUser(user)
               fetchMemories()
             })
-        } 
+        }
       })
   }, [])
 
-  const updateUser = (user) => setCurrentUser(user)
-
+  // --------------------------- MEMORY CRUD --------------------------
+  // READ FETCH:
   const fetchMemories = () => {
     fetch('/memories')
       .then(res => {
@@ -51,18 +51,15 @@ function App() {
             .then(setMemories)
         } else {
           res.json()
-            .then(data => setErrors(data.errors))
+            .then(data => setErrors(data.error))
         }
       })
   }
-
-  // --------------------------- MEMORY CRUD HANDLER FUNCTIONS --------------------------
-  const sortedMemories = (memories.slice(0).sort((a, b) => a.date.localeCompare(b.date))).reverse()
-
+  // CREATE HANDLER:
   const addMemory = (newMemory) => {
     setMemories((memories) => [...memories, newMemory])
   }
-
+  // UPDATE HANDLER:
   const editMemory = (editedMemory) => {
     const editedMemories = memories.map((originalMemory) => {
       if (originalMemory.id === editedMemory.id) {
@@ -73,7 +70,7 @@ function App() {
     })
     setMemories(editedMemories)
   }
-
+  // DESTROY HANDLER:
   const deleteMemory = (deletedMemory) => {
     const updatedMemories = memories.filter(
       (memory) => memory.id !== deletedMemory.id
@@ -82,14 +79,19 @@ function App() {
   }
 
   // ------------------------------------ SEARCH HANDLER -------------------------------------------------
-  const handleSearch = (e) => {
-    setSearch(e.target.value)
-  }
+  const handleSearch = (e) => setSearch(e.target.value)
 
-  // ------------------------------------ RETURNED JSX WITH APP ROUTES ------------------------------
+  // --------------------------- USER STATE HANDLER --------------------------------------
+  const updateUser = (user) => setCurrentUser(user)
+
+  // --------------------------- SORT MEMORIES BY DATE NEWEST=>OLDEST ---------------------------
+  const sortedMemories = (memories.slice(0).sort((a, b) => a.date.localeCompare(b.date))).reverse()
+
+  // ------------------------------------ RETURNED JSX & ROUTES ------------------------------
   return (
     <BrowserRouter>
       {currentUser ?
+        // vvv---------ROUTES IF USER IS LOGGED IN
         <>
           <Navigation updateUser={updateUser} currentUser={currentUser} />
           <Switch>
@@ -97,10 +99,10 @@ function App() {
               <Welcome currentUser={currentUser} />
             </Route>
             <Route path="/login">
-              <LogIn updateUser={updateUser} fetchMemories={fetchMemories}/>
+              <LogIn updateUser={updateUser} fetchMemories={fetchMemories} />
             </Route>
             <Route path="/signup">
-              <SignUp updateUser={updateUser} fetchMemories={fetchMemories}/>
+              <SignUp updateUser={updateUser} fetchMemories={fetchMemories} />
             </Route>
             <Route path="/bank">
               <Search search={search} onSearch={handleSearch} />
@@ -125,15 +127,16 @@ function App() {
           </Switch>
         </>
         :
+        // vvv---------ROUTES IF USER IS NOT LOGGED IN
         <Switch>
           <Route exact path="/">
             <Welcome currentUser={currentUser} />
           </Route>
           <Route path="/login">
-            <LogIn updateUser={updateUser} fetchMemories={fetchMemories}/>
+            <LogIn updateUser={updateUser} fetchMemories={fetchMemories} />
           </Route>
           <Route path="/signup">
-            <SignUp updateUser={updateUser} fetchMemories={fetchMemories}/>
+            <SignUp updateUser={updateUser} fetchMemories={fetchMemories} />
           </Route>
         </Switch>
       }
