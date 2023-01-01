@@ -27,7 +27,7 @@ function App() {
   // }, []);
 
 
-  // --------------------------- USER AUTH (USERS.SHOW) --------------------------------------------
+  // ----------------------- USER AUTH -------------------------------
   useEffect(() => {
     fetch('/authorized_user')
       .then((res) => {
@@ -78,20 +78,21 @@ function App() {
     setMemories(updatedMemories)
   }
 
-  // ------------------------------------ SEARCH HANDLER -------------------------------------------------
+  // ------------------------------------ UTIILITIES -------------------------------------------------
+  // SEARCH
   const handleSearch = (e) => setSearch(e.target.value)
 
-  // --------------------------- USER STATE HANDLER --------------------------------------
+  // USER STATE
   const updateUser = (user) => setCurrentUser(user)
 
-  // --------------------------- SORT MEMORIES BY DATE NEWEST=>OLDEST ---------------------------
+  // SORT MEMORIES: NEWEST..OLDEST 
   const sortedMemories = (memories.slice(0).sort((a, b) => a.date.localeCompare(b.date))).reverse()
 
   // ------------------------------------ RETURNED JSX & ROUTES ------------------------------
   return (
     <BrowserRouter>
       {currentUser ?
-        // vvv---------ROUTES IF USER IS LOGGED IN
+        // vvv--------- ROUTES FOR LOGGED IN USER
         <>
           <Navigation updateUser={updateUser} currentUser={currentUser} />
           <Switch>
@@ -127,7 +128,7 @@ function App() {
           </Switch>
         </>
         :
-        // vvv---------ROUTES IF USER IS NOT LOGGED IN
+        // vvv--------- ROUTES FOR GUEST
         <Switch>
           <Route exact path="/">
             <Welcome currentUser={currentUser} />
