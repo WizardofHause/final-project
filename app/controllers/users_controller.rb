@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 		render json: user, status: :created
 	end
 
-	# edit user details (to become: UserProfileController)
+	# edit user details 
 	def update
 		user = User.find(session[:user_id])
 		user.update!(user_params)

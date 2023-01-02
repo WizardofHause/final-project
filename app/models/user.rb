@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_many :memories, dependent: :destroy
     has_many :comments, dependent: :destroy
+    has_one :user_profile, dependent: :destroy
+    has_one :avatar, through: :user_profile, dependent: :destroy
     
     has_secure_password
 

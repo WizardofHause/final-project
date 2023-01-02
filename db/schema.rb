@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_01_214907) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_02_053052) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_214907) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "avatars", force: :cascade do |t|
+    t.bigint "user_profile_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_profile_id"], name: "index_avatars_on_user_profile_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "memory_id", null: false
@@ -66,6 +73,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_214907) do
     t.index ["user_id"], name: "index_memories_on_user_id"
   end
 
+  create_table "user_profiles", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.date "dob"
+    t.string "pob"
+    t.string "current_city"
+    t.string "family"
+    t.string "interests"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_user_profiles_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -76,7 +97,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_01_214907) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "avatars", "user_profiles"
   add_foreign_key "comments", "memories"
   add_foreign_key "comments", "users"
   add_foreign_key "memories", "users"
+  add_foreign_key "user_profiles", "users"
 end

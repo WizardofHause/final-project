@@ -7,7 +7,7 @@ function SignUp({ updateUser, fetchMemories }) {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        password: ''
+        password: '',
     })
     const [errors, setErrors] = useState([])
     const history = useHistory()

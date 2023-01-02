@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :user_profiles
+  resources :avatars
   resources :comments
   resources :memories
   resources :users
