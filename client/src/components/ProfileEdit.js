@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 
 function ProfileEdit({ currentUser }) {
@@ -16,6 +16,12 @@ function ProfileEdit({ currentUser }) {
     const history = useHistory()
 
     const { first_name, last_name, dob, pob, current_city, family, interests, user_id } = formData
+
+    useEffect(() => {
+        fetch(`/user_profiles/${user_id}`)
+            .then((res) => res.json())
+            .then((profile) => setFormData(profile))
+    }, [user_id])
 
     function onSubmit(e) {
         e.preventDefault()

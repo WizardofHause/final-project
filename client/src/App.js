@@ -117,7 +117,7 @@ function App() {
             <Route path='/profile'>
               <Profile currentUser={currentUser}/>
             </Route>
-            <Route path='/profile/:id/edit'>
+            <Route path='/profile/edit'>
               <ProfileEdit currentUser={currentUser}/>
             </Route>
             <Route path='/memories/new'>

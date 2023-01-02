@@ -6,7 +6,7 @@ function MemoryCard({ memory }) {
         <div className='tl-item'>
             <div className='tl-content'>
                 <span className='tag'/>
-                    <h1>{title} by {user.name}</h1>
+                    <h1>{title}</h1>
                     <h4>{category} - {status}</h4>
                     <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}><img src={main_img} alt="Render Error!" width="200" /></Link>
                     <p>Likes: {likes}</p>
