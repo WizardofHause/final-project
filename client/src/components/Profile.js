@@ -28,7 +28,6 @@ export default function Profile({ currentUser }) {
         return (
             <div key={comment.id}>
                 <Link to={`/memories/${comment.memory.id}`} style={{ textDecoration: 'none' }}><h3>{comment.memory.title}:</h3></Link>
-                {/* <h3>{comment.memory.title}:</h3> */}
                 <div className='comment-item' key={comment.id}>
                     <br />
                     <span className='comment-content'>"{comment.body}" - {currentUser.name}</span>
