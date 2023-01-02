@@ -6,7 +6,7 @@ import Welcome from './components/Welcome'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import MainBank from './components/MainBank'
-import UserEdit from './components/UserEdit'
+import ProfileEdit from './components/ProfileEdit'
 import MemoryNew from './components/MemoryNew'
 import MemoryEdit from './components/MemoryEdit'
 import MemoryDetails from './components/MemoryDetails'
@@ -114,7 +114,7 @@ function App() {
               />
             </Route>
             <Route path='/profile/:id/edit'>
-              <UserEdit />
+              <ProfileEdit currentUser={currentUser}/>
             </Route>
             <Route path='/memories/new'>
               <MemoryNew addMemory={addMemory} currentUser={currentUser} />
