@@ -1,6 +1,5 @@
 import React from 'react';
-import MemoryCard from './MemoryCard'
-import CommentCard from './CommentCard'
+import { Link } from 'react-router-dom'
 
 export default function Profile({ currentUser }) {
     const { user_profile, memories, comments } = currentUser
@@ -9,20 +8,32 @@ export default function Profile({ currentUser }) {
 
     const memoryCard = sortedMemories.map(memory => {
         return (
-            <MemoryCard
-                key={memory.id}
-                memory={memory}
-            />
+            <div className='tl-item' key={memory.id}>
+                <div className='tl-content'>
+                    <span className='tag' />
+                    <h1>{memory.title}</h1>
+                    <h4>{memory.category} - {memory.status}</h4>
+                    <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}><img src={memory.main_img} alt="Render Error!" width="200" /></Link>
+                    <p>Likes: {memory.likes}</p>
+                    <p>{memory.date}</p>
+                    <p>{memory.description}</p>
+                    <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}><button>More Details!</button></Link>
+                    <span className="circle" />
+                </div>
+            </div>
         )
     })
 
     const commentCard = comments.map(comment => {
         return (
-            <CommentCard
-                key={comment.id}
-                comment={comment}
-                currentUser={currentUser}
-            />
+            <div key={comment.id}>
+                <Link to={`/memories/${comment.memory.id}`} style={{ textDecoration: 'none' }}><h3>{comment.memory.title}:</h3></Link>
+                {/* <h3>{comment.memory.title}:</h3> */}
+                <div className='comment-item' key={comment.id}>
+                    <br />
+                    <span className='comment-content'>"{comment.body}" - {currentUser.name}</span>
+                </div>
+            </div>
         )
     })
 
