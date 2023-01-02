@@ -48,12 +48,14 @@ export default function Profile({ currentUser }) {
                     <p>Interests & Hobbies: {user_profile.interests}</p>
                 </>
                 : <p>Nothing Here! Create a profile, ya dinker doink!</p>}
+
             <h2>{currentUser.name}'s Memry's</h2>
             {memories.length > 0 ?
             <div className='tl-container'>
                 {memoryCard}
             </div>
             : <p>Nothing Here! Create some Memry's, ya dinker doink!</p>}
+            
             <h2>{currentUser.name}'s Comments</h2>
             {comments.length > 0 ?
             <div className='comments-container'>
