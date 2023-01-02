@@ -12,6 +12,7 @@ import MemoryEdit from './components/MemoryEdit'
 import MemoryDetails from './components/MemoryDetails'
 import Search from './components/Search'
 import Navigation from './components/Navigation'
+import Profile from './components/Profile'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -112,6 +113,9 @@ function App() {
                 sortedMemories={sortedMemories}
                 search={search}
               />
+            </Route>
+            <Route path='/profile'>
+              <Profile currentUser={currentUser}/>
             </Route>
             <Route path='/profile/:id/edit'>
               <ProfileEdit currentUser={currentUser}/>

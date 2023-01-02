@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-function ProfileEdit({ currentUser, updateUser, fetchMemories }) {
+function ProfileEdit({ currentUser }) {
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -29,7 +29,6 @@ function ProfileEdit({ currentUser, updateUser, fetchMemories }) {
             interests,
             user_id
         }
-
         fetch(`/user_profiles/${user_id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
@@ -38,8 +37,7 @@ function ProfileEdit({ currentUser, updateUser, fetchMemories }) {
             .then(res => {
                 if (res.ok) {
                     res.json().then(profile => {
-                        updateUser(profile)
-                        fetchMemories()
+                        // editProfile(profile)
                         history.push(`/profile/${user_id}`) // <- ROUTE NEEDS CHANGING
                     })
                 } else {
