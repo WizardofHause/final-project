@@ -24,6 +24,7 @@ function UserAvatarForm({ userProfile }) {
         .then(data => {
             setUserAvatar(data.image_url)
             console.log(data)
+            window.location.reload()
         })
         .catch((error) => console.error(error));
     }

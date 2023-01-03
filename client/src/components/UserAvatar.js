@@ -13,17 +13,15 @@ function UserAvatar({ userProfile }) {
     //     })
     //     .catch((error) => console.error(error));
     // }, [userAvatar]);
-    console.log(userAvatar.id)
 
     useEffect(() => {
         fetch(`/avatars/${userProfile.avatar.id}`)
         .then((r) => r.json())
         .then((data) => {
             setUserAvatar(data.image_url);
-            console.log(data)
         })
         .catch((error) => console.error(error));
-    }, [userAvatar]);
+    }, [userProfile]);
 
   return (
     <div>
