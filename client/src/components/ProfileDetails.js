@@ -1,4 +1,3 @@
-// import React, { useState, useEffect } from 'react'
 import React, { createContext, useState } from 'react'
 import ProfileEdit from './ProfileEdit'
 import ProfileNew from './ProfileNew'

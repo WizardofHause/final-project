@@ -85,8 +85,8 @@ export default function MemoryNew({ addMemory, currentUser }) {
 
                 <button type='submit'>Memory Made</button>
             </form>
-            {errors ? errors.map(e => <div>{e}</div>) : null}
-            {/* {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null} */}
+            {/* {errors ? errors.map(e => <div>{e}</div>) : null} */}
+            {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
         </div>
     )
 };
