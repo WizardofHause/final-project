@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-function ProfileNew({ currentUser, createProfile }) {
+function ProfileNew({ currentUser, setUserProfile }) {
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -26,8 +26,7 @@ function ProfileNew({ currentUser, createProfile }) {
             .then(res => {
                 if (res.ok) {
                     res.json().then(profile => {
-                        createProfile(profile)
-                        window.location.reload()
+                        setUserProfile(profile)
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))

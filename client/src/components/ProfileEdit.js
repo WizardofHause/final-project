@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 // import React, { useState } from 'react'
 
-function ProfileEdit({ currentUser, createProfile }) {
+function ProfileEdit({ userProfile, setUserProfile }) {
     const [formData, setFormData] = useState({
             first_name: '',
             last_name: '',
@@ -10,7 +10,7 @@ function ProfileEdit({ currentUser, createProfile }) {
             current_city: '',
             family: '',
             interests: '',
-            user_id: ''
+            // user_id: ''
         })
     
     const [errors, setErrors] = useState([])
@@ -18,23 +18,24 @@ function ProfileEdit({ currentUser, createProfile }) {
     const { first_name, last_name, dob, pob, current_city, family, interests } = formData
 
     useEffect(() => {
-        fetch(`/user_profiles/${currentUser.user_profile.id}`)
+        fetch(`/user_profiles/${userProfile.id}`)
             .then((res) => res.json())
             .then((profile) => setFormData(profile)) // if profile.value === true setFormData(profile.value)
-    }, [currentUser.user_profile.id])
+    }, [userProfile.id])
 
     function onSubmit(e) {
         e.preventDefault()
-        fetch(`/user_profiles/${currentUser.user_profile.id}`, {
+        fetch(`/user_profiles/${userProfile.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({...formData, user_id: currentUser.id})
+            body: JSON.stringify({...formData})
+            // body: JSON.stringify({...formData, user_id: currentUser.id})
         })
             .then(res => {
                 if (res.ok) {
                     res.json().then(profile => {
                         console.log(profile)
-                        createProfile(profile)
+                        setUserProfile(profile)
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))

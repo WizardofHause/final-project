@@ -26,9 +26,9 @@ export default function UserBank() {
           })
       }, [])
 
-    const createProfile = (profile) => {
-        setUserProfile(profile)
-    }
+    // const createProfile = (profile) => {
+    //     setUserProfile(profile)
+    // }
 
     const sortedMemories = (memories.slice(0).sort((a, b) => a.date.localeCompare(b.date))).reverse()
 
@@ -53,7 +53,7 @@ export default function UserBank() {
     return (
         <>
             <h1>{currentUser.name}'s Profile</h1>
-                <ProfileDetails currentUser={currentUser} createProfile={createProfile} user_profile={userProfile}/>
+                <ProfileDetails userProfile={userProfile} setUserProfile={setUserProfile} currentUser={currentUser}/>
             <h2>{currentUser.name}'s Memry's</h2>
             {memories.length > 0 ?
                 <div className='tl-container'>
