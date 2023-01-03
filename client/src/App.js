@@ -6,13 +6,12 @@ import Welcome from './components/Welcome'
 import LogIn from './components/LogIn'
 import SignUp from './components/SignUp'
 import MainBank from './components/MainBank'
-import ProfileEdit from './components/ProfileEdit'
 import MemoryNew from './components/MemoryNew'
 import MemoryEdit from './components/MemoryEdit'
 import MemoryDetails from './components/MemoryDetails'
 import Search from './components/Search'
 import Navigation from './components/Navigation'
-import Profile from './components/Profile'
+import UserBank from './components/UserBank'
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -114,12 +113,12 @@ function App() {
                 search={search}
               />
             </Route>
-            <Route path='/profile'>
-              <Profile currentUser={currentUser}/>
+            <Route path='/user_bank'>
+              <UserBank currentUser={currentUser}/>
             </Route>
-            <Route path='/profile/edit'>
+            {/* <Route path='/profile/edit'>
               <ProfileEdit currentUser={currentUser}/>
-            </Route>
+            </Route> */}
             <Route path='/memories/new'>
               <MemoryNew addMemory={addMemory} currentUser={currentUser} />
             </Route>

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
-function ProfileNew({ currentUser }) {
+function ProfileNew({ currentUser, createProfile }) {
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
@@ -15,30 +15,31 @@ function ProfileNew({ currentUser }) {
     const [errors, setErrors] = useState([])
     const history = useHistory()
 
-    const { first_name, last_name, dob, pob, current_city, family, interests, user_id } = formData
+    const { first_name, last_name, dob, pob, current_city, family, interests } = formData
 
     function onSubmit(e) {
         e.preventDefault()
-        const profile = {
-            first_name,
-            last_name,
-            dob,
-            pob,
-            current_city,
-            family,
-            interests,
-            user_id
-        }
-        fetch(`/user_profiles/${user_id}`, {
+        // const profile = {
+        //     first_name,
+        //     last_name,
+        //     dob,
+        //     pob,
+        //     current_city,
+        //     family,
+        //     interests,
+        //     user_id
+        // }
+        console.log(formData)
+        fetch(`/user_profiles`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(profile)
+            body: JSON.stringify({...formData})
         })
             .then(res => {
                 if (res.ok) {
                     res.json().then(profile => {
-                        // editProfile(profile)
-                        history.push(`/profile/${user_id}`) // <- ROUTE NEEDS CHANGING
+                        createProfile(profile)
+                        history.push(`/user_bank`) // <- ROUTE NEEDS CHANGING
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
