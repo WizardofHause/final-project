@@ -78,6 +78,8 @@ export default function MemoryNew({ addMemory, currentUser }) {
                 <label htmlFor='main_img'>Display Image</label>
                 <input type='text' name='main_img' value={main_img} onChange={handleChange} />
 
+                {formData.main_img ? <img src={formData.main_img} alt="Oops!" /> : null}
+
                 <label>Description</label>
                 <input type='text' name='description' value={description} onChange={handleChange} />
 
