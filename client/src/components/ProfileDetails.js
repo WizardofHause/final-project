@@ -19,6 +19,7 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
                         <div>
                             {userProfile.avatar ? <UserAvatar userProfile={userProfile} setUserProfile={setUserProfile} /> : null}
                             <ProfileCard user_profile={userProfile} />
+                            {/* {userProfile.avatar ? <UserAvatarEdit userProfile={userProfile} /> : null} */}
                             <UserAvatarNew userProfile={userProfile} />
                             <ProfileEdit userProfile={userProfile} setUserProfile={setUserProfile} />
                         </div>
