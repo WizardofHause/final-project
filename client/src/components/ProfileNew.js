@@ -21,7 +21,7 @@ function ProfileNew({ currentUser, createProfile }) {
         fetch(`/user_profiles`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({...formData})
+            body: JSON.stringify({...formData, user_id: currentUser.id})
         })
             .then(res => {
                 if (res.ok) {
