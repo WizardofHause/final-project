@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { Context } from './ProfileDetails'
 
-function UserAvatarForm({ userProfile }) {
+function UserAvatarNew({ userProfile }) {
     const { userAvatar, setUserAvatar } = useContext(Context)
 
     function handleSubmit(e) {
@@ -39,4 +39,4 @@ function UserAvatarForm({ userProfile }) {
     )
 }
 
-export default UserAvatarForm
+export default UserAvatarNew

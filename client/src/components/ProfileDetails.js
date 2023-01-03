@@ -3,7 +3,7 @@ import React, { createContext, useState } from 'react'
 import ProfileEdit from './ProfileEdit'
 import ProfileNew from './ProfileNew'
 import ProfileCard from './ProfileCard'
-import UserAvatarForm from './UserAvatarForm'
+import UserAvatarNew from './UserAvatarNew'
 import UserAvatar from './UserAvatar'
 
 export const Context = createContext(null);
@@ -19,7 +19,7 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
                         <div>
                             {userProfile.avatar ? <UserAvatar userProfile={userProfile} setUserProfile={setUserProfile} /> : null}
                             <ProfileCard user_profile={userProfile} />
-                            <UserAvatarForm userProfile={userProfile} />
+                            <UserAvatarNew userProfile={userProfile} />
                             <ProfileEdit userProfile={userProfile} setUserProfile={setUserProfile} />
                         </div>
                     </>
