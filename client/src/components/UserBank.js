@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import ProfileEdit from './ProfileEdit'
-import ProfileNew from './ProfileNew'
+// import ProfileEdit from './ProfileEdit'
+// import ProfileNew from './ProfileNew'
 import UserMemories from './UserMemories'
 import UserComments from './UserComments'
+import ProfileDetails from './ProfileDetails'
 
 export default function UserBank({ currentUser }) {
     const { user_profile, memories, comments } = currentUser
@@ -47,7 +48,7 @@ export default function UserBank({ currentUser }) {
     return (
         <>
             <h1>{currentUser.name}'s Profile</h1>
-            {userProfile ?
+            {/* {userProfile ?
                 // MAKE THESE INTO TWO SEPARATE COMPONENTS
                 <>
                     <p>{user_profile.first_name} {user_profile.last_name}</p>
@@ -60,8 +61,8 @@ export default function UserBank({ currentUser }) {
                 : <>
                     <p>Nothing Here! Create a profile, ya dinker doink!</p>
                     <ProfileNew currentUser={currentUser} createProfile={createProfile} />
-                </>}
-
+                </>} */}
+                <ProfileDetails currentUser={currentUser} createProfile={createProfile} user_profile={userProfile}/>
             <h2>{currentUser.name}'s Memry's</h2>
             {memories.length > 0 ?
                 <div className='tl-container'>

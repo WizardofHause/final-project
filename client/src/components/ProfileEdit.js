@@ -2,60 +2,39 @@
 import React, { useState } from 'react'
 
 function ProfileEdit({ currentUser, createProfile }) {
-    const { user_profile } = currentUser
-    const [formData, setFormData] = useState(user_profile ? {
-        first_name: user_profile.first_name,
-        last_name: user_profile.last_name,
-        dob: user_profile.dob,
-        pob: user_profile.pob,
-        current_city: user_profile.current_city,
-        family: user_profile.family,
-        interests: user_profile.interests,
-        user_id: currentUser.id
-    }
-    : {
-        first_name: '',
-        last_name: '',
-        dob: '',
-        pob: '',
-        current_city: '',
-        family: '',
-        interests: '',
-        user_id: currentUser.id
-    })
+    const [formData, setFormData] = useState({
+            first_name: '',
+            last_name: '',
+            dob: '',
+            pob: '',
+            current_city: '',
+            family: '',
+            interests: '',
+            user_id: ''
+        })
+    
     const [errors, setErrors] = useState([])
 
     const { first_name, last_name, dob, pob, current_city, family, interests } = formData
 
     // useEffect(() => {
-    //     fetch(`/user_profiles/${user_id}`)
+    //     fetch(`/user_profiles/${currentUser.user_profile.id}`)
     //         .then((res) => res.json())
-    //         .then((profile) => setFormData(profile))
-    // }, [user_id])
+    //         .then((profile) => setFormData(profile)) // if profile.value === true setFormData(profile.value)
+    // }, [])
 
     function onSubmit(e) {
         e.preventDefault()
-        // const profile = {
-        //     first_name,
-        //     last_name,
-        //     dob,
-        //     pob,
-        //     current_city,
-        //     family,
-        //     interests,
-        // }
-        fetch(`/user_profiles/${user_profile.id}`, {
+        fetch(`/user_profiles/${currentUser.user_profile.id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(formData)
+            body: JSON.stringify({...formData, user_id: currentUser.id})
         })
             .then(res => {
                 if (res.ok) {
                     res.json().then(profile => {
                         console.log(profile)
                         createProfile(profile)
-                        window.location.reload()
-                        // history.push(`/user_bank`) //<- ROUTE NEEDS CHANGING
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
@@ -68,6 +47,7 @@ function ProfileEdit({ currentUser, createProfile }) {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
     }
+
     return (
         <>
             <form onSubmit={onSubmit}>

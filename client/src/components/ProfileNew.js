@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
 
 function ProfileNew({ currentUser, createProfile }) {
     const [formData, setFormData] = useState({
@@ -13,22 +12,11 @@ function ProfileNew({ currentUser, createProfile }) {
         user_id: currentUser.id
     })
     const [errors, setErrors] = useState([])
-    const history = useHistory()
 
     const { first_name, last_name, dob, pob, current_city, family, interests } = formData
 
     function onSubmit(e) {
         e.preventDefault()
-        // const profile = {
-        //     first_name,
-        //     last_name,
-        //     dob,
-        //     pob,
-        //     current_city,
-        //     family,
-        //     interests,
-        //     user_id
-        // }
         console.log(formData)
         fetch(`/user_profiles`, {
             method: 'POST',
@@ -39,20 +27,18 @@ function ProfileNew({ currentUser, createProfile }) {
                 if (res.ok) {
                     res.json().then(profile => {
                         createProfile(profile)
-                        window.location.reload()
-                        //history.push(`/user_bank`) // <- ROUTE NEEDS CHANGING
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
                 }
             })
-
     }
 
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({ ...formData, [name]: value })
     }
+
     return (
         <>
             <form onSubmit={onSubmit}>

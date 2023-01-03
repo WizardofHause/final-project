@@ -32,7 +32,7 @@ function SignUp({ updateUser, fetchMemories }) {
                     res.json().then(user => {
                         updateUser(user)
                         fetchMemories()
-                        history.push(`/profile/${user.id}/edit`)
+                        history.push(`/user_bank`)
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
