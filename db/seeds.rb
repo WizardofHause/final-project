@@ -23,14 +23,14 @@ u14 = User.create(name: "Judy", email: "judy@email.com", password: "jud123")
 puts "testing User Profiles..."
 test_profile = UserProfile.create(first_name: "Test", last_name: "McTest", dob: "2020-04-20", pob: "Sacramento", current_city: "Denver", family: "N/A", interests: "Funk", user_id: u1.id)
 
-puts "testing Avatars..."
-first = Avatar.create(user_profile_id: test_profile.id)
+# puts "testing Avatars..."
+# first = Avatar.create(user_profile_id: test_profile.id)
 
-first.image.attach(
-    io: File.open('./public/avatars/elephant.png'),
-    filename: 'elephant.png',
-    content_type: 'application/png'
-)
+# first.image.attach(
+#     io: File.open('./public/avatars/elephant.png'),
+#     filename: 'elephant.png',
+#     content_type: 'application/png'
+# )
 
 puts "Making Memories..."
 m1 = Memory.create(title: "Trip to the Dunes", category: "vacation", status: "past", main_img: "https://www.nps.gov/common/uploads/grid_builder/grsa/crop16_9/2E8879CA-EF95-283E-C88B7FE90F149C36.jpg?width=950&quality=90&mode=crop", description: "Mel and I went to the Sand Dunes and had a lovely time.", likes: 5, user_id: u2.id, date: Date.new(2017, 06, 01))
