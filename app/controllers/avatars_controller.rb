@@ -38,7 +38,7 @@ class AvatarsController < ApplicationController
     private
 
     def avatar_params
-        params.permit(:user_profile_id, :image, :avatar)
+        params.require(:avatar).permit(:user_profile_id, :image)
     end
 
     def set_avatar
