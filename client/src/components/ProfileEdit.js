@@ -1,5 +1,5 @@
-// import React, { useState, useEffect } from 'react'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+// import React, { useState } from 'react'
 
 function ProfileEdit({ currentUser, createProfile }) {
     const [formData, setFormData] = useState({
@@ -17,11 +17,11 @@ function ProfileEdit({ currentUser, createProfile }) {
 
     const { first_name, last_name, dob, pob, current_city, family, interests } = formData
 
-    // useEffect(() => {
-    //     fetch(`/user_profiles/${currentUser.user_profile.id}`)
-    //         .then((res) => res.json())
-    //         .then((profile) => setFormData(profile)) // if profile.value === true setFormData(profile.value)
-    // }, [])
+    useEffect(() => {
+        fetch(`/user_profiles/${currentUser.user_profile.id}`)
+            .then((res) => res.json())
+            .then((profile) => setFormData(profile)) // if profile.value === true setFormData(profile.value)
+    }, [currentUser.user_profile.id])
 
     function onSubmit(e) {
         e.preventDefault()

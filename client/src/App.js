@@ -114,7 +114,7 @@ function App() {
               />
             </Route>
             <Route path='/user_bank'>
-              <UserBank currentUser={currentUser}/>
+              <UserBank currentUser={currentUser} updateUser={updateUser}/>
             </Route>
             {/* <Route path='/profile/edit'>
               <ProfileEdit currentUser={currentUser}/>

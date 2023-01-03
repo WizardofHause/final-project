@@ -27,6 +27,7 @@ function ProfileNew({ currentUser, createProfile }) {
                 if (res.ok) {
                     res.json().then(profile => {
                         createProfile(profile)
+                        window.location.reload()
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
