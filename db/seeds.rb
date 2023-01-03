@@ -20,6 +20,13 @@ u12 = User.create(name: "Tobey", email: "tobey@email.com", password: "tob123")
 u13 = User.create(name: "August", email: "august@email.com", password: "aug123")
 u14 = User.create(name: "Judy", email: "judy@email.com", password: "jud123")
 
+puts "attaching Avatars..."
+Avatar.first.image.attach(
+    io: File.open('./public/avatars/elephant.png'),
+    filename: 'elephant.png',
+    content_type: 'application/png'
+)
+
 puts "Making Memories..."
 m1 = Memory.create(title: "Trip to the Dunes", category: "vacation", status: "past", main_img: "https://www.nps.gov/common/uploads/grid_builder/grsa/crop16_9/2E8879CA-EF95-283E-C88B7FE90F149C36.jpg?width=950&quality=90&mode=crop", description: "Mel and I went to the Sand Dunes and had a lovely time.", likes: 5, user_id: u2.id, date: Date.new(2017, 06, 01))
 m2 = Memory.create(title: "Wedding: Season 2", category: "celebration", status: "past", main_img: "https://ktrg.net/wp-content/uploads/2020/10/Loft-Entrance-Front-View-1.jpg", description: "Melody's wedding was as magical as she is.", likes: 600, user_id: u2.id, date: Date.new(2022, 07, 16))

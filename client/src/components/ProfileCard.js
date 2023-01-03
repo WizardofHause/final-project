@@ -1,4 +1,5 @@
 export default function ProfileCard({ user_profile }) {
+    // add conditional rendering if certain fields aren't filled out
     return (
         <>
             <p>{user_profile.first_name} {user_profile.last_name}</p>

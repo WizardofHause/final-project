@@ -16,9 +16,18 @@ class AvatarsController < ApplicationController
         render json: avatar, status: :created
     end
 
+    # def update
+    #     @avatar.update!(avatar_params)
+    #     render json: @avatar, status: :accepted
+    # end
+
     def update
-        @avatar.update!(avatar_params)
-        render json: @avatar, status: :accepted
+        @avatar.image.attach(params[:image])
+        image = url_for(@avatar.image)
+
+        if @avatar.update!(image: image)
+            render json: @avatar, status: :ok
+        end
     end
 
     def destroy
@@ -29,7 +38,7 @@ class AvatarsController < ApplicationController
     private
 
     def avatar_params
-        params.permit(:user_profile_id, :image)
+        params.permit(:user_profile_id, :image, :avatar)
     end
 
     def set_avatar
