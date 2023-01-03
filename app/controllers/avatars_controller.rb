@@ -1,5 +1,5 @@
 class AvatarsController < ApplicationController
-    # skip_before_action :authorized_user
+    skip_before_action :authorized_user
 
     before_action :set_avatar, only: [:show, :update, :destroy]
 
@@ -12,8 +12,14 @@ class AvatarsController < ApplicationController
     end
 
     def create
-        avatar = Avatar.create!(avatar_params)
-        render json: avatar, status: :created
+        avatar = Avatar.create(avatar_params)
+        # image = url_for(avatar.image)
+
+        avatar.image.attach(params[:image]) if params[:image]
+
+        # if avatar.create(image: image)
+            render json: avatar, status: :created
+        # end
     end
 
     # def update
@@ -26,7 +32,7 @@ class AvatarsController < ApplicationController
         image = url_for(@avatar.image)
 
         if @avatar.update!(image: image)
-            render json: @avatar, status: :ok
+            render json: @avatar, status: :accepted
         end
     end
 
@@ -35,10 +41,15 @@ class AvatarsController < ApplicationController
         head :no_content
     end
 
+    def current
+        @avatar = Avatar.last
+        render json: AvatarSerializer.new(@avatar).serializable_hash[:data][:attributes]
+    end
+
     private
 
     def avatar_params
-        params.require(:avatar).permit(:user_profile_id, :image)
+        params.require(:avatar).permit(:image, :user_profile_id)
     end
 
     def set_avatar
