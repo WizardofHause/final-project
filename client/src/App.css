@@ -204,12 +204,23 @@
   padding: 4px;
 }
 
-/*  */
+/* ----------------------------------------------------------------------- USER AVATAR ------------------------------------- */
 .user_avatar {
   width: 300px;
   height: auto;
   margin: 0 auto;
   display: block;
+}
+
+/*  */
+.profile_edit_form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.profile_edit_form_button {
+  margin: auto;
 }
 
 /* ----------------------------------------------------------------------- MOBILE DISPLAY ------------------------------------- */
