@@ -14,20 +14,20 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
     return (
         <>
             <Context.Provider value={{ userAvatar, setUserAvatar }}>
-            {userProfile ?
-                <>
-                    <div>
-                        {userProfile.avatar ? <UserAvatar userProfile={userProfile} setUserProfile={setUserProfile}/> : null}
-                        <ProfileCard user_profile={userProfile} />
-                        <UserAvatarForm userProfile={userProfile} />
-                        <ProfileEdit userProfile={userProfile} setUserProfile={setUserProfile} />
-                    </div>
-                </>
-                : <>
-                    <p>Nothing Here! Create a profile to upload a profile picture!</p>
-                    <ProfileNew currentUser={currentUser} setUserProfile={setUserProfile} />
-                    {/* <UserAvatarForm setUserAvatar={setUserAvatar} currentUser={currentUser}/> */}
-                </>}
+                {userProfile ?
+                    <>
+                        <div>
+                            {userProfile.avatar ? <UserAvatar userProfile={userProfile} setUserProfile={setUserProfile} /> : null}
+                            <ProfileCard user_profile={userProfile} />
+                            <UserAvatarForm userProfile={userProfile} />
+                            <ProfileEdit userProfile={userProfile} setUserProfile={setUserProfile} />
+                        </div>
+                    </>
+                    : <>
+                        <p>Nothing Here! Create a profile to upload a profile picture!</p>
+                        <ProfileNew currentUser={currentUser} setUserProfile={setUserProfile} />
+                        {/* <UserAvatarForm setUserAvatar={setUserAvatar} currentUser={currentUser}/> */}
+                    </>}
             </Context.Provider>
         </>
     )

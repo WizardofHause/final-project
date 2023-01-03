@@ -13,29 +13,25 @@ export default function UserBank() {
 
     useEffect(() => {
         fetch('/authorized_user')
-          .then((res) => {
-            if (res.ok) {
-              res.json()
-                .then((user) => {
-                  updateUser(user)
-                  setUserProfile(user.user_profile)
-                  setComments(user.comments)
-                  setMemories(user.memories)
-                })
-            }
-          })
-      }, [])
-
-    // const createProfile = (profile) => {
-    //     setUserProfile(profile)
-    // }
+            .then((res) => {
+                if (res.ok) {
+                    res.json()
+                        .then((user) => {
+                            updateUser(user)
+                            setUserProfile(user.user_profile)
+                            setComments(user.comments)
+                            setMemories(user.memories)
+                        })
+                }
+            })
+    }, [])
 
     const sortedMemories = (memories.slice(0).sort((a, b) => a.date.localeCompare(b.date))).reverse()
 
     const userMemories = sortedMemories.map(memory => {
         return (
             <UserMemories
-                key={memory.createdAt}
+                key={memory.created_at}
                 memory={memory}
             />
         )
@@ -44,7 +40,7 @@ export default function UserBank() {
     const userComments = comments.map(comment => {
         return (
             <UserComments
-                key={comment.createdAt}
+                key={comment.created_at}
                 comment={comment}
             />
         )
@@ -53,7 +49,12 @@ export default function UserBank() {
     return (
         <>
             <h1>{currentUser.name}'s Profile</h1>
-                <ProfileDetails userProfile={userProfile} setUserProfile={setUserProfile} currentUser={currentUser}/>
+            <ProfileDetails
+                userProfile={userProfile}
+                setUserProfile={setUserProfile}
+                currentUser={currentUser}
+            />
+
             <h2>{currentUser.name}'s Memry's</h2>
             {memories.length > 0 ?
                 <div className='tl-container'>
