@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom'
 import ProfileEdit from './ProfileEdit'
 import ProfileNew from './ProfileNew'
 import UserMemories from './UserMemories'
@@ -9,32 +8,18 @@ export default function UserBank({ currentUser }) {
     const { user_profile, memories, comments } = currentUser
     const [userProfile, setUserProfile] = useState(false)
 
-    // useEffect(() => {
-    //     fetch(`/user_profiles/`)
-    //         .then((res) => {
-    //             if(res.ok){
-    //                 res.json()
-    //                 .then((profile) => setUserProfile(profile))
-    //             } else {
-    //                 setUserProfile(false)
-    //             }
-    //         })
-    // }, [id])
     useEffect(() => {
-        if (user_profile){
-        fetch(`/user_profiles/${user_profile.id}`)
-            .then((res) => {
-                if(res.ok){
-                    res.json()
-                    .then((profile) => setUserProfile(profile))
-                } else {
-                    setUserProfile(false)
-                }
-            })
-        } 
-        // else {
-
-        // }
+        if (user_profile) {
+            fetch(`/user_profiles/${user_profile.id}`)
+                .then((res) => {
+                    if (res.ok) {
+                        res.json()
+                            .then((profile) => setUserProfile(profile))
+                    } 
+                })
+        } else {
+            setUserProfile(false)
+        }
     }, [user_profile])
 
     const createProfile = (profile) => setUserProfile(profile)
@@ -72,7 +57,8 @@ export default function UserBank({ currentUser }) {
                     <p>Interests & Hobbies: {user_profile.interests}</p>
                     <ProfileEdit currentUser={currentUser} createProfile={createProfile} />
                 </>
-                : <><p>Nothing Here! Create a profile, ya dinker doink!</p>
+                : <>
+                    <p>Nothing Here! Create a profile, ya dinker doink!</p>
                     <ProfileNew currentUser={currentUser} createProfile={createProfile} />
                 </>}
 

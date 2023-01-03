@@ -39,7 +39,8 @@ function ProfileNew({ currentUser, createProfile }) {
                 if (res.ok) {
                     res.json().then(profile => {
                         createProfile(profile)
-                        history.push(`/user_bank`) // <- ROUTE NEEDS CHANGING
+                        window.location.reload()
+                        //history.push(`/user_bank`) // <- ROUTE NEEDS CHANGING
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))

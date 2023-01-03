@@ -54,6 +54,7 @@ function ProfileEdit({ currentUser, createProfile }) {
                     res.json().then(profile => {
                         console.log(profile)
                         createProfile(profile)
+                        window.location.reload()
                         // history.push(`/user_bank`) //<- ROUTE NEEDS CHANGING
                     })
                 } else {
