@@ -39,18 +39,19 @@ export default function MemoryNew({ addMemory, currentUser }) {
                         })
                 } else {
                     res.json()
-                    .then(data => setErrors(Object.entries(data.errors).map(e => `${e[1]}`)))
+                        .then(data => setErrors(Object.entries(data.errors).map(e => `${e[1]}`)))
                 }
             })
     }
     return (
         <div>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} className='profile_edit_form'>
                 <label htmlFor='title'>Title</label>
                 <input type='text' name='title' value={title} onChange={handleChange} />
 
                 <label htmlFor='category'>Category</label>
                 <select name='category' id='category' value={category} onChange={handleChange}>
+                    <option value=''>---</option>
                     <option value='vacation'>Vacation</option>
                     <option value='romance'>Romance</option>
                     <option value='event'>Event</option>
@@ -65,6 +66,7 @@ export default function MemoryNew({ addMemory, currentUser }) {
 
                 <label htmlFor='status'>Status</label>
                 <select name='status' id='status' value={status} onChange={handleChange}>
+                    <option value=''>---</option>
                     <option value='past'>Past</option>
                     <option value='present'>Present</option>
                     <option value='future'>Future</option>
