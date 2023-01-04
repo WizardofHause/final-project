@@ -46,16 +46,16 @@ function LogIn({ updateUser, fetchMemories }) {
         <div class='text-center mt-48'>
             <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto' alt="Oops! ¯\_(ツ)_/¯" /></Link>
                 <form onSubmit={onSubmit}>
-                    <div class='text-center border-8 border-orange-200 w-64 mx-auto'>
-                    <label class='p-2 block text-orange-700 font-semibold text-xl'>
+                    <div class='text-center border-8 border-orange-200 rounded w-64 mx-auto mt-8'>
+                    <label class='p-2 block text-teal-700 font-semibold text-xl'>
                         Username
                     </label>
-                    <input class='border-4 border-orange-200 rounded h-8 text-orange-800 font-semibold' type='text' name='name' value={name} onChange={handleChange} />
-                    <label class='p-2 block text-orange-700 font-semibold text-xl'>
+                    <input class='border-4 border-indigo-200 rounded h-8 text-purple-800 font-semibold' type='text' name='name' value={name} onChange={handleChange} />
+                    <label class='p-2 block text-teal-700 font-semibold text-xl'>
                         Password
                     </label>
-                    <input class='border-4 border-orange-200 rounded h-8 text-orange-800 font-semibold' type='password' name='password' value={password} onChange={handleChange} autoComplete='off' />
-                    <button class='p-2 block mx-auto my-2 bg-orange-600 text-orange-100' type='submit'>Log In</button>
+                    <input class='border-4 border-purple-200 rounded h-8 text-purple-800 font-semibold' type='password' name='password' value={password} onChange={handleChange} autoComplete='off' />
+                    <button class='p-2 block mx-auto my-2 bg-purple-500 text-purple-100' type='submit'>Log In</button>
                     </div>
                 </form>
             {errors ? <div>{errors}</div> : null}

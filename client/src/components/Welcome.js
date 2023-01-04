@@ -5,7 +5,7 @@ function Welcome({ currentUser }) {
     return (
         <div class='text-center mt-48'>
             <img src={spiral} class='w-64 mx-auto' alt="Oops! ¯\_(ツ)_/¯" />
-            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center'>Memry</h1>
+            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center text-teal-700'>Memry</h1>
             {currentUser ?
                 <Link to='/bank' style={{ textDecoration: 'none' }}>
                     <button>My Bank</button>

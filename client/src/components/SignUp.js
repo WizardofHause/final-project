@@ -46,28 +46,28 @@ function SignUp({ updateUser, fetchMemories }) {
         setFormData({ ...formData, [name]: value })
     }
     return (
-        <>
-            <Link to='/' style={{ textDecoration: 'none' }}><button><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" /></button></Link>
-            <form onSubmit={onSubmit}>
-                <label>
+        <div class='text-center mt-48'>
+            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto' alt="Oops! ¯\_(ツ)_/¯" /></Link>
+            <form onSubmit={onSubmit} class='text-center border-8 border-orange-200 rounded w-64 mx-auto mt-8'>
+                <label class='p-2 block text-teal-700 font-semibold text-xl'>
                     Username
                 </label>
-                <input type='text' name='name' value={name} onChange={handleChange} />
+                <input class='border-4 border-indigo-200 rounded h-8 text-purple-800 font-semibold' type='text' name='name' value={name} onChange={handleChange} />
 
-                <label>
+                <label class='p-2 block text-teal-700 font-semibold text-xl'>
                     Email
                 </label>
-                <input type='text' name='email' value={email} onChange={handleChange} />
+                <input class='border-4 border-indigo-200 rounded h-8 text-purple-800 font-semibold' type='text' name='email' value={email} onChange={handleChange} />
 
-                <label>
+                <label class='p-2 block text-teal-700 font-semibold text-xl'>
                     Password
                 </label>
-                <input type='password' name='password' value={password} onChange={handleChange} />
+                <input class='border-4 border-indigo-200 rounded h-8 text-purple-800 font-semibold' type='password' name='password' value={password} onChange={handleChange} />
 
-                <input type='submit' value='Sign up!' />
+                <button type='submit' class='p-2 block mx-auto my-2 bg-purple-500 text-purple-100'>Sign Up</button>
             </form>
             {errors ? errors.map(e => <div>{e[1]}</div>) : null}
-        </>
+        </div>
     )
 }
 
