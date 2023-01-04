@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-// import React, { useState } from 'react'
 
 function ProfileEdit({ userProfile, setUserProfile }) {
     const [formData, setFormData] = useState({
@@ -10,7 +9,6 @@ function ProfileEdit({ userProfile, setUserProfile }) {
             current_city: '',
             family: '',
             interests: '',
-            // user_id: ''
         })
     
     const [errors, setErrors] = useState([])
@@ -20,7 +18,7 @@ function ProfileEdit({ userProfile, setUserProfile }) {
     useEffect(() => {
         fetch(`/user_profiles/${userProfile.id}`)
             .then((res) => res.json())
-            .then((profile) => setFormData(profile)) // if profile.value === true setFormData(profile.value)
+            .then((profile) => setFormData(profile))
     }, [userProfile.id])
 
     function onSubmit(e) {
@@ -29,7 +27,6 @@ function ProfileEdit({ userProfile, setUserProfile }) {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({...formData})
-            // body: JSON.stringify({...formData, user_id: currentUser.id})
         })
             .then(res => {
                 if (res.ok) {
@@ -51,7 +48,7 @@ function ProfileEdit({ userProfile, setUserProfile }) {
 
     return (
         <>
-            <form onSubmit={onSubmit}>
+            <form onSubmit={onSubmit} className='profile_edit_form'>
                 <label>
                     First Name
                 </label>
@@ -87,7 +84,7 @@ function ProfileEdit({ userProfile, setUserProfile }) {
                 </label>
                 <input type='text' name='interests' value={interests} onChange={handleChange} />
 
-                <input type='submit' value='Remember Me' />
+                <button type='submit' className='profile_edit_form_button'>Remember Me</button> 
             </form>
             {errors ? errors.map(e => <div>{e[1]}</div>) : null}
         </>

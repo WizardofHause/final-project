@@ -44,9 +44,9 @@ function CommentNew({ memory, currentUser, onAddComment }) {
     return (
         <div className='comment-new'>
                 <form className='comment-new-form' onSubmit={onSubmit}>
-                    <label>Comment </label>
-                    <input type='text' name='body' value={formData.body} onChange={handleChange} />
-                    <input type='submit' value='Create' id='comment-new-button'/>
+                    <h3><label>Add Comment </label></h3>
+                    <textarea className='body' name='body' value={formData.body} onChange={handleChange} />
+                    <button type='submit' id='comment-new-button'>SUBMIT</button>
                 </form>
             {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
         </div>

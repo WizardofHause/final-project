@@ -84,7 +84,7 @@
 }
 
 .tl-content {
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   border-radius: 5px;
   background-color: #fff;
   display: flex;
@@ -143,13 +143,13 @@
 .tl-content img {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  transition: 300ms;
+  /* transition: 300ms; */
 }
 
-.tl-content img:hover {
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+.tl-content:hover {
+  box-shadow: 0 0 10px rgb(244, 188, 2, 0.8);
   border-radius: 4px;
-  width: 210px;
+  width: 51rem;
 }
 
 /* .tl-content .tag {
@@ -174,8 +174,6 @@
   margin: 2rem auto;
   display: flex;
   flex-direction: column;
-  /* border: 2px solid red; */
-  /* background-color: white; */
 }
 
 /* .comments-container {
@@ -186,7 +184,6 @@
 
 .comment-item {
   padding: 10px;
-  /* border: 2px solid blue; */
   display: flex;
   align-items: center;
   background-color: white;
@@ -196,7 +193,6 @@
 
 .comment-content {
   margin: left;
-  /* border: 2px solid green; */
 }
 
 .comment-button {
@@ -204,12 +200,23 @@
   padding: 4px;
 }
 
-/*  */
+/* ----------------------------------------------------------------------- USER AVATAR ------------------------------------- */
 .user_avatar {
   width: 300px;
   height: auto;
   margin: 0 auto;
   display: block;
+}
+
+/* ----------------------------------------------------------------------- USER PROFILE ------------------------------------- */
+.profile_edit_form {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.profile_edit_form_button {
+  margin: auto;
 }
 
 /* ----------------------------------------------------------------------- MOBILE DISPLAY ------------------------------------- */

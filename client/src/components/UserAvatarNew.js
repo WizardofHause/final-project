@@ -1,8 +1,9 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Context } from './ProfileDetails'
 
 function UserAvatarNew({ userProfile }) {
     const { userAvatar, setUserAvatar } = useContext(Context)
+    const [avatarMenu, setAvatarMenu] = useState(false)
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -29,12 +30,16 @@ function UserAvatarNew({ userProfile }) {
 
     return (
         <div>
-            <h3>Upload User Avatar</h3>
-            <form onSubmit={(e) => handleSubmit(e)}>
-                <label htmlFor="image">Avatar Image</label>
-                <input type="file" name="image" className="user_avatar" />
-                <button type="submit">Submit</button>
-            </form>
+            {avatarMenu ? <div>
+                <button onClick={() => setAvatarMenu(!avatarMenu)}>Cancel</button>
+                <h3>Upload User Avatar</h3>
+                <form onSubmit={(e) => handleSubmit(e)}>
+                    <label htmlFor="image">Avatar Image</label>
+                    <input type="file" name="image" className="user_avatar" />
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+                : <button onClick={() => setAvatarMenu(!avatarMenu)}>Upload User Avatar</button>}
         </div>
     )
 }
