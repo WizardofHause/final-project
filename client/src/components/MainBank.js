@@ -15,7 +15,7 @@ function MainBank({ currentUser, sortedMemories, search }) {
     })
     return (
         <>
-            <h1>Hello {currentUser.name}!</h1>
+            <h1 class='text-gray-600'>Hello {currentUser.name}!</h1>
             <h3>Check out these Memry's...</h3>
             <div className='tl-container'>
                 {memoryCard}

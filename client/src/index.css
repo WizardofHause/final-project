@@ -1,4 +1,7 @@
 /* GENERAL HTML ELEMENT RULES */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
   padding: 10px 50px 20px 200px; /* <----------- TOP, RIGHT, BOTTOM, LEFT */
