@@ -9,8 +9,6 @@ function CommentCard({ comment, onDeleteComment, currentUser }) {
         onDeleteComment(comment.id);
     }
 
-    // <img src={user.avatar.image_url} alt="N/A" width="50"/>
-
     return (
         <div className='comment-item'>
             <span className='comment-content'>"{body}" - {user.name}</span>

@@ -7,6 +7,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
   const [memory, setMemory] = useState(null);
   const [memoryComments, setMemoryComments] = useState([])
   const [memoryLikes, setMemoryLikes] = useState(0);
+  const [showComments, setShowComments] = useState(false)
 
   const { id } = useParams();
   const history = useHistory()
@@ -57,10 +58,10 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
         c = 'shadow border-4 border-teal-500 bg-teal-700 text-teal-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
         break;
       case 'romance':
-        c = 'shadow border-4 border-red-700 bg-red-900 text-red-50 capitalize text-center font-semibold px-2 py-1 rounded-xl inline';
+        c = 'shadow border-4 border-red-700 bg-red-900 text-red-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
         break;
       case 'event':
-        c = 'shadow border-4 border-sky-600 bg-sky-800 text-sky-50 capitalize text-center font-semibold px-2 py-1 w-24 rounded-xl inline';
+        c = 'shadow border-4 border-sky-600 bg-sky-800 text-sky-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
         break;
       case 'holiday':
         c = 'shadow border-4 border-amber-400 bg-amber-600 text-amber-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
@@ -86,6 +87,10 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
         break;
     }
     return s
+  }
+
+  const commentShow = () => {
+    setShowComments(!showComments)
   }
 
   return (
@@ -124,7 +129,10 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
         </div>
         <div class='px-6 pb-6 m-4 bg-stone-200 rounded-2xl'> 
           <p class='bg-stone-50 p-2 mt-5 rounded font-black'>{format(new Date(date), 'EEEE, MMMM d, yyyy')}</p>
-          <p class='bg-stone-50 p-2 mt-5 rounded font-black'>{description}</p>
+          <p class='bg-stone-50 p-2 my-5 rounded font-base mx-4'>{description}</p>
+          { showComments ?
+          <>
+          <button class={styleCategory(category)} onClick={commentShow}>^</button>
           <CommentsContainer
             memoryComments={memoryComments}
             currentUser={currentUser}
@@ -132,6 +140,10 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
             memory={memory}
             onAddComment={handleNewComment}
           />
+          </> 
+          :
+          <button class={styleCategory(category)} onClick={commentShow}>VIEW COMMENTS</button>
+}
         </div>
         {user.id === currentUser.id ?
           (<>
@@ -143,7 +155,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
             </Link>
           </>)
           : null}
-        <Link to='/bank' style={{ textDecoration: 'none' }}><button>BACK</button></Link>
+        <Link to='/bank' style={{ textDecoration: 'none' }}><button class={styleCategory(category)}>BACK</button></Link>
       </div>
     </section>
   );
