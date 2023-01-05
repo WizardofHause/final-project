@@ -18,7 +18,7 @@ button {
   color: #fdf6f0;
   display: inline;
   border: 2px solid transparent;
-  border-radius: 5px;
+  /* border-radius: 5px; */
   background-color: rgba(226, 147, 43, 0.667);
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   font-weight: bolder;

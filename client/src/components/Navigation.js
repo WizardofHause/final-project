@@ -20,10 +20,10 @@ function Navigation({ updateUser }) {
         <nav>
             <div className="sidenav">
                 <NavLink to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='mx-auto my-2 w-12 select-none' alt="Oops! ¯\_(ツ)_/¯" /></NavLink>
-                <NavLink to='/bank' style={{ textDecoration: 'none' }}><button class='text-amber-50 bg-amber-600 block w-full'>Main</button></NavLink>
-                <NavLink to='/user_bank' style={{ textDecoration: 'none' }}><button class='text-red-100 bg-red-900 block w-full'>Profile</button></NavLink>
-                <NavLink to='/memories/new' style={{ textDecoration: 'none' }}><button class='text-teal-100 bg-teal-700 block w-full'>New</button></NavLink>
-                <button class='text-indigo-100 bg-indigo-900 block w-full' onClick={handleLogOut}>Exit</button>
+                <NavLink to='/bank' style={{ textDecoration: 'none' }}><button class='text-amber-50 bg-amber-600 block w-full'>HOME</button></NavLink>
+                <NavLink to='/user_bank' style={{ textDecoration: 'none' }}><button class='text-red-100 bg-red-900 block w-full'>PROFILE</button></NavLink>
+                <NavLink to='/memories/new' style={{ textDecoration: 'none' }}><button class='text-teal-100 bg-teal-700 block w-full'>CREATE</button></NavLink>
+                <button class='text-indigo-100 bg-indigo-900 block w-full' onClick={handleLogOut}>LEAVE</button>
             </div>
         </nav>
     )

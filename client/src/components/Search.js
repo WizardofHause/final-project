@@ -7,9 +7,10 @@ export default function Search({ search, onSearch }) {
             <input
                 id="search"
                 type="text"
-                placeholder="Search..."
+                placeholder=" Search by title"
                 value={search}
                 onChange={onSearch}
+                class='placeholder:text-stone-400'
             />
         </div>
     )

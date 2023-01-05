@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory, Link } from "react-router-dom";
 import CommentsContainer from './CommentsContainer';
+import { format } from 'date-fns'
 
 const MemoryDetails = ({ currentUser, deleteMemory }) => {
   const [memory, setMemory] = useState(null);
@@ -47,22 +48,67 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
     setMemoryComments(newComments)
   }
 
+  // ------------------------------------- CONDITIONALS FOR STYLING
+
+  const styleCategory = (category) => {
+    let c;
+    switch (category) {
+      case 'vacation':
+        c = 'shadow border-4 border-teal-500 bg-teal-700 text-teal-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
+        break;
+      case 'romance':
+        c = 'shadow border-4 border-red-700 bg-red-900 text-red-50 capitalize text-center font-semibold px-2 py-1 rounded-xl inline';
+        break;
+      case 'event':
+        c = 'shadow border-4 border-sky-600 bg-sky-800 text-sky-50 capitalize text-center font-semibold px-2 py-1 w-24 rounded-xl inline';
+        break;
+      case 'holiday':
+        c = 'shadow border-4 border-amber-400 bg-amber-600 text-amber-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
+        break;
+      case 'celebration':
+        c = 'shadow border-4 border-indigo-500 bg-indigo-900 text-indigo-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
+        break;
+    }
+    return c
+  }
+
+  // const styleStatus = (status) => {
+  //   let s;
+  //   switch (status) {
+  //     case 'past':
+  //       s = 'bg-stone-600 text-amber-50 text-xs uppercase px-2 py-1 rounded-full mr-auto font-semibold';
+  //       break;
+  //     case 'present':
+  //       s = 'bg-stone-600 text-teal-50 text-xs uppercase px-2 py-1 rounded-xl ml-auto font-semibold';
+  //       break;
+  //     case 'future':
+  //       s = 'bg-stone-600 text-indigo-50 text-xs uppercase px-2 py-1 rounded-xl ml-auto font-semibold';
+  //       break;
+  //   }
+  //   return s
+  // }
+
   return (
     <section>
-      <div>
-        <div>
-          <img src={main_img} alt={title} width='400' />
-          <button onClick={likeButton}>
-            ❤️ {memoryLikes}
-          </button>
-        </div>
-        <div>
-          <h2>{title}</h2>
-          <p>{category} - {status}</p>
-          <p>Date: {date}</p>
-          <div>
-            <span>Description: {description}</span>
+      <div class='flex flex-col items-center'>
+        <h2 class='my-4 font-black text-stone-700 text-4xl bg-stone-50 p-2 text-center rounded-lg px-auto'>{title}</h2>
+        <span class='text-base italic font-semibold capitalize mb-2'>by {user.name}</span>
+        <div className='memory-image-container'>
+          <div class='flex flex-row items-center'>
+            <img src={main_img} alt={title} width='400' class='rounded-2xl' />
+            <div className='memory-category-tag'>
+              <span class={styleCategory(category)}>{category}</span>
+            </div>
+            <div className='memory-likes-button'>
+              <button onClick={likeButton} class={styleCategory(category)}>
+                ❤️ {memoryLikes}
+              </button>
+            </div>
           </div>
+        </div>
+        <div class='p-2 m-2 bg-blue-100'>
+          <p class='bg-stone-50 p-2 mt-5 rounded font-black'>{format(new Date(date), 'EEEE: MMMM d, yyyy')}</p>
+          <p class='bg-stone-50 p-2 mt-5 rounded font-black'>{description}</p>
           <CommentsContainer
             memoryComments={memoryComments}
             currentUser={currentUser}
@@ -81,8 +127,8 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
             </Link>
           </>)
           : null}
+        <Link to='/bank' style={{ textDecoration: 'none' }}><button>BACK</button></Link>
       </div>
-      <Link to='/bank' style={{ textDecoration: 'none' }}><button>BACK</button></Link>
     </section>
   );
 };

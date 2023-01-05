@@ -9,7 +9,7 @@
   left: 0;
   padding-top: 0px;
   overflow-x: hidden;
-  background-color: rgba(161, 97, 32, 0.667);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /* .sidenav button {
@@ -37,9 +37,9 @@
   background-color: rgba(255, 255, 255, 0.1);
 } */
 
-.sidenav>img {
+/* .sidenav>img {
   padding: 30px;
-}
+} */
 
 /* ----------------------------------------------------------------------- SEARCH ------------------------------------- */
 #search {
@@ -182,6 +182,17 @@
   left: 16px;
 }
 
+.memory-category-tag{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.memory-likes-button{
+  position: absolute;
+  top: 10px;
+  left: 16px;
+}
 /* .tl-content:hover  .details-container{
   position: absolute;
   top: 22px;
