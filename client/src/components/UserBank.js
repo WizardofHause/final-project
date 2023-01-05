@@ -47,7 +47,7 @@ export default function UserBank() {
     })
 
     return (
-        <>
+        <div class='ml-20'>
             <h1>{currentUser.name}'s Profile</h1>
             <ProfileDetails
                 userProfile={userProfile}
@@ -68,6 +68,6 @@ export default function UserBank() {
                     {userComments}
                 </div>
                 : <p>Nothing Here! Comment on some shit, ya dinker doink!</p>}
-        </>
+        </div>
     )
 }

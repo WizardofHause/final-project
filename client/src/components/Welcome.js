@@ -3,21 +3,38 @@ import { Link } from 'react-router-dom'
 
 function Welcome({ currentUser }) {
     return (
-        <div class='text-center mt-48'>
+        <div class='flex flex-col justify-center items-center h-screen'>
             <img src={spiral} class='w-64 mx-auto' alt="Oops! ¯\_(ツ)_/¯" />
-            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center text-teal-700'>Memry</h1>
+            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center'>
+                <span class='text-stone-900 hover:text-red-900'>M</span>
+                <span class='text-stone-800 hover:text-amber-600'>e</span>
+                <span class='text-stone-700 hover:text-teal-700'>m</span>
+                <span class='text-stone-600 hover:text-sky-800'>r</span>
+                <span class='text-stone-500 hover:text-indigo-900'>y</span>
+            </h1>
             {currentUser ?
+            <div>
                 <Link to='/bank' style={{ textDecoration: 'none' }}>
-                    <button>My Bank</button>
+                    <p class='text-center'>ʕ•ᴥ•ʔ</p>
+                <img src='https://pbs.twimg.com/profile_images/1237550450/mstom_400x400.jpg' alt='error' class='shadow rounded-full h-36 mx-auto'/>
+                    <button class='px-4 py-2 m-2 shadow-lg text-xl bg-stone-700 hover:bg-amber-600 rounded-xl'>(☞ﾟヮﾟ)☞ Back to Main </button>
                 </Link>
+                </div>
                 : (
                     <>
                         <Link to='/login' style={{ textDecoration: 'none' }}>
-                            <button class='px-4 py-2 m-2 shadow-lg text-xl'>Log In</button>
+                            <button class='px-4 py-2 m-2 shadow-lg text-xl bg-stone-700 hover:bg-teal-700 rounded-xl'>Log In</button>
                         </Link>
                         <Link to='/signup' style={{ textDecoration: 'none' }}>
-                            <button class='px-4 py-2 m-2 justify-right shadow-lg text-xl'>Sign Up</button>
+                            <button class='px-4 py-2 m-2 text-xl bg-stone-700 hover:bg-indigo-900 rounded-xl'>Sign Up</button>
                         </Link>
+                        <div class='p-6'>
+                            <span class='bg-red-900 w-2 h-2 p-2 text-transparent'>x </span>
+                            <span class='bg-amber-600 w-2 h-2 p-2 text-transparent'>x </span>
+                            <span class='bg-teal-700 w-2 h-2 p-2 text-transparent'>x </span>
+                            <span class='bg-sky-800 w-2 h-2 p-2 text-transparent'>x </span>
+                            <span class='bg-indigo-900 w-2 h-2 p-2 text-transparent'>x </span>
+                        </div>
                     </>
                 )}
         </div>

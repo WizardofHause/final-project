@@ -46,25 +46,31 @@ function SignUp({ updateUser, fetchMemories }) {
         setFormData({ ...formData, [name]: value })
     }
     return (
-        <div class='text-center mt-48'>
+        <div class='flex flex-col justify-center items-center h-screen'>
             <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto' alt="Oops! ¯\_(ツ)_/¯" /></Link>
-            <form onSubmit={onSubmit} class='text-center border-8 border-orange-200 rounded w-64 mx-auto mt-8'>
-                <label class='p-2 block text-teal-700 font-semibold text-xl'>
+            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center text-indigo-900'>
+                <span class='text-stone-900 hover:text-red-900'>M</span>
+                <span class='text-stone-800 hover:text-amber-600'>e</span>
+                <span class='text-stone-700 hover:text-teal-700'>m</span>
+                <span class='text-stone-600 hover:text-sky-800'>r</span>
+                <span class='text-stone-500 hover:text-indigo-900'>y</span></h1>
+            <form onSubmit={onSubmit} class='text-center mx-auto'>
+                <label class='p-2 block text-stone-700 font-semibold text-xl'>
                     Username
                 </label>
-                <input class='border-4 border-indigo-200 rounded h-8 text-purple-800 font-semibold' type='text' name='name' value={name} onChange={handleChange} />
+                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent' type='text' name='name' value={name} onChange={handleChange} />
 
-                <label class='p-2 block text-teal-700 font-semibold text-xl'>
+                <label class='p-2 block text-stone-700 font-semibold text-xl'>
                     Email
                 </label>
-                <input class='border-4 border-indigo-200 rounded h-8 text-purple-800 font-semibold' type='text' name='email' value={email} onChange={handleChange} />
+                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent' type='text' name='email' value={email} onChange={handleChange} />
 
-                <label class='p-2 block text-teal-700 font-semibold text-xl'>
+                <label class='p-2 block text-stone-700 font-semibold text-xl'>
                     Password
                 </label>
-                <input class='border-4 border-indigo-200 rounded h-8 text-purple-800 font-semibold' type='password' name='password' value={password} onChange={handleChange} />
+                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent' type='password' name='password' value={password} onChange={handleChange} />
 
-                <button type='submit' class='p-2 block mx-auto my-2 bg-purple-500 text-purple-100'>Sign Up</button>
+                <button type='submit' class='p-2 block mx-auto my-2 bg-stone-700 text-teal-50 hover:bg-indigo-900 hover:text-indigo-50'>Sign Up</button>
             </form>
             {errors ? errors.map(e => <div>{e[1]}</div>) : null}
         </div>
