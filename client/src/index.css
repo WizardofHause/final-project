@@ -4,7 +4,7 @@
 @tailwind utilities;
 
 body {
-  background-image: linear-gradient(to right, rgba(226, 147, 43, 0.3), white);
+  background-image: linear-gradient(to right, rgb(250, 231, 210), white);
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
