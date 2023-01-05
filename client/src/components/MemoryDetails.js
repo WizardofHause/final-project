@@ -102,7 +102,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
         <span class='text-base italic font-semibold capitalize mb-2'>by {user.name}</span>
         <div className='memory-image-container'>
           <div class='flex flex-row items-center'>
-            <img src={main_img} alt={title} width='400' class='rounded-2xl' />
+            <img src={main_img} alt={title} width='600' class='rounded-2xl' />
             <div className='memory-category-tag'>
               <span class={styleCategory(category)}>{category}</span>
             </div>
@@ -128,7 +128,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
           </div>
         </div>
         <div class='px-6 pb-6 m-4 bg-stone-200 rounded-2xl'> 
-          <p class='bg-stone-50 p-2 mt-5 rounded font-black'>{format(new Date(date), 'EEEE, MMMM d, yyyy')}</p>
+          <p class='bg-stone-100 p-2 mt-5 rounded-full text-lg font-black'>{format(new Date(date), 'EEEE, MMMM d, yyyy')}</p>
           <p class='bg-stone-50 p-2 my-5 rounded font-base mx-4'>{description}</p>
           { showComments ?
           <>

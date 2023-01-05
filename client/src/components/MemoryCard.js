@@ -62,15 +62,21 @@ function MemoryCard({ memory }) {
                     </h1>
                     <div className='memory-image-container'>
                         <img class='m-4' src={main_img} alt="Render Error!" onMouseEnter={showDetails} onMouseLeave={showDetails} />
-                        <div className='overlay'>
+                        <div className='memory-status-overlay'>
                             <span class={styleStatus(status)}>{status}</span>
+                        </div>
+                        <div className='memory-likes-button'>
+                            <button class={styleCategory(category)}>
+                                ❤️ {likes}
+                            </button>
                         </div>
                     </div>
                     {details ? // vvv attempt to make the transition to show details smoother
-                        <div className='details-container'> 
-                            <div class='bg-stone-100 p-2 mt-5 border-4 border-stone-200'>
-                                <p class='italic text-center'>Favorites: {likes}</p>
-                                <p class='bg-stone-200 text-stone-900 p-3 m-1 border-4 border-stone-300 font-semibold'>{description}</p>
+                        <div className='details-container'>
+                            <div class='bg-stone-100 p-2 mt-5 border-4 border-stone-200 rounded-lg'>
+                            <p class='text-stone-900 font-semibold rounded-lg'>Click to see more!</p>
+
+                                {/* <p class='bg-stone-200 text-stone-900 p-3 m-1 border-4 border-stone-300 font-semibold'>{description}</p> */}
                             </div>
                         </div> : null}
                     <span className="circle" />

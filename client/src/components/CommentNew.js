@@ -46,7 +46,7 @@ function CommentNew({ memory, currentUser, onAddComment }) {
                 <form className='comment-new-form' onSubmit={onSubmit}>
                     <h3><label>Add Comment </label></h3>
                     <textarea className='body' name='body' value={formData.body} onChange={handleChange} />
-                    <button type='submit' id='comment-new-button'>SUBMIT</button>
+                    <button type='submit'>SUBMIT</button>
                 </form>
             {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
         </div>
