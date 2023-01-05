@@ -96,6 +96,7 @@
   max-width: 70%;
   /* text-align: right; */
   margin-right: 40px;
+  transition: all 300ms;
 }
 
 .tl-content::after {
@@ -145,11 +146,12 @@
   border-radius: 4px;
   /* width: 100%; */
   margin: auto;
-  /* transition: 300ms; */
+  width: 100%;
 }
 
-/* .tl-content:hover {
+/* .tl-content img:hover {
   box-shadow: 0 0 20px rgb(244, 188, 2, 0.8);
+  width: 100%;
 } */
 
 /* .tl-content .tag {
@@ -168,7 +170,22 @@
   left: auto;
   right: 5px;
 } */
+/* ----------------------------------------------------------- MEMORY IMAGE */
+.memory-image-container {
+  position: relative;
+  text-align: center;
+}
 
+.overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+/* .tl-content:hover  .details-container{
+  position: absolute;
+  top: 22px;
+  right: 10px;} */
 /* ----------------------------------------------------------------------- COMMENTS ------------------------------------- */
 .comments-container {
   margin: 2rem auto;

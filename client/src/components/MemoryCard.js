@@ -11,19 +11,19 @@ function MemoryCard({ memory }) {
         let c;
         switch (category) {
             case 'vacation':
-                c = 'bg-teal-700 text-teal-50 capitalize text-center font-semibold px-2 py-1 ml-auto rounded-xl';
+                c = 'shadow border-4 border-teal-500 bg-teal-700 text-teal-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
                 break;
             case 'romance':
-                c = 'bg-red-900 text-red-50 capitalize text-center font-semibold px-2 py-1 ml-auto rounded-xl';
+                c = 'shadow border-4 border-red-700 bg-red-900 text-red-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
                 break;
             case 'event':
-                c = 'bg-sky-800 text-sky-50 capitalize text-center font-semibold px-2 py-1 ml-auto rounded-xl';
+                c = 'shadow border-4 border-sky-600 bg-sky-800 text-sky-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
                 break;
             case 'holiday':
-                c = 'bg-amber-600 text-amber-50 capitalize text-center font-semibold px-2 py-1 ml-auto rounded-xl';
+                c = 'shadow border-4 border-amber-400 bg-amber-600 text-amber-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
                 break;
             case 'celebration':
-                c = 'bg-indigo-900 text-indigo-50 capitalize text-center font-semibold px-2 py-1 ml-auto rounded-xl';
+                c = 'shadow border-4 border-indigo-500 bg-indigo-900 text-indigo-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
                 break;
         }
         return c
@@ -33,13 +33,13 @@ function MemoryCard({ memory }) {
         let s;
         switch (status) {
             case 'past':
-                s = 'bg-amber-600 text-amber-100 capitalize px-2 py-1 rounded-xl mr-auto font-semibold';
+                s = 'bg-stone-900 text-amber-100 text-xs uppercase px-2 py-1 rounded-full mr-auto font-semibold';
                 break;
             case 'present':
-                s = 'bg-teal-700 text-teal-100 capitalize px-2 py-1 rounded-xl mr-auto font-semibold';
+                s = 'bg-stone-900 text-teal-100 text-xs uppercase px-2 py-1 rounded-xl mr-auto font-semibold';
                 break;
             case 'future':
-                s = 'bg-indigo-900 text-indigo-100 capitalize px-2 py-1 rounded-xl mr-auto font-semibold';
+                s = 'bg-stone-900 text-indigo-100 text-xs uppercase px-2 py-1 rounded-xl mr-auto font-semibold';
                 break;
         }
         return s
@@ -54,20 +54,24 @@ function MemoryCard({ memory }) {
             <div className='tl-content'>
                 <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}>
                     {/* <span className='tag'/> */}
-                    <h1 class='mb-2 font-black text-xl bg-stone-100 p-2 text-center border-4 border-stone-200'>{title} <span class='text-sm italic font-semibold'>by {user.name}</span>
-                    </h1>
-                    <div class='flex justify-center items-center bg-stone-100 p-2 my-2 border-4 border-stone-200 rounded'>
-                        <span class={styleStatus(status)}>{status}</span>
-                        <span class='p-2 font-semibold'>{format(new Date(date), 'MMMM d, yyyy (EEEE)')}</span>
+                    <div class='flex justify-between items-center pb-2 mb-2'>
+                        <span class={styleCategory(category)}>{format(new Date(date), 'EEEE: MMMM d, yyyy')}</span>
                         <span class={styleCategory(category)}>{category}</span>
                     </div>
-                  
-                    {/* <p class={styleCategory(category)}>{category} - {status}</p> */}
-                    <img class='m-4'src={main_img} alt="Render Error!" onMouseEnter={showDetails} onMouseLeave={showDetails} />
-                    {details ?
-                        <div class='bg-stone-100 p-2 mt-5 border-4 border-stone-200'>
-                            <p class='italic text-center'>Favorites: {likes}</p>
-                            <p class='bg-stone-200 text-stone-900 p-3 m-1 border-4 border-stone-300 font-semibold'>{description}</p>
+                    <h1 class='mb-2 font-black text-2xl bg-stone-100 p-2 text-center border-4 border-stone-200 rounded-lg px-auto uppercase'>{title} <span class='text-base italic font-semibold capitalize'>by {user.name}</span>
+                    </h1>
+                    <div className='memory-image-container'>
+                        <img class='m-4' src={main_img} alt="Render Error!" onMouseEnter={showDetails} onMouseLeave={showDetails} />
+                        <div className='overlay'>
+                            <span class={styleStatus(status)}>{status}</span>
+                        </div>
+                    </div>
+                    {details ? // vvv attempt to make the transition to show details smoother
+                        <div className='details-container'> 
+                            <div class='bg-stone-100 p-2 mt-5 border-4 border-stone-200'>
+                                <p class='italic text-center'>Favorites: {likes}</p>
+                                <p class='bg-stone-200 text-stone-900 p-3 m-1 border-4 border-stone-300 font-semibold'>{description}</p>
+                            </div>
                         </div> : null}
                     <span className="circle" />
                 </Link>
