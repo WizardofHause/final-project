@@ -3,13 +3,6 @@ import { format } from 'date-fns'
 
 function MemoryCard({ memory }) {
     const { title, category, status, main_img, description, likes, user, date } = memory
-    console.log(date)
-    // const newDate = (date) => {
-    //     const dateArray = []
-    //     dateArray.push(`${date}T00:00`)
-    //     return dateArray[0]
-    // }
-    // console.log(newDate(date))
     return (
         <div className='tl-item'>
             <div className='tl-content'>
