@@ -33,13 +33,13 @@ function MemoryCard({ memory }) {
         let s;
         switch (status) {
             case 'past':
-                s = 'bg-stone-900 text-amber-100 text-xs uppercase px-2 py-1 rounded-full mr-auto font-semibold';
+                s = 'bg-stone-600 text-amber-50 text-xs uppercase px-2 py-1 rounded-full mr-auto font-semibold';
                 break;
             case 'present':
-                s = 'bg-stone-900 text-teal-100 text-xs uppercase px-2 py-1 rounded-xl mr-auto font-semibold';
+                s = 'bg-stone-600 text-teal-50 text-xs uppercase px-2 py-1 rounded-xl mr-auto font-semibold';
                 break;
             case 'future':
-                s = 'bg-stone-900 text-indigo-100 text-xs uppercase px-2 py-1 rounded-xl mr-auto font-semibold';
+                s = 'bg-stone-600 text-indigo-50 text-xs uppercase px-2 py-1 rounded-xl mr-auto font-semibold';
                 break;
         }
         return s
@@ -58,7 +58,7 @@ function MemoryCard({ memory }) {
                         <span class={styleCategory(category)}>{format(new Date(date), 'EEEE: MMMM d, yyyy')}</span>
                         <span class={styleCategory(category)}>{category}</span>
                     </div>
-                    <h1 class='mb-2 font-black text-2xl bg-stone-100 p-2 text-center border-4 border-stone-200 rounded-lg px-auto uppercase'>{title} <span class='text-base italic font-semibold capitalize'>by {user.name}</span>
+                    <h1 class='mb-2 font-black text-stone-700 text-2xl bg-stone-100 p-2 text-center border-4 border-stone-200 rounded-lg px-auto uppercase'>{title} <span class='text-base italic font-semibold capitalize'>by {user.name}</span>
                     </h1>
                     <div className='memory-image-container'>
                         <img class='m-4' src={main_img} alt="Render Error!" onMouseEnter={showDetails} onMouseLeave={showDetails} />
