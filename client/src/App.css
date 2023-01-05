@@ -193,6 +193,12 @@
   top: 10px;
   left: 16px;
 }
+
+.memory-status-overlay{
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
 /* .tl-content:hover  .details-container{
   position: absolute;
   top: 22px;

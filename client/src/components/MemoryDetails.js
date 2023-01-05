@@ -72,26 +72,28 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
     return c
   }
 
-  // const styleStatus = (status) => {
-  //   let s;
-  //   switch (status) {
-  //     case 'past':
-  //       s = 'bg-stone-600 text-amber-50 text-xs uppercase px-2 py-1 rounded-full mr-auto font-semibold';
-  //       break;
-  //     case 'present':
-  //       s = 'bg-stone-600 text-teal-50 text-xs uppercase px-2 py-1 rounded-xl ml-auto font-semibold';
-  //       break;
-  //     case 'future':
-  //       s = 'bg-stone-600 text-indigo-50 text-xs uppercase px-2 py-1 rounded-xl ml-auto font-semibold';
-  //       break;
-  //   }
-  //   return s
-  // }
+  const styleStatus = (status) => {
+    let s;
+    switch (status) {
+      case 'past':
+        s = 'bg-stone-600 text-amber-50 text-xs uppercase px-2 py-1 rounded-full mr-auto font-semibold';
+        break;
+      case 'present':
+        s = 'bg-stone-600 text-teal-50 text-xs uppercase px-2 py-1 rounded-xl ml-auto font-semibold';
+        break;
+      case 'future':
+        s = 'bg-stone-600 text-indigo-50 text-xs uppercase px-2 py-1 rounded-xl ml-auto font-semibold';
+        break;
+    }
+    return s
+  }
 
   return (
     <section>
       <div class='flex flex-col items-center'>
-        <h2 class='my-4 font-black text-stone-700 text-4xl bg-stone-50 p-2 text-center rounded-lg px-auto'>{title}</h2>
+        <span class='bg-stone-200 rounded-2xl my-2 px-4'>
+          <h2 class='my-4 font-black text-stone-900 bg-stone-100 text-4xl p-2 text-center rounded-lg px-auto'>{title}</h2>
+        </span>
         <span class='text-base italic font-semibold capitalize mb-2'>by {user.name}</span>
         <div className='memory-image-container'>
           <div class='flex flex-row items-center'>
@@ -104,10 +106,24 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
                 ❤️ {memoryLikes}
               </button>
             </div>
+            <div className='memory-status-overlay'>
+              <span class={styleStatus(status)}>{status}</span>
+            </div>
           </div>
         </div>
-        <div class='p-2 m-2 bg-blue-100'>
-          <p class='bg-stone-50 p-2 mt-5 rounded font-black'>{format(new Date(date), 'EEEE: MMMM d, yyyy')}</p>
+        <div>
+          <div>
+            <div>
+              <div>
+                <div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='px-6 pb-6 m-4 bg-stone-200 rounded-2xl'> 
+          <p class='bg-stone-50 p-2 mt-5 rounded font-black'>{format(new Date(date), 'EEEE, MMMM d, yyyy')}</p>
           <p class='bg-stone-50 p-2 mt-5 rounded font-black'>{description}</p>
           <CommentsContainer
             memoryComments={memoryComments}
