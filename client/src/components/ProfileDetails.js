@@ -12,6 +12,8 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
     const [editMenu, setEditMenu] = useState(false)
     const [createMenu, setCreateMenu] = useState(false)
 
+    const buttonStyle = 'px-2 py-1 m-2 flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-lg text-xs text-stone-500 shadow'
+
     return (
         <>
             <Context.Provider value={{ userAvatar, setUserAvatar }}>
@@ -26,20 +28,20 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
 
                             {editMenu ?
                                 <div>
-                                    <button onClick={() => setEditMenu(!editMenu)}>Cancel</button>
+                                    <button class={buttonStyle} onClick={() => setEditMenu(!editMenu)}>CLOSE</button>
                                     <ProfileEdit userProfile={userProfile} setUserProfile={setUserProfile} />
                                 </div>
-                                : <button onClick={() => setEditMenu(!editMenu)}>Edit Profile</button>}
+                                : <button class={buttonStyle} onClick={() => setEditMenu(!editMenu)}>EDIT</button>}
                         </div>
                     </>
                     : <>
                         <p>Nothing Here! Create a profile to upload a profile picture!</p>
                         {createMenu ?
                             <div>
-                                <button onClick={() => setCreateMenu(!createMenu)}>Cancel</button>
+                                <button class={buttonStyle} onClick={() => setCreateMenu(!createMenu)}>CLOSE</button>
                                 <ProfileNew currentUser={currentUser} setUserProfile={setUserProfile} />
                             </div>
-                            : <button onClick={() => setCreateMenu(!createMenu)}>Create Profile</button>}
+                            : <button class={buttonStyle} onClick={() => setCreateMenu(!createMenu)}>CREATE PROFILE</button>}
                     </>}
             </Context.Provider>
         </>

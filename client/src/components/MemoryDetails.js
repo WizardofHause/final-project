@@ -127,35 +127,42 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
             </div>
           </div>
         </div>
-        <div class='px-6 pb-6 m-4 bg-stone-200 rounded-2xl'> 
-          <p class='bg-stone-100 p-2 mt-5 rounded-full text-lg font-black'>{format(new Date(date), 'EEEE, MMMM d, yyyy')}</p>
-          <p class='bg-stone-50 p-2 my-5 rounded font-base mx-4'>{description}</p>
-          { showComments ?
-          <>
-          <button class={styleCategory(category)} onClick={commentShow}>^</button>
-          <CommentsContainer
-            memoryComments={memoryComments}
-            currentUser={currentUser}
-            onDeleteComment={handleDeleteComment}
-            memory={memory}
-            onAddComment={handleNewComment}
-          />
-          </> 
-          :
-          <button class={styleCategory(category)} onClick={commentShow}>VIEW COMMENTS</button>
-}
+        <div class='px-6 pb-6 m-4 bg-stone-200 rounded-lg'>
+          <p class='bg-stone-100 p-2 px-4 mt-5 rounded-lg text-lg font-black'>{format(new Date(date), 'EEEE, MMMM d, yyyy')}</p>
+          <p class='bg-stone-50 p-2 my-5 rounded-lg font-base mx-4'>{description}</p>
+          {showComments ?
+            <>
+              <button class='flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-full w-4 h-4 text-xs text-stone-400 shadow' onClick={commentShow}>-</button>
+              <CommentsContainer
+                memoryComments={memoryComments}
+                currentUser={currentUser}
+                onDeleteComment={handleDeleteComment}
+                memory={memory}
+                onAddComment={handleNewComment}
+              />
+            </>
+            :
+            <button class='flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-full w-4 h-4 text-xs text-stone-400 shadow' onClick={commentShow}>+</button>
+          }
         </div>
         {user.id === currentUser.id ?
-          (<>
-            <button onClick={handleDeleteMemory}>
-              DELETE MEMRY
-            </button>
+          (<div class='p-2'>
             <Link to={`/memories/${memory.id}/edit`} style={{ textDecoration: 'none' }}>
-              <button>EDIT MEMRY</button>
+              <span class='p-2'>
+                <button class={styleCategory(category)}>EDIT</button>
+              </span>
             </Link>
-          </>)
-          : null}
-        <Link to='/bank' style={{ textDecoration: 'none' }}><button class={styleCategory(category)}>BACK</button></Link>
+            <span class='p-2 m-2'>
+            <Link to='/bank' style={{ textDecoration: 'none' }}><button class={styleCategory(category)}>HOME</button></Link>
+            </span>
+            <span class='p-2'>
+              <button class={styleCategory(category)} onClick={handleDeleteMemory}>
+                DELETE
+              </button>
+            </span>          
+          </div>)
+          : <Link to='/bank' style={{ textDecoration: 'none' }}><button class={styleCategory(category)}>HOME</button></Link>
+        }
       </div>
     </section>
   );

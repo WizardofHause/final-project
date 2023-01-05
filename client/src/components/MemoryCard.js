@@ -5,7 +5,7 @@ import { format } from 'date-fns'
 function MemoryCard({ memory }) {
     const [details, setDetails] = useState(false)
 
-    const { title, category, status, main_img, description, likes, user, date } = memory
+    const { title, category, status, main_img, likes, user, date } = memory
 
     const styleCategory = (category) => {
         let c;

@@ -47,27 +47,29 @@ export default function UserBank() {
     })
 
     return (
-        <div class='ml-20'>
-            <h1>{currentUser.name}'s Profile</h1>
+        <div class='ml-24 mt-4 flex flex-col items-center'>
+            <span class='bg-orange-200 rounded-2xl my-2 px-4'>
+                <h1 class='my-4 font-black text-stone-600 bg-stone-100 text-4xl p-2 text-center rounded-lg px-auto'>{currentUser.name}'s Profile</h1>
+            </span>
             <ProfileDetails
                 userProfile={userProfile}
                 setUserProfile={setUserProfile}
                 currentUser={currentUser}
             />
-
-            <h2>{currentUser.name}'s Memry's</h2>
+            <span class='px-4 font-black text-2xl p-2 rounded-lg bg-stone-100 border-4 border-stone-300 text-stone-600'>{currentUser.name}'s Memry's</span>
             {memories.length > 0 ?
                 <div className='tl-container'>
                     {userMemories}
                 </div>
-                : <p>Nothing Here! Create some Memry's, ya dinker doink!</p>}
-
-            <h2>{currentUser.name}'s Comments</h2>
-            {comments.length > 0 ?
-                <div className='comments-container'>
-                    {userComments}
-                </div>
-                : <p>Nothing Here! Comment on some shit, ya dinker doink!</p>}
+                : <p>Nothing Here?! Create some Memry's, ya dinker doink!</p>}
+            <div class='px-6 pt-8 pb-none m-4 bg-stone-200 rounded-lg'>
+                <span class='px-4 font-black text-2xl p-2 rounded-lg bg-stone-100 border-4 border-stone-300'>{currentUser.name}'s Comments</span>
+                {comments.length > 0 ?
+                    <div className='comments-container'>
+                        {userComments}
+                    </div>
+                    : <p>Nothing Here?! Comment on some shit, ya dinker doink!</p>}
+            </div>
         </div>
     )
 }

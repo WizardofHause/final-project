@@ -149,10 +149,9 @@
   width: 100%;
 }
 
-/* .tl-content img:hover {
-  box-shadow: 0 0 20px rgb(244, 188, 2, 0.8);
-  width: 100%;
-} */
+.tl-content:hover {
+  box-shadow: 0 0 20px rgba(255, 210, 61, 0.44);
+}
 
 /* .tl-content .tag {
   color: #fff;
@@ -217,6 +216,7 @@
 } */
 
 .comment-item {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   padding: 10px;
   display: flex;
   align-items: center;
@@ -235,12 +235,22 @@
   border-radius: 25%;
 }
 
+.user-comment-item {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin: 10px 20px 10px 20px;
+  border-radius: 4px;
+}
+
 /* ----------------------------------------------------------------------- USER AVATAR ------------------------------------- */
 .user_avatar {
-  width: 300px;
-  height: auto;
-  margin: 0 auto;
+  width: 10%;
+  margin: auto;
   display: block;
+  border-radius: 50%;
 }
 
 /* ----------------------------------------------------------------------- USER PROFILE ------------------------------------- */

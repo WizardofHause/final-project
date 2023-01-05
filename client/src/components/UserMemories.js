@@ -5,7 +5,7 @@ import { format } from 'date-fns'
 export default function UserMemories({ memory }) {
     const [details, setDetails] = useState(false)
 
-    const { id, title, category, status, main_img, description, likes, user, date } = memory
+    const { id, title, category, status, main_img, likes, date } = memory
 
     const styleCategory = (category) => {
         let c;
