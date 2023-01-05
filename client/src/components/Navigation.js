@@ -19,7 +19,7 @@ function Navigation({ updateUser, currentUser }) {
     return (
         <nav>
             <div className="sidenav">
-                <NavLink to='/' style={{ textDecoration: 'none' }}><img src={spiral} width='50' class='mx-auto my-2 w-12' alt="Oops! ¯\_(ツ)_/¯" /></NavLink>
+                <NavLink to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='mx-auto my-2 w-12 select-none' alt="Oops! ¯\_(ツ)_/¯" /></NavLink>
                 <NavLink to='/bank' style={{ textDecoration: 'none' }}><button>Main</button></NavLink>
                 <NavLink to='/user_bank' style={{ textDecoration: 'none' }}><button>Profile</button></NavLink>
                 <NavLink to='/memories/new' style={{ textDecoration: 'none' }}><button>New</button></NavLink>

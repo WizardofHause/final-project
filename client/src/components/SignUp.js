@@ -47,8 +47,8 @@ function SignUp({ updateUser, fetchMemories }) {
     }
     return (
         <div class='flex flex-col justify-center items-center h-screen'>
-            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto' alt="Oops! ¯\_(ツ)_/¯" /></Link>
-            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center text-indigo-900'>
+            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" /></Link>
+            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center text-indigo-900 select-none'>
                 <span class='text-stone-900 hover:text-red-900'>M</span>
                 <span class='text-stone-800 hover:text-amber-600'>e</span>
                 <span class='text-stone-700 hover:text-teal-700'>m</span>
@@ -58,17 +58,17 @@ function SignUp({ updateUser, fetchMemories }) {
                 <label class='p-2 block text-stone-700 font-semibold text-xl'>
                     Username
                 </label>
-                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent' type='text' name='name' value={name} onChange={handleChange} />
+                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent focus:bg-indigo-50' type='text' name='name' value={name} onChange={handleChange} />
 
                 <label class='p-2 block text-stone-700 font-semibold text-xl'>
                     Email
                 </label>
-                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent' type='text' name='email' value={email} onChange={handleChange} />
+                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent focus:bg-indigo-50' type='text' name='email' value={email} onChange={handleChange} />
 
                 <label class='p-2 block text-stone-700 font-semibold text-xl'>
                     Password
                 </label>
-                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent' type='password' name='password' value={password} onChange={handleChange} />
+                <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent focus:bg-indigo-50' type='password' name='password' value={password} onChange={handleChange} />
 
                 <button type='submit' class='p-2 block mx-auto my-2 bg-stone-700 text-teal-50 hover:bg-indigo-900 hover:text-indigo-50'>Sign Up</button>
             </form>
