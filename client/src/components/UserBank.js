@@ -79,18 +79,21 @@ export default function UserBank() {
     //     </div>
     // )
 
+    //         flex flex-col items-center
+
 
     return (
         <div class='ml-24 mr-4 mt-4'> 
-        {/* flex flex-col items-center */}
-            <div class='flex flex-col items-center'>
+            <div class='flex flex-col items-start'>
                 <h1 class='my-4 font-black text-stone-600 bg-stone-100 text-4xl p-3 text-center rounded-lg border-4 border-stone-300'>{currentUser.name}'s Profile</h1>
             </div>
+            <div class='flex flex-col items-start'>
             <ProfileDetails
                 userProfile={userProfile}
                 setUserProfile={setUserProfile}
                 currentUser={currentUser}
             />
+            </div>
             <span class='px-4 font-black text-2xl p-2 rounded-lg bg-stone-100 border-4 border-stone-300 text-stone-600'>{currentUser.name}'s Memry's</span>
             {memories.length > 0 ?
                 <div className='tl-container'>

@@ -245,24 +245,20 @@
   border-radius: 4px;
 }
 
-/* ----------------------------------------------------------------------- USER AVATAR ------------------------------------- */
-.user_avatar {
-  width: 10%;
-  /* margin: auto; */
-  /* display: block; */
-  border-radius: 50%;
+/* ----------------------------------------------------------------------- USER PROFILE ------------------------------------- */
+#profile_edit_form {
+  display: flex;
+  flex-direction: column;
 }
 
-/* ----------------------------------------------------------------------- USER PROFILE ------------------------------------- */
-/* .profile_edit_form {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  margin: auto;
-} */
+#profile_edit_form label {
+  font-size: large;
+  padding: 8px;
+  font-weight: bold;
+}
 
-.profile_edit_form_button {
-  margin: auto;
+#user_avatar {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* ----------------------------------------------------------------------- MOBILE DISPLAY ------------------------------------- */

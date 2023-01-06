@@ -14,8 +14,8 @@ function UserAvatar({ userProfile }) {
     }, [userProfile]);
 
     return (
-        <span class='flex justify-center'>
-            <img src={userAvatar} alt="user_avatar" class='w-32 rounded-full'/>
+        <span>
+            <img src={userAvatar} alt="user_avatar" id='user_avatar' class='w-40 rounded-lg mx-auto mb-2 border-4 border-stone-400 select-none float-left'/>
         </span>
     )
 }

@@ -12,10 +12,10 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
     const [editMenu, setEditMenu] = useState(false)
     const [createMenu, setCreateMenu] = useState(false)
 
-    const buttonStyle = 'px-2 py-1 m-2 flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-lg text-xs text-stone-500 shadow'
+    const buttonStyle = 'px-2 py-1 m-2 flex-col bg-stone-300 ml-auto rounded-lg text-xs text-stone-500 shadow'
 
     return (
-        <>
+        <div>
             <Context.Provider value={{ userAvatar, setUserAvatar }}>
                 {userProfile
                     ? <div>
@@ -23,13 +23,13 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
                             ? <UserAvatar userProfile={userProfile} setUserProfile={setUserProfile} />
                             : <UserAvatarNew userProfile={userProfile} />}
                         {editMenu
-                            ? <div class='flex-col'>
+                            ? <div class='mb-4'>
                                 <ProfileEdit userProfile={userProfile} setUserProfile={setUserProfile} setEditMenu={setEditMenu} />
-                                <button class={buttonStyle} onClick={() => setEditMenu(!editMenu)}>CANCEL</button>
+                                <button class='px-2 py-1 ml-44 m-2 flex-col bg-stone-300 rounded-lg text-xs text-stone-500 shadow' onClick={() => setEditMenu(!editMenu)}>CANCEL</button>
                             </div>
-                            : <div class='bg-stone-200 rounded-lg p-6 mb-6 text-left'>
+                            : <div class='mb-4'>
                                 <ProfileCard user_profile={userProfile} />
-                                <button class={buttonStyle} onClick={() => setEditMenu(!editMenu)}>EDIT</button>
+                                <button class='px-2 py-1 ml-4 m-2 bg-stone-300 rounded-lg text-xs text-stone-500 shadow' onClick={() => setEditMenu(!editMenu)}>EDIT</button>
                             </div>}
                     </div>
                     : <>
@@ -42,6 +42,6 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
                             : <button class={buttonStyle} onClick={() => setCreateMenu(!createMenu)}>CREATE PROFILE</button>}
                     </>}
             </Context.Provider>
-        </>
+        </div>
     )
 }
