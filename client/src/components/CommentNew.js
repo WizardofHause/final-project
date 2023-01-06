@@ -47,7 +47,7 @@ function CommentNew({ memory, currentUser, onAddComment }) {
                 <form onSubmit={onSubmit} class='text-center'>
                     <textarea class='w-11/12 h-full p-2' name='body' value={formData.body} onChange={handleChange} placeholder='Type some shit, ya stupid'/>
                     <div>
-                    <button class='rounded-lg shadow-xl text-xl bg-stone-700 hover:bg-amber-600 rounded-xl' type='submit'>SUBMIT</button>
+                    <button class='rounded-lg shadow-xl bg-stone-100 text-stone-600 hover:bg-amber-600 rounded-xl border-4 border-stone-600 hover:border-stone-50' type='submit'>SUBMIT</button>
                     </div>
                 </form>
             {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}

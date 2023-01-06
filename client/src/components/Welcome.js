@@ -27,13 +27,13 @@ function Welcome({ currentUser }) {
                         <Link to='/signup' style={{ textDecoration: 'none' }}>
                             <button class='px-4 py-2 m-2 shadow-xl text-xl bg-stone-700 hover:bg-indigo-900 rounded-xl'>Sign Up</button>
                         </Link>
-                        {/* <div class='p-6'>
+                        <div class='p-6'>
                             <span class='bg-red-900 w-2 h-2 p-2 text-transparent rounded-tl rounded-bl'>x </span>
                             <span class='bg-amber-600 w-2 h-2 p-2 text-transparent'>x </span>
                             <span class='bg-teal-700 w-2 h-2 p-2 text-transparent'>x </span>
                             <span class='bg-sky-800 w-2 h-2 p-2 text-transparent'>x </span>
                             <span class='bg-indigo-900 w-2 h-2 p-2 text-transparent rounded-tr rounded-br'>x </span>
-                        </div> */}
+                        </div>
                     </>
                 )}
         </div>
