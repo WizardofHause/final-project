@@ -28,18 +28,20 @@ function UserAvatarNew({ userProfile }) {
             .catch((error) => console.error(error));
     }
 
+    const buttonStyle = 'px-2 py-1 m-2 flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-lg text-xs text-stone-500 shadow'
+
     return (
         <div>
-            {avatarMenu ? <div>
-                <button onClick={() => setAvatarMenu(!avatarMenu)}>Cancel</button>
-                <h3>Upload User Avatar</h3>
-                <form onSubmit={(e) => handleSubmit(e)}>
-                    <label htmlFor="image">Avatar Image</label>
-                    <input type="file" name="image" className="user_avatar" />
-                    <button type="submit">Submit</button>
-                </form>
-            </div>
-                : <button onClick={() => setAvatarMenu(!avatarMenu)}>Upload User Avatar</button>}
+            {avatarMenu ?
+                <div>
+                    <form onSubmit={(e) => handleSubmit(e)}>
+                        <label htmlFor="image" class='px-2 py-1 m-2 flex-col text-center justify-center items-center bg-stone-300 ml-4 rounded-lg text-xs text-stone-500 shadow font-black uppercase hover:bg-orange-300 hover:text-orange-50'>CHOOSE Image</label>
+                        <input type="file" name="image" class='hidden' id='image'/>
+                        <button class={buttonStyle} type="submit">SUBMIT</button>
+                        <button class={buttonStyle} onClick={() => setAvatarMenu(!avatarMenu)}>CANCEL</button>
+                    </form>
+                </div>
+                : <button class='px-2 py-1 m-2 ml-4 bg-stone-300 ml-auto rounded-lg text-xs text-stone-500 shadow' onClick={() => setAvatarMenu(!avatarMenu)}>UPLOAD PROFILE PIC</button>}
         </div>
     )
 }

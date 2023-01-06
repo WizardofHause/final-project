@@ -9,10 +9,10 @@
   left: 0;
   padding-top: 0px;
   overflow-x: hidden;
-  background-color: rgba(161, 97, 32, 0.667);
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
-.sidenav button {
+/* .sidenav button {
   padding: 10px 10px 10px 10px;
   text-decoration: none;
   font-size: 15px;
@@ -25,21 +25,21 @@
   width: 100%;
   font-weight: bolder;
   margin-bottom: 5px;
-}
+} */
 
-.sidenav>NavLink {
+/* .sidenav>NavLink {
   text-decoration: none;
-}
+} */
 
-.sidenav button:hover {
+/* .sidenav button:hover {
   color: #fff;
   text-decoration: none;
   background-color: rgba(255, 255, 255, 0.1);
-}
+} */
 
-.sidenav>img {
+/* .sidenav>img {
   padding: 30px;
-}
+} */
 
 /* ----------------------------------------------------------------------- SEARCH ------------------------------------- */
 #search {
@@ -85,22 +85,23 @@
 
 .tl-content {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  background-color: #fff;
+  border-radius: 8px;
+  background-color: rgb(250, 231, 210);
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-end; */
   padding: 15px;
   position: relative;
-  width: 50rem;
+  width: auto;
   max-width: 70%;
-  text-align: right;
+  /* text-align: right; */
   margin-right: 40px;
+  transition: all 300ms;
 }
 
 .tl-content::after {
   content: ' ';
-  background-color: #fff;
+  background-color: rgb(250, 231, 210);
   box-shadow: 1px -1px 1px rgba(0, 0, 0, 0.2);
   position: absolute;
   right: -7.5px;
@@ -112,7 +113,7 @@
 
 .tl-item:nth-child(odd) .tl-content {
   text-align: left;
-  /* align-items: flex-end; */
+  align-items: flex-start;
   margin-left: 40px;
 }
 
@@ -128,7 +129,7 @@
   border-radius: 50%;
   position: absolute;
   top: calc(50% - 10px);
-  right: -53px;
+  right: -80px;
   width: 20px;
   height: 20px;
   z-index: 100;
@@ -137,19 +138,19 @@
 
 .tl-item:nth-child(odd) .tl-content .circle {
   right: auto;
-  left: -53px;
+  left: -80px;
 }
 
 .tl-content img {
   box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
   border-radius: 4px;
-  /* transition: 300ms; */
+  /* width: 100%; */
+  margin: auto;
+  width: 100%;
 }
 
 .tl-content:hover {
-  box-shadow: 0 0 10px rgb(244, 188, 2, 0.8);
-  border-radius: 4px;
-  width: 51rem;
+  box-shadow: 0 0 20px rgba(255, 210, 61, 0.44);
 }
 
 /* .tl-content .tag {
@@ -168,6 +169,35 @@
   left: auto;
   right: 5px;
 } */
+/* ----------------------------------------------------------- MEMORY IMAGE */
+.memory-image-container {
+  position: relative;
+  text-align: center;
+}
+
+.overlay {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+}
+
+.memory-category-tag{
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.memory-likes-button{
+  position: absolute;
+  top: 10px;
+  left: 16px;
+}
+
+.memory-status-overlay{
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+}
 
 /* ----------------------------------------------------------------------- COMMENTS ------------------------------------- */
 .comments-container {
@@ -183,6 +213,7 @@
 } */
 
 .comment-item {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
   padding: 10px;
   display: flex;
   align-items: center;
@@ -195,35 +226,37 @@
   margin: left;
 }
 
-.comment-button {
-  margin-left: auto;
-  padding: 4px;
-}
-
-/* ----------------------------------------------------------------------- USER AVATAR ------------------------------------- */
-.user_avatar {
-  width: 300px;
-  height: auto;
-  margin: 0 auto;
-  display: block;
+.user-comment-item {
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: white;
+  margin: 10px 20px 10px 20px;
+  border-radius: 4px;
 }
 
 /* ----------------------------------------------------------------------- USER PROFILE ------------------------------------- */
-.profile_edit_form {
+#profile_edit_form {
   display: flex;
   flex-direction: column;
-  margin: auto;
 }
 
-.profile_edit_form_button {
-  margin: auto;
+#profile_edit_form label {
+  font-size: large;
+  padding: 8px;
+  font-weight: bold;
+}
+
+#user_avatar {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 /* ----------------------------------------------------------------------- MOBILE DISPLAY ------------------------------------- */
 
 @media only screen and (max-width: 1023px) {
   .tl-content {
-    max-width: 100%;
+    max-width: 70%;
   }
 }
 

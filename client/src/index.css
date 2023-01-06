@@ -1,23 +1,24 @@
 /* GENERAL HTML ELEMENT RULES */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 body {
-  padding: 10px 50px 20px 200px; /* <----------- TOP, RIGHT, BOTTOM, LEFT */
-  background-image: linear-gradient(to right, rgba(226, 147, 43, 0.3), white);
+  background-image: linear-gradient(to right, rgb(250, 231, 210), white);
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.4;
 }
 
-/* ------------------------------------------------------------------------------------------------- BUTTONS */
+/* ---------------------------------------------- BUTTONS */
 button {
   padding: 10px 10px 10px 10px;
-  text-decoration: none;
   font-size: 15px;
   color: #fdf6f0;
-  display: inline;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  background-color: rgba(226, 147, 43, 0.667);
+  /* display: inline; */
+  /* border: 2px solid transparent; */
+  /* border-radius: 5px; */
+  /* background-color: rgba(226, 147, 43, 0.667); */
   box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
   font-weight: bolder;
 }

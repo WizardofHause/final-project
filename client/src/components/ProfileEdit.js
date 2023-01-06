@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function ProfileEdit({ userProfile, setUserProfile }) {
+function ProfileEdit({ userProfile, setUserProfile, setEditMenu }) {
     const [formData, setFormData] = useState({
             first_name: '',
             last_name: '',
@@ -31,8 +31,8 @@ function ProfileEdit({ userProfile, setUserProfile }) {
             .then(res => {
                 if (res.ok) {
                     res.json().then(profile => {
-                        console.log(profile)
                         setUserProfile(profile)
+                        setEditMenu(false)
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
@@ -47,47 +47,53 @@ function ProfileEdit({ userProfile, setUserProfile }) {
     }
 
     return (
-        <>
-            <form onSubmit={onSubmit} className='profile_edit_form'>
+        <div>
+            <form id='profile_edit_form' onSubmit={onSubmit} class='bg-stone-100 border-4 border-stone-300 rounded-lg p-6 text-stone-600 ml-44'>
+                <div class='m-1'>
                 <label>
                     First Name
                 </label>
-                <input type='text' name='first_name' value={first_name} onChange={handleChange} />
+                <input class='rounded p-2 text-stone-600' type='text' name='first_name' value={first_name} onChange={handleChange} />
 
-                <label>
+                <label class='ml-3'>
                     Last Name
                 </label>
-                <input type='text' name='last_name' value={last_name} onChange={handleChange} />
+                <input class='rounded p-2 text-stone-600' type='text' name='last_name' value={last_name} onChange={handleChange} />
+                </div>
 
+                <div class='m-1'>
                 <label>
                     Birthday
                 </label>
-                <input type='date' name='dob' value={dob} onChange={handleChange} />
-
-                <label>
+                <input class='rounded p-2 text-stone-600' type='date' name='dob' value={dob} onChange={handleChange} />
+                
+                <label class='ml-16'>
                     Birth Place
                 </label>
-                <input type='text' name='pob' value={pob} onChange={handleChange} />
+                <input class='rounded p-2 text-stone-600' type='text' name='pob' value={pob} onChange={handleChange} />
+                </div>
 
+                <div class='m-1'>
                 <label>
                     Current City
                 </label>
-                <input type='text' name='current_city' value={current_city} onChange={handleChange} />
+                <input class='rounded p-2 text-stone-600' type='text' name='current_city' value={current_city} onChange={handleChange} />
 
                 <label>
-                    Family Members
+                    Occupation
                 </label>
-                <input type='text' name='family' value={family} onChange={handleChange} />
-
+                <input class='rounded p-2 text-stone-600' type='text' name='family' value={family} onChange={handleChange} />
+                </div>
+                
                 <label>
-                    Interests & Hobbies
+                   User Bio
                 </label>
-                <input type='text' name='interests' value={interests} onChange={handleChange} />
+                <textarea class='rounded p-2 text-stone-600' name='interests' value={interests} onChange={handleChange} />
 
-                <button type='submit' className='profile_edit_form_button'>Remember Me</button> 
+                <button type='submit' class='px-2 py-1 mt-2 bg-stone-300 rounded-lg text-xs text-stone-500 shadow uppercase'>Remember Me</button> 
             </form>
             {errors ? errors.map(e => <div>{e[1]}</div>) : null}
-        </>
+        </div>
     )
 }
 

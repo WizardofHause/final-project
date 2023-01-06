@@ -14,13 +14,13 @@ function MainBank({ currentUser, sortedMemories, search }) {
         )
     })
     return (
-        <>
-            <h1>Hello {currentUser.name}!</h1>
-            <h3>Check out these Memry's...</h3>
+        <div class='ml-20'>
+            <h1 class='text-stone-600 pt-4 pl-4 text-xl font-black'>Good to see you again, {currentUser.name}</h1>
+            {/* <h3>Check out these Memry's...</h3> */}
             <div className='tl-container'>
                 {memoryCard}
             </div>
-        </>
+        </div>
     )
 }
 

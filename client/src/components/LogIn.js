@@ -43,21 +43,30 @@ function LogIn({ updateUser, fetchMemories }) {
         setFormData({ ...formData, [name]: value })
     }
     return (
-        <>
-            <Link to='/' style={{ textDecoration: 'none' }}><button><img src={spiral} width='50' alt="Oops! ¯\_(ツ)_/¯" /></button></Link>
+        <div class='flex flex-col justify-center items-center h-screen'>
+            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" /></Link>
+            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center select-none'>
+                <span class='text-stone-900 hover:text-red-900'>M</span>
+                <span class='text-stone-800 hover:text-amber-600'>e</span>
+                <span class='text-stone-700 hover:text-teal-700'>m</span>
+                <span class='text-stone-600 hover:text-sky-800'>r</span>
+                <span class='text-stone-500 hover:text-indigo-900'>y</span>
+                </h1>
             <form onSubmit={onSubmit}>
-                <label>
-                    Username
-                </label>
-                <input type='text' name='name' value={name} onChange={handleChange} />
-                <label>
-                    Password
-                </label>
-                <input type='password' name='password' value={password} onChange={handleChange} autoComplete='off' />
-                <input type='submit' value='Log In' />
+                <div class='text-center mx-auto'>
+                    <label class='p-2 block text-stone-700 font-semibold text-xl'>
+                        Username
+                    </label>
+                    <input class='border-4 border-stone-700 hover:border-teal-700 rounded h-8 text-teal-700 font-semibold bg-transparent focus:bg-teal-50' type='text' name='name' value={name} onChange={handleChange} />
+                    <label class='p-2 block text-stone-700 font-semibold text-xl'>
+                        Password
+                    </label>
+                    <input class='border-4 border-stone-700 hover:border-teal-700 rounded h-8 text-teal-700 font-semibold bg-transparent focus:bg-teal-50' type='password' name='password' value={password} onChange={handleChange} autoComplete='off' />
+                    <button class='p-2 block mx-auto my-2 bg-stone-700 text-stone-50 hover:bg-teal-700 hover:text-teal-50' type='submit'>Log In</button>
+                </div>
             </form>
             {errors ? <div>{errors}</div> : null}
-        </>
+        </div>
     )
 }
 
