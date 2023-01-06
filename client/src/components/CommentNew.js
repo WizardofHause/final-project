@@ -42,11 +42,13 @@ function CommentNew({ memory, currentUser, onAddComment }) {
     }
 
     return (
-        <div className='comment-new'>
-                <form className='comment-new-form' onSubmit={onSubmit}>
-                    <h3><label>Add Comment </label></h3>
-                    <textarea className='body' name='body' value={formData.body} onChange={handleChange} />
-                    <button type='submit'>SUBMIT</button>
+        <div>
+            <h3 class='font-black text-lg p-2 px-4 my-4 rounded-lg bg-stone-100'>Add Comment</h3>
+                <form onSubmit={onSubmit} class='text-center'>
+                    <textarea class='w-11/12 h-full p-2' name='body' value={formData.body} onChange={handleChange} placeholder='Type some shit, ya stupid'/>
+                    <div>
+                    <button class='rounded-lg shadow-xl text-xl bg-stone-700 hover:bg-amber-600 rounded-xl' type='submit'>SUBMIT</button>
+                    </div>
                 </form>
             {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
         </div>

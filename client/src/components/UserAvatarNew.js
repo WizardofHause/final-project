@@ -35,13 +35,13 @@ function UserAvatarNew({ userProfile }) {
             {avatarMenu ?
                 <div>
                     <form onSubmit={(e) => handleSubmit(e)}>
-                        <label htmlFor="image" class='px-2 py-1 m-2 flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-lg text-xs text-stone-500 shadow font-black uppercase hover:bg-orange-300 hover:text-orange-50'>CHOOSE Image</label>
+                        <label htmlFor="image" class='px-2 py-1 m-2 flex-col text-center justify-center items-center bg-stone-300 ml-4 rounded-lg text-xs text-stone-500 shadow font-black uppercase hover:bg-orange-300 hover:text-orange-50'>CHOOSE Image</label>
                         <input type="file" name="image" class='hidden' id='image'/>
                         <button class={buttonStyle} type="submit">SUBMIT</button>
                         <button class={buttonStyle} onClick={() => setAvatarMenu(!avatarMenu)}>CANCEL</button>
                     </form>
                 </div>
-                : <button class={buttonStyle} onClick={() => setAvatarMenu(!avatarMenu)}>UPLOAD PROFILE PIC</button>}
+                : <button class='px-2 py-1 m-2 ml-4 bg-stone-300 ml-auto rounded-lg text-xs text-stone-500 shadow' onClick={() => setAvatarMenu(!avatarMenu)}>UPLOAD PROFILE PIC</button>}
         </div>
     )
 }

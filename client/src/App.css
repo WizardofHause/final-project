@@ -198,10 +198,7 @@
   bottom: 16px;
   left: 16px;
 }
-/* .tl-content:hover  .details-container{
-  position: absolute;
-  top: 22px;
-  right: 10px;} */
+
 /* ----------------------------------------------------------------------- COMMENTS ------------------------------------- */
 .comments-container {
   margin: 2rem auto;
@@ -227,12 +224,6 @@
 
 .comment-content {
   margin: left;
-}
-
-.comment-button {
-  margin-left: auto;
-  padding: 0px 4px 0px 4px;
-  border-radius: 25%;
 }
 
 .user-comment-item {
@@ -265,7 +256,7 @@
 
 @media only screen and (max-width: 1023px) {
   .tl-content {
-    max-width: 100%;
+    max-width: 70%;
   }
 }
 
