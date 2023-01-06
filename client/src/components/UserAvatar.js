@@ -14,9 +14,9 @@ function UserAvatar({ userProfile }) {
     }, [userProfile]);
 
     return (
-        <div>
-            <img src={userAvatar} alt="user_avatar" className="user_avatar" />
-        </div>
+        <span class='flex justify-center'>
+            <img src={userAvatar} alt="user_avatar" class='w-32 rounded-full'/>
+        </span>
     )
 }
 

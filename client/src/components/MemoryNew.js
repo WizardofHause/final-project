@@ -44,24 +44,23 @@ export default function MemoryNew({ addMemory, currentUser }) {
             })
     }
     return (
-        <div>
+        <div class='ml-24 mr-20'>
             <form onSubmit={onSubmit} className='profile_edit_form'>
                 <label htmlFor='title'>Title</label>
                 <input type='text' name='title' value={title} onChange={handleChange} />
-
                 <label htmlFor='category'>Category</label>
                 <select name='category' id='category' value={category} onChange={handleChange}>
                     <option value=''>---</option>
                     <option value='vacation'>Vacation</option>
                     <option value='romance'>Romance</option>
                     <option value='event'>Event</option>
-                    {/* <option value='meeting'>Meeting</option> */}
-                    {/* <option value='appointment'>Appointment</option> */}
                     <option value='holiday'>Holiday</option>
                     <option value='celebration'>Celebration</option>
-                    {/* <option value='in_memoriam'>In Memoriam</option> */}
-                    {/* <option value='just_because'>Just Because</option> */}
-                    {/* <option value='private'>Private</option> */}
+                    {/* <option value='meeting'>Meeting</option>
+                    <option value='appointment'>Appointment</option>
+                    <option value='in_memoriam'>In Memoriam</option>
+                    <option value='just_because'>Just Because</option>
+                    <option value='private'>Private</option> */}
                 </select>
 
                 <label htmlFor='status'>Status</label>
@@ -85,7 +84,6 @@ export default function MemoryNew({ addMemory, currentUser }) {
 
                 <button type='submit'>Memory Made</button>
             </form>
-            {/* {errors ? errors.map(e => <div>{e}</div>) : null} */}
             {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
         </div>
     )

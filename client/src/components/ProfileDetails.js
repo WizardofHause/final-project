@@ -17,29 +17,27 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
     return (
         <>
             <Context.Provider value={{ userAvatar, setUserAvatar }}>
-                {userProfile ?
-                    <>
-                        <div>
-                            {userProfile.avatar ?
-                                <UserAvatar userProfile={userProfile} setUserProfile={setUserProfile} />
-                                : <UserAvatarNew userProfile={userProfile} />}
-
-                            <ProfileCard user_profile={userProfile} />
-
-                            {editMenu ?
-                                <div>
-                                    <button class={buttonStyle} onClick={() => setEditMenu(!editMenu)}>CLOSE</button>
-                                    <ProfileEdit userProfile={userProfile} setUserProfile={setUserProfile} />
-                                </div>
-                                : <button class={buttonStyle} onClick={() => setEditMenu(!editMenu)}>EDIT</button>}
-                        </div>
-                    </>
+                {userProfile
+                    ? <div>
+                        {userProfile.avatar
+                            ? <UserAvatar userProfile={userProfile} setUserProfile={setUserProfile} />
+                            : <UserAvatarNew userProfile={userProfile} />}
+                        {editMenu
+                            ? <div class='flex-col'>
+                                <ProfileEdit userProfile={userProfile} setUserProfile={setUserProfile} setEditMenu={setEditMenu} />
+                                <button class={buttonStyle} onClick={() => setEditMenu(!editMenu)}>CANCEL</button>
+                            </div>
+                            : <div class='bg-stone-200 rounded-lg p-6 mb-6 text-left'>
+                                <ProfileCard user_profile={userProfile} />
+                                <button class={buttonStyle} onClick={() => setEditMenu(!editMenu)}>EDIT</button>
+                            </div>}
+                    </div>
                     : <>
-                        <p>Nothing Here! Create a profile to upload a profile picture!</p>
-                        {createMenu ?
-                            <div>
-                                <button class={buttonStyle} onClick={() => setCreateMenu(!createMenu)}>CLOSE</button>
+                        <p class='pt-2'>Nothing Here! Create a profile to upload a profile picture!</p>
+                        {createMenu
+                            ? <div>
                                 <ProfileNew currentUser={currentUser} setUserProfile={setUserProfile} />
+                                <button class={buttonStyle} onClick={() => setCreateMenu(!createMenu)}>CLOSE</button>
                             </div>
                             : <button class={buttonStyle} onClick={() => setCreateMenu(!createMenu)}>CREATE PROFILE</button>}
                     </>}

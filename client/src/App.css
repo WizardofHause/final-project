@@ -248,17 +248,18 @@
 /* ----------------------------------------------------------------------- USER AVATAR ------------------------------------- */
 .user_avatar {
   width: 10%;
-  margin: auto;
-  display: block;
+  /* margin: auto; */
+  /* display: block; */
   border-radius: 50%;
 }
 
 /* ----------------------------------------------------------------------- USER PROFILE ------------------------------------- */
-.profile_edit_form {
+/* .profile_edit_form {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  flex-direction: row;
   margin: auto;
-}
+} */
 
 .profile_edit_form_button {
   margin: auto;

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function ProfileEdit({ userProfile, setUserProfile }) {
+function ProfileEdit({ userProfile, setUserProfile, setEditMenu }) {
     const [formData, setFormData] = useState({
             first_name: '',
             last_name: '',
@@ -31,8 +31,8 @@ function ProfileEdit({ userProfile, setUserProfile }) {
             .then(res => {
                 if (res.ok) {
                     res.json().then(profile => {
-                        console.log(profile)
                         setUserProfile(profile)
+                        setEditMenu(false)
                     })
                 } else {
                     res.json().then(json => setErrors(Object.entries(json.errors)))
@@ -47,8 +47,8 @@ function ProfileEdit({ userProfile, setUserProfile }) {
     }
 
     return (
-        <>
-            <form onSubmit={onSubmit} className='profile_edit_form'>
+        <div>
+            <form onSubmit={onSubmit} class='bg-stone-100 border-4 border-stone-300 rounded-lg p-6 text-stone-600 font-semibold flex flex-wrap'>
                 <label>
                     First Name
                 </label>
@@ -84,10 +84,10 @@ function ProfileEdit({ userProfile, setUserProfile }) {
                 </label>
                 <input type='text' name='interests' value={interests} onChange={handleChange} />
 
-                <button type='submit' className='profile_edit_form_button'>Remember Me</button> 
+                <button type='submit' class='px-2 py-1 mt-2 inline flex-col text-center justify-center items-center bg-stone-300 rounded-lg text-xs text-stone-500 shadow uppercase mr-auto'>Remember Me</button> 
             </form>
             {errors ? errors.map(e => <div>{e[1]}</div>) : null}
-        </>
+        </div>
     )
 }
 
