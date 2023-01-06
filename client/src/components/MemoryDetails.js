@@ -93,6 +93,12 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
     setShowComments(!showComments)
   }
 
+  const actualDate = (date) => {
+    const dateArray = []
+    dateArray.push(`${date}T00:00`)
+    return dateArray[0]
+  }
+
   return (
     <section>
       <div class='flex flex-col items-center'>
@@ -116,19 +122,8 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
             </div>
           </div>
         </div>
-        <div>
-          <div>
-            <div>
-              <div>
-                <div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class='px-6 pb-6 m-4 bg-stone-200 rounded-lg'>
-          <p class='bg-stone-100 p-2 px-4 mt-5 rounded-lg text-lg font-black'>{format(new Date(date), 'EEEE, MMMM d, yyyy')}</p>
+          <p class='bg-stone-100 p-2 px-4 mt-5 rounded-lg text-lg font-black'>{format(new Date(actualDate(date)), 'EEEE, MMMM d, yyyy')}</p>
           <p class='bg-stone-50 p-2 my-5 rounded-lg font-base mx-4'>{description}</p>
           {showComments ?
             <>
@@ -153,13 +148,13 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
               </span>
             </Link>
             <span class='p-2 m-2'>
-            <Link to='/bank' style={{ textDecoration: 'none' }}><button class={styleCategory(category)}>HOME</button></Link>
+              <Link to='/bank' style={{ textDecoration: 'none' }}><button class={styleCategory(category)}>HOME</button></Link>
             </span>
             <span class='p-2'>
               <button class={styleCategory(category)} onClick={handleDeleteMemory}>
                 DELETE
               </button>
-            </span>          
+            </span>
           </div>)
           : <Link to='/bank' style={{ textDecoration: 'none' }}><button class={styleCategory(category)}>HOME</button></Link>
         }

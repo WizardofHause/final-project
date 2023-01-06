@@ -49,13 +49,19 @@ function MemoryCard({ memory }) {
         setDetails(!details)
     }
 
+    const actualDate = (date) => {
+        const dateArray = []
+        dateArray.push(`${date}T00:00`)
+        return dateArray[0]
+    }
+
     return (
         <div className='tl-item'>
             <div className='tl-content'>
                 <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}>
                     {/* <span className='tag'/> */}
                     <div class='flex justify-between items-center pb-2 mb-2'>
-                        <span class={styleCategory(category)}>{format(new Date(date), 'EEEE: MMMM d, yyyy')}</span>
+                        <span class={styleCategory(category)}>{format(new Date(actualDate(date)), 'EEEE: MMMM d, yyyy')}</span>
                         <span class={styleCategory(category)}>{category}</span>
                     </div>
                     <h1 class='mb-2 font-black text-stone-700 text-2xl bg-stone-100 p-2 text-center border-4 border-stone-200 rounded-lg px-auto uppercase'>{title} <span class='text-base italic font-semibold capitalize'>by {user.name}</span>
