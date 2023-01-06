@@ -62,7 +62,7 @@ function LogIn({ updateUser, fetchMemories }) {
                         Password
                     </label>
                     <input class='border-4 border-stone-700 hover:border-teal-700 rounded h-8 text-teal-700 font-semibold bg-transparent focus:bg-teal-50' type='password' name='password' value={password} onChange={handleChange} autoComplete='off' />
-                    <button class='p-2 block mx-auto my-2 bg-stone-700 text-stone-50 hover:bg-teal-700 hover:text-teal-50' type='submit'>Log In</button>
+                    <button class='p-2 block mx-auto my-2 bg-stone-700 text-stone-50 hover:bg-teal-700 hover:text-teal-50 rounded-lg' type='submit'>Log In</button>
                 </div>
             </form>
             {errors ? <div>{errors}</div> : null}

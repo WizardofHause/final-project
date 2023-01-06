@@ -70,7 +70,7 @@ function SignUp({ updateUser, fetchMemories }) {
                 </label>
                 <input class='border-4 border-stone-700 hover:border-indigo-900 rounded h-8 text-indigo-900 font-semibold bg-transparent focus:bg-indigo-50' type='password' name='password' value={password} onChange={handleChange} />
 
-                <button type='submit' class='p-2 block mx-auto my-2 bg-stone-700 text-teal-50 hover:bg-indigo-900 hover:text-indigo-50'>Sign Up</button>
+                <button type='submit' class='p-2 block mx-auto my-2 bg-stone-700 text-indigo-50 hover:bg-indigo-900 hover:text-indigo-50 rounded-lg'>Sign Up</button>
             </form>
             {errors ? errors.map(e => <div>{e[1]}</div>) : null}
         </div>
