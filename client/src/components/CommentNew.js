@@ -58,9 +58,9 @@ function CommentNew({ memory, currentUser, onAddComment }) {
                     <button class='rounded-lg shadow-xl bg-stone-100 text-stone-600 hover:bg-amber-600 rounded-xl border-4 border-stone-600 hover:border-stone-50' type='submit'>SUBMIT</button>
                     </div>
                 </form>
-            {errors ? errors.map(e => <h2 style={{ color: 'red' }}>{e.toUpperCase()}</h2>) : null}
+            {errors ? errors.map(e => <h2 class='border-2 border-red-300 bg-red-100 py-1 px-2 m-2 text-red-600 font-black uppercase'>{e}</h2>) : null}
         </div>
-        :             <button class='flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-full w-4 h-4 text-xs text-stone-400 shadow' onClick={commentAdd}>+</button>
+        : <button class='flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-full w-4 h-4 text-xs text-stone-400 shadow' onClick={commentAdd}>+</button>
         }
         </>
     )

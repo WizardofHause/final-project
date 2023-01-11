@@ -65,7 +65,7 @@ function LogIn({ updateUser, fetchMemories }) {
                     <button class='p-2 block mx-auto my-2 bg-stone-700 text-stone-50 hover:bg-teal-700 hover:text-teal-50 rounded-lg' type='submit'>Log In</button>
                 </div>
             </form>
-            {errors ? <div>{errors}</div> : null}
+            {errors ? <div class='border-2 border-red-300 bg-red-100 py-1 px-2 m-2 text-red-600 font-black uppercase'>{errors}</div> : null}
         </div>
     )
 }
