@@ -34,7 +34,7 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
                             </div>
                             : <div class='mb-4'>
                                 <ProfileCard user_profile={userProfile} />
-                                <button class='ml-44 px-2 py-1 ml-4 m-2 bg-stone-300 rounded-lg text-xs text-stone-500 shadow' onClick={() => setEditMenu(!editMenu)}>EDIT</button>
+                                <button class='ml-4 px-2 py-1 m-2 bg-stone-300 rounded-lg text-xs text-stone-500 shadow' onClick={() => setEditMenu(!editMenu)}>EDIT</button>
                             </div>}
                     </div>
                     : <div class='mb-6'>

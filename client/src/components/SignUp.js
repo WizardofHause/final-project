@@ -72,7 +72,7 @@ function SignUp({ updateUser, fetchMemories }) {
 
                 <button type='submit' class='p-2 block mx-auto my-2 bg-stone-700 text-indigo-50 hover:bg-indigo-900 hover:text-indigo-50 rounded-lg'>Sign Up</button>
             </form>
-            {errors ? errors.map(e => <div class='border-2 border-red-300 bg-red-100 py-1 px-2 m-2 text-red-600 font-black uppercase'>{e[1]}</div>) : null}
+            {errors ? errors.map(e => <div class='border-2 border-red-300 bg-red-100 py-1 px-2 m-2 text-red-600 font-black uppercase' key={e.index}>{e[1]}</div>) : null}
         </div>
     )
 }
