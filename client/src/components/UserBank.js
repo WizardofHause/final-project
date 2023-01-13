@@ -102,7 +102,7 @@ export default function UserBank() {
                 :
                 <div class='flex flex-col items-center'>
                     <p class='mt-4 px-2 font-semibold text-lg italic bg-red-700 border-4 border-red-900 text-red-100 rounded-lg uppercase'>YOU HAVE ACCOMPLISHED NOTHING</p>
-                    <p class='mt-1 font-semibold'>Create some Memry's, ya dinker doink!</p>
+                    <p class='mt-1 font-semibold'>Create some Memry's!</p>
                     <NavLink to='/memories/new' style={{ textDecoration: 'none' }}><button class='px-2 py-1 m-2 flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-lg text-xs text-stone-500 shadow'>LET'S MAKE SOME MEMRY'S</button></NavLink>
                 </div>
             }
@@ -115,7 +115,7 @@ export default function UserBank() {
                     :
                     <div class='flex flex-col items-center'>
                         <p class='mt-4 px-2 font-semibold text-lg italic bg-red-700 border-4 border-red-900 text-red-100 rounded-lg uppercase'>YOUR OBVIOUS SILENCE MAKES PEOPLE UNCOMFORTABLE</p>
-                        <p class='my-2 font-semibold'>Comment on some shit, ya creepy lurker!</p>
+                        <p class='my-2 font-semibold'>Leave some comments!</p>
                         <NavLink to='/bank' style={{ textDecoration: 'none' }}><button class='px-2 py-1 m-2 flex-col text-center justify-center items-center bg-stone-500 ml-auto rounded-lg text-xs text-stone-200 shadow'>CHECK OUT THE MAIN TIMELINE</button></NavLink>
                     </div>
 

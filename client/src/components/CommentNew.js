@@ -53,7 +53,7 @@ function CommentNew({ memory, currentUser, onAddComment }) {
             <button class='flex-col text-center justify-center items-center bg-stone-300 ml-auto rounded-full w-4 h-4 text-xs text-stone-400 shadow' onClick={commentAdd}>-</button>
             <h3 class='font-black text-lg p-2 px-4 my-4 rounded-lg bg-stone-100'>Add Comment</h3>
                 <form onSubmit={onSubmit} class='text-center'>
-                    <textarea class='w-11/12 h-full p-2 rounded-lg' name='body' value={formData.body} onChange={handleChange} placeholder='Type some shit, ya stupid'/>
+                    <textarea class='w-11/12 h-full p-2 rounded-lg' name='body' value={formData.body} onChange={handleChange} placeholder='...'/>
                     <div>
                     <button class='rounded-lg shadow-xl bg-stone-100 text-stone-600 hover:bg-amber-600 rounded-xl border-4 border-stone-600 hover:border-stone-50' type='submit'>SUBMIT</button>
                     </div>
