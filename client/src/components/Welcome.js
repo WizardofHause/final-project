@@ -6,6 +6,7 @@ function Welcome({ currentUser }) {
         <div class='flex flex-col justify-center items-center h-screen'>
             <img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" />
             <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center select-none'>
+                {/* EACH LETTER HAS OWN STYLE CLASS */}
                 <span class='text-stone-900 hover:text-red-900'>M</span>
                 <span class='text-stone-800 hover:text-amber-600'>e</span>
                 <span class='text-stone-700 hover:text-teal-700'>m</span>
@@ -16,7 +17,6 @@ function Welcome({ currentUser }) {
             <div>
                 <Link to='/bank' style={{ textDecoration: 'none' }}>
                 <img src='https://pbs.twimg.com/profile_images/1237550450/mstom_400x400.jpg' alt='error' class='shadow rounded-full h-36 mx-auto'/>
-                    {/* <button class='px-4 py-2 m-2 shadow-xl text-xl bg-stone-700 hover:bg-amber-600 rounded-xl'>(☞ﾟヮﾟ)☞ Back to Main </button> */}
                 </Link>
                 </div>
                 : (
@@ -27,6 +27,7 @@ function Welcome({ currentUser }) {
                         <Link to='/signup' style={{ textDecoration: 'none' }}>
                             <button class='px-4 py-2 m-2 shadow-xl text-xl bg-stone-700 hover:bg-indigo-900 rounded-xl'>Sign Up</button>
                         </Link>
+                        {/* APP TITLE EASTER EGG ON HOVER; PREVIEW OF APP COLOR PALETTE */}
                         <div class='p-6 text-xl font-black font-mono text-center select-none'>
                             <span class='bg-red-900 w-2 h-2 p-2 text-transparent rounded-tl-lg rounded-bl-lg hover:text-red-900 hover:bg-transparent'>M</span>
                             <span class='bg-amber-600 w-2 h-2 p-2 text-transparent hover:text-amber-600 hover:bg-transparent'>e</span>

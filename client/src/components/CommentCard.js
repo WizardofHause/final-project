@@ -10,6 +10,7 @@ function CommentCard({ comment, onDeleteComment, currentUser }) {
     }
 
     return (
+        // DELETE BUTTON RENDERS ONLY FOR COMMENT CREATOR
         <div className='comment-item'>
             <span className='comment-content'><span class="italic">"{body}"</span><div class='font-black ml-3 text-stone-500'> - {user.name}</div></span>
             {(currentUser.id === user.id)

@@ -14,23 +14,17 @@ function CommentsContainer({ memoryComments, onDeleteComment, currentUser, memor
         )
     })
 
-    // if (!memoryComments) return()
     return (
-        // <div className='comments-container'>
-            <div class='mt-8'>
-
-                <h2 class='font-black text-lg p-2 px-4 rounded-lg bg-stone-100'>Comments</h2>
-
-                {commentCard}
-
-                <CommentNew
-                    memory={memory}
-                    onAddComment={onAddComment}
-                    currentUser={currentUser}
-                />
-            </div>
-            )
-
+        <div class='mt-8'>
+            <h2 class='font-black text-lg p-2 px-4 rounded-lg bg-stone-100'>Comments</h2>
+            {commentCard}
+            <CommentNew
+                memory={memory}
+                onAddComment={onAddComment}
+                currentUser={currentUser}
+            />
+        </div>
+    )
 }
 
-            export default CommentsContainer
+export default CommentsContainer
