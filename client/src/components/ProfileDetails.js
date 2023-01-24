@@ -6,6 +6,8 @@ import UserAvatarNew from './UserAvatarNew'
 import UserAvatar from './UserAvatar'
 import Elephant from '../elephant.png'
 
+// ...THIS IS A NIGHTMARE OF TERNARY STATEMENTS AND NEEDS TO BE CLEANED UP...
+
 export const Context = createContext(null);
 
 export default function ProfileDetails({ userProfile, setUserProfile, currentUser }) {
@@ -49,7 +51,7 @@ export default function ProfileDetails({ userProfile, setUserProfile, currentUse
                     : <div class='mb-6'>
                         <p class='mt-4 px-2 font-semibold text-lg italic bg-red-700 border-4 border-red-900 text-red-100 rounded-lg uppercase'>WE DON'T EVEN KNOW WHO YOU ARE!</p>
                         <p class='my-2 font-semibold'>Create a profile to upload a profile picture!</p>
-                        
+
                         {createMenu
                             // WHEN CREATE PROFILE BUTTON IS CLICKED, SHOW PROFILE NEW FORM
                             ? <div>

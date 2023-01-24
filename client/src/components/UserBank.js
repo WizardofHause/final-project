@@ -47,6 +47,7 @@ export default function UserBank() {
         )
     })
 
+    // DISPLAYS USER PROFILE AND USER-CREATED CONTENT
     return (
         <div class='ml-24 mr-4 mt-4'>
             <div class='flex flex-col items-start'>

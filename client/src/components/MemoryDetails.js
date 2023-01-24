@@ -93,6 +93,7 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
     setShowComments(!showComments)
   }
 
+  // HANDLER TO PREVENT TIMEZONE CONFLICTS
   const actualDate = (date) => {
     const dateArray = []
     dateArray.push(`${date}T00:00`)

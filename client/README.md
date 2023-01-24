@@ -1,10 +1,3 @@
-MVP TO-DOS:
-- set up userprofile COMPONENT / CRUD
-    - CS navigation
-- Filter bar for memory type below search bar
-
-Bugs:
-- initial data load is an insanely long query to the db, adjust serializers depending on route
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
