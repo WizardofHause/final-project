@@ -4,7 +4,7 @@ Hello world! My name is Jon, I’m a software developer based in Denver, CO. Wel
 
 This application is my capstone project for Flatiron School's Software Engineering Program, built using Ruby on Rails for the backend and React.js for the front. Memry is essentially a digital scrapbook application with a few social media ingredients added in for spice. 
 #### Video Demos:
-[Flatiron Final Project Showcase](https://youtu.be/Uoznn1JafmM?t=1832)
+[Flatiron Final Project Showcase](https://youtu.be/Uoznn1JafmM?t=1832)  
 [Loom Version](https://www.loom.com/share/879f5497a3be48c0a3bd4ec799edba48)
 #### Deployed Version: 
 [https://memry.onrender.com](https://memry.onrender.com)
