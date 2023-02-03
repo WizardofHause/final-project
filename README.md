@@ -1,20 +1,13 @@
-# README
+# Memry
 
-Deployed Version: https://memry.onrender.com
-Live Demo: https://www.loom.com/share/879f5497a3be48c0a3bd4ec799edba48
+## Overview
+Hello world! My name is Jon, I’m a software developer based in Denver, CO. Welcome to Memry. 
 
-Commands:
-    bundle install 
-    rails db:migrate db:seed 
-    npm install --prefix client
+This application is my capstone project for Flatiron School's Software Engineering Program, built using Ruby on Rails for the backend and React.js for the front. Memry is essentially a digital scrapbook application with a few social media ingredients added in for spice. 
 
-USER STORIES:
+LIVE LINK: (https://memry.onrender.com)[https://memry.onrender.com]
 
-Hello world! My name is Jon, I’m a software developer based in Denver, CO. 
-
-Welcome to Memry. 
-
-This application is my capstone project for Flatiron School's Software Engineering Program, build using Ruby on Rails for the backend and React.js for the front. Memry is essentially a digital scrapbook application with a few social media ingredients added in for spice. 
+## Features
 
 I used Tailwind for the design and incorporated a 70's-retro-meets-old-book theme throughout the app; something Tailwind is quite good at accomodating. 
 
@@ -26,13 +19,31 @@ Each Memry has comment functionality associated, users can access via the specif
 
 User-created Memry's and comments are stored and displayed in the user's profile. Via the main timline feed, users can search through the created Memry’s by title to locate specific posts. 
 
-CHALLENGES:
+## Challenges
 
 The challenges I experienced while working on this project were #1, designing the timeline and #2 sorting the Memry posts. My entire concept essentially relied on having not just a timeline but a DYNAMIC timeline that responded appropriately to user content creation and updates. It also needed to LOOK like a timeline and not just a list with a line next to it. I couldn’t hard-code the posts into the website, so I combined nth-of-child rules in vanilla CSS to manipulate the odd and even entries as they were mapped over and then used Tailwind to polish. 
 
 Integrating Active Storage into a React App was also more of a head scratcher than I thought it would be, but it ended up working out okay after about a day of troubleshooting.
 
-FUTURE PLANS:
+## Running Locally
+#### Deployed Version: 
+(https://memry.onrender.com)[https://memry.onrender.com]
+#### Video Demo:
+(https://loom.com)[https://www.loom.com/share/879f5497a3be48c0a3bd4ec799edba48]
+#### From the repo:
+1. Clone this project locally
+2. Run `bundle install` 
+3. Run `npm install --prefix client`
+4. Run `rails s` to run backend server
+5. Run `npm start --prefix client` for frontend server  
+
+##### Dependencies:
++ React
++ React-Router
++ (date-fns)[https://date-fns.org/]
++ (Tailwind CSS)[https://tailwindcss.com/]
+
+## ToDo List
 1. Connect Active Storage to Google or AWS and integrate it with the Memry post
 2. Comments to include image uploads and comment-reply functionality 
 3. Build out user friendships & friend-tagging functionality (has_friendship gem)
@@ -44,6 +55,6 @@ FUTURE PLANS:
 9. Connect Memry location to Google Maps
 10. Integrate 'Memry recommendations' based on previously created Memry's or Favorites
 
-As you can see, lots more to do here. But I intentionally designed Memry to be open to new add-ons and features so I’m very excited to keep experimenting with it. 
+Lots more to do here, but I tried to design Memry to be open to new add-ons and features.
 
 Thanks for stopping by, keep fighting the good fight!
