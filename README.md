@@ -50,8 +50,8 @@ Integrating Active Storage into a React App was also more of a head scratcher th
 ## Contribute
 I welcome any questions, comments, and contributions! Feel free to fork this repo or reach out directly.
 ##### Contact Info
-[LinkedIn](https://www.linkedin.com/in/jon-hause/) 
-[Blog](https://dev.to/wizardofhause) 
+[LinkedIn](https://www.linkedin.com/in/jon-hause/)  
+[Blog](https://dev.to/wizardofhause)  
 Discord: wizardofhause#3894
 
 Thanks for stopping by - keep fightin the good fight!
