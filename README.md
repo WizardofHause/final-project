@@ -36,7 +36,6 @@ Integrating Active Storage into a React App was also more of a head scratcher th
 3. Run `npm install --prefix client`
 4. Run `rails s` to run backend server
 5. Run `npm start --prefix client` for frontend server  
-
 ##### Dependencies:
 + React
 + React-Router

@@ -25,6 +25,8 @@ function MemoryCard({ memory }) {
             case 'celebration':
                 c = 'shadow border-4 border-indigo-500 bg-indigo-900 text-indigo-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
                 break;
+            default:
+                c = null;
         }
         return c
     }
@@ -41,6 +43,8 @@ function MemoryCard({ memory }) {
             case 'future':
                 s = 'bg-stone-600 text-indigo-50 text-xs uppercase px-2 py-1 rounded-xl mr-auto font-semibold';
                 break;
+            default:
+                s = null;
         }
         return s
     }
@@ -80,7 +84,7 @@ function MemoryCard({ memory }) {
                     {details ? // vvv attempt to make the transition to show details smoother
                         <div className='details-container'>
                             <div class='bg-stone-100 p-2 mt-5 border-4 border-stone-200 rounded-lg'>
-                            <p class='text-stone-900 font-semibold rounded-lg'>Click to see more!</p>
+                                <p class='text-stone-900 font-semibold rounded-lg'>Click to see more!</p>
 
                                 {/* <p class='bg-stone-200 text-stone-900 p-3 m-1 border-4 border-stone-300 font-semibold'>{description}</p> */}
                             </div>

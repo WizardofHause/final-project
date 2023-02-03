@@ -69,6 +69,8 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
       case 'celebration':
         c = 'shadow border-4 border-indigo-500 bg-indigo-900 text-indigo-50 capitalize text-center font-semibold px-2 py-1 rounded-xl';
         break;
+      default:
+        c = null;
     }
     return c
   }
@@ -85,6 +87,8 @@ const MemoryDetails = ({ currentUser, deleteMemory }) => {
       case 'future':
         s = 'bg-stone-600 text-indigo-50 text-xs uppercase px-2 py-1 rounded-xl ml-auto font-semibold';
         break;
+      default:
+        s = null;
     }
     return s
   }
