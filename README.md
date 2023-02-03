@@ -5,7 +5,7 @@ Hello world! My name is Jon, I’m a software developer based in Denver, CO. Wel
 
 This application is my capstone project for Flatiron School's Software Engineering Program, built using Ruby on Rails for the backend and React.js for the front. Memry is essentially a digital scrapbook application with a few social media ingredients added in for spice. 
 
-LIVE LINK: (https://memry.onrender.com)[https://memry.onrender.com]
+LIVE LINK: [https://memry.onrender.com](https://memry.onrender.com)
 
 ## Features
 
@@ -27,9 +27,9 @@ Integrating Active Storage into a React App was also more of a head scratcher th
 
 ## Running Locally
 #### Deployed Version: 
-(https://memry.onrender.com)[https://memry.onrender.com]
+[https://memry.onrender.com](https://memry.onrender.com)
 #### Video Demo:
-(https://loom.com)[https://www.loom.com/share/879f5497a3be48c0a3bd4ec799edba48]
+[https://loom.com](https://www.loom.com/share/879f5497a3be48c0a3bd4ec799edba48)
 #### From the repo:
 1. Clone this project locally
 2. Run `bundle install` 
@@ -40,8 +40,8 @@ Integrating Active Storage into a React App was also more of a head scratcher th
 ##### Dependencies:
 + React
 + React-Router
-+ (date-fns)[https://date-fns.org/]
-+ (Tailwind CSS)[https://tailwindcss.com/]
++ [date-fns](https://date-fns.org/)
++ [Tailwind CSS](https://tailwindcss.com/)
 
 ## ToDo List
 1. Connect Active Storage to Google or AWS and integrate it with the Memry post
