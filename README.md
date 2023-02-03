@@ -7,6 +7,7 @@ This application is my capstone project for Flatiron School's Software Engineeri
 
 LIVE LINK: [https://memry.onrender.com](https://memry.onrender.com)
 
+[My LinkedIn](https://www.linkedin.com/in/jon-hause/)
 ## Features
 
 I used Tailwind for the design and incorporated a 70's-retro-meets-old-book theme throughout the app; something Tailwind is quite good at accomodating. 
