@@ -7,7 +7,7 @@ This application is my capstone project for Flatiron School's Software Engineeri
 [Flatiron Final Project Showcase](https://youtu.be/Uoznn1JafmM?t=1832)  
 [Loom Version](https://www.loom.com/share/879f5497a3be48c0a3bd4ec799edba48)
 #### Deployed Version: 
-[https://memry.onrender.com](https://memry.onrender.com)
+[Memry.onrender.com](https://memry.onrender.com)
 ## Features
 I used Tailwind for styling and incorporated a 70's-retro-meets-old-book theme throughout the app; something Tailwind is quite good at accomodating. 
 
