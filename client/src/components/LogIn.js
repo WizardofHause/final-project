@@ -44,8 +44,8 @@ function LogIn({ updateUser, fetchMemories }) {
     }
     return (
         <div class='flex flex-col justify-center items-center h-screen'>
-            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" /></Link>
-            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center select-none'>
+            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯"/></Link>
+            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center select-none' >
                 <span class='text-stone-900 hover:text-red-900'>M</span>
                 <span class='text-stone-800 hover:text-amber-600'>e</span>
                 <span class='text-stone-700 hover:text-teal-700'>m</span>

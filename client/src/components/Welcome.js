@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 function Welcome({ currentUser }) {
     return (
         <div class='flex flex-col justify-center items-center h-screen'>
-            <img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" />
-            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center select-none'>
+            <img src={spiral} class='w-32 mx-auto select-none lg:w-64' alt="Oops! ¯\_(ツ)_/¯"/>
+            <h1 class='text-4xl p-4 lg:text-6xl font-extrabold font-sans tracking-wide text-center select-none'>
                 <span class='text-stone-900 hover:text-red-900'>M</span>
                 <span class='text-stone-800 hover:text-amber-600'>e</span>
                 <span class='text-stone-700 hover:text-teal-700'>m</span>
@@ -22,17 +22,17 @@ function Welcome({ currentUser }) {
                 : (
                     <>
                         <Link to='/login' style={{ textDecoration: 'none' }}>
-                            <button class='px-4 py-2 m-2 shadow-xl-lg text-xl bg-stone-700 hover:bg-teal-700 rounded-xl'>Log In</button>
+                            <button class='px-4 py-2 m-2 shadow-xl-lg text-sm lg:text-xl bg-stone-700 hover:bg-teal-700 rounded-xl'>Log In</button>
                         </Link>
                         <Link to='/signup' style={{ textDecoration: 'none' }}>
-                            <button class='px-4 py-2 m-2 shadow-xl text-xl bg-stone-700 hover:bg-indigo-900 rounded-xl'>Sign Up</button>
+                            <button class='px-4 py-2 m-2 shadow-xl text-sm lg:text-xl bg-stone-700 hover:bg-indigo-900 rounded-xl'>Sign Up</button>
                         </Link>
-                        <div class='p-6'>
-                            <span class='bg-red-900 w-2 h-2 p-2 text-transparent rounded-tl rounded-bl'>x </span>
-                            <span class='bg-amber-600 w-2 h-2 p-2 text-transparent'>x </span>
-                            <span class='bg-teal-700 w-2 h-2 p-2 text-transparent'>x </span>
-                            <span class='bg-sky-800 w-2 h-2 p-2 text-transparent'>x </span>
-                            <span class='bg-indigo-900 w-2 h-2 p-2 text-transparent rounded-tr rounded-br'>x </span>
+                        <div class='p-6 text-xl font-black font-mono text-center select-none'>
+                            <span class='bg-red-900 w-2 h-2 p-2 text-transparent rounded-tl-lg rounded-bl-lg hover:text-red-900 hover:bg-transparent'>M</span>
+                            <span class='bg-amber-600 w-2 h-2 p-2 text-transparent hover:text-amber-600 hover:bg-transparent'>e</span>
+                            <span class='bg-teal-700 w-2 h-2 p-2 text-transparent hover:text-teal-700 hover:bg-transparent'>m</span>
+                            <span class='bg-sky-800 w-2 h-2 p-2 text-transparent hover:text-sky-800 hover:bg-transparent'>r</span>
+                            <span class='bg-indigo-900 w-2 h-2 p-2 text-transparent rounded-tr-lg rounded-br-lg hover:text-indigo-900 hover:bg-transparent'>y</span>
                         </div>
                     </>
                 )}

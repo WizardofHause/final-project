@@ -47,7 +47,7 @@ function SignUp({ updateUser, fetchMemories }) {
     }
     return (
         <div class='flex flex-col justify-center items-center h-screen'>
-            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" /></Link>
+            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" className='logo'/></Link>
             <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center text-indigo-900 select-none'>
                 <span class='text-stone-900 hover:text-red-900'>M</span>
                 <span class='text-stone-800 hover:text-amber-600'>e</span>
