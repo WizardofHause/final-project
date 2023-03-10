@@ -48,11 +48,11 @@ function SignUp({ updateUser, fetchMemories }) {
     }
 
     return (
-        <div class='flex flex-col justify-center items-center h-screen'>
+        <div class='flex flex-col justify-center items-center h-screen m-3'>
             
             {/* MAIN LOGO LINKS TO WELCOME/LANDING PAGE */}
-            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" /></Link>
-            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center text-indigo-900 select-none'>
+            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-32 lg:w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" /></Link>
+            <h1 class='p-4 text-4xl lg:text-6xl font-extrabold font-sans tracking-wide text-center text-indigo-900 select-none'>
                 {/* EACH LETTER HAS OWN STYLE CLASS */}
                 <span class='text-stone-900 hover:text-red-900'>M</span>
                 <span class='text-stone-800 hover:text-amber-600'>e</span>
@@ -62,7 +62,7 @@ function SignUp({ updateUser, fetchMemories }) {
             </h1>
 
             <form onSubmit={onSubmit} class='text-center mx-auto'>
-                <label class='p-2 block text-stone-700 font-semibold text-xl'>
+                <label class='p-2 block text-stone-700 font-semibold text-sm lg:text-xl'>
                     Username
                 </label>
                 <input
@@ -72,7 +72,7 @@ function SignUp({ updateUser, fetchMemories }) {
                     value={name}
                     onChange={handleChange}
                 />
-                <label class='p-2 block text-stone-700 font-semibold text-xl'>
+                <label class='p-2 block text-stone-700 font-semibold text-sm lg:text-xl'>
                     Email
                 </label>
                 <input
@@ -82,7 +82,7 @@ function SignUp({ updateUser, fetchMemories }) {
                     value={email}
                     onChange={handleChange}
                 />
-                <label class='p-2 block text-stone-700 font-semibold text-xl'>
+                <label class='p-2 block text-stone-700 font-semibold text-sm lg:text-xl'>
                     Password
                 </label>
                 <input
@@ -93,7 +93,7 @@ function SignUp({ updateUser, fetchMemories }) {
                     onChange={handleChange}
                 />
 
-                <button type='submit' class='p-2 block mx-auto my-2 bg-stone-700 text-indigo-50 hover:bg-indigo-900 hover:text-indigo-50 rounded-lg'>Sign Up</button>
+                <button type='submit' class='text-sm lg:text-xl p-2 block mx-auto my-2 bg-stone-700 text-indigo-50 hover:bg-indigo-900 hover:text-indigo-50 rounded-lg'>Sign Up</button>
             </form>
             
             {/* HANDLE ERROR MESSAGE DISPLAY FOR NEW USER VALIDATIONS */}

@@ -45,12 +45,12 @@ function LogIn({ updateUser, fetchMemories }) {
     }
 
     return (
-        <div class='flex flex-col justify-center items-center h-screen'>
+        <div class='flex flex-col justify-center items-center h-screen m-3'>
 
             {/* MAIN LOGO LINKS TO WELCOME/LANDING PAGE */}
-            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" /></Link>
+            <Link to='/' style={{ textDecoration: 'none' }}><img src={spiral} class='w-32 lg:w-64 mx-auto select-none' alt="Oops! ¯\_(ツ)_/¯" /></Link>
             {/* EACH LETTER HAS OWN STYLE CLASS */}
-            <h1 class='p-4 text-6xl font-extrabold font-sans tracking-wide text-center select-none'>
+            <h1 class='p-4 text-4xl lg:text-6xl font-extrabold font-sans tracking-wide text-center select-none'>
                 <span class='text-stone-900 hover:text-red-900'>M</span>
                 <span class='text-stone-800 hover:text-amber-600'>e</span>
                 <span class='text-stone-700 hover:text-teal-700'>m</span>
@@ -60,7 +60,7 @@ function LogIn({ updateUser, fetchMemories }) {
 
             <form onSubmit={onSubmit}>
                 <div class='text-center mx-auto'>
-                    <label class='p-2 block text-stone-700 font-semibold text-xl'>
+                    <label class='p-2 block text-stone-700 font-semibold text-sm lg:text-xl'>
                         Username
                     </label>
                     <input
@@ -70,7 +70,7 @@ function LogIn({ updateUser, fetchMemories }) {
                         value={name}
                         onChange={handleChange}
                     />
-                    <label class='p-2 block text-stone-700 font-semibold text-xl'>
+                    <label class='p-2 block text-stone-700 font-semibold text-sm lg:text-xl'>
                         Password
                     </label>
                     <input
@@ -81,7 +81,7 @@ function LogIn({ updateUser, fetchMemories }) {
                         onChange={handleChange}
                         autoComplete='off'
                     />
-                    <button class='p-2 block mx-auto my-2 bg-stone-700 text-stone-50 hover:bg-teal-700 hover:text-teal-50 rounded-lg' type='submit'>Log In</button>
+                    <button class='text-sm lg:text-xl p-2 block mx-auto my-2 bg-stone-700 text-stone-50 hover:bg-teal-700 hover:text-teal-50 rounded-lg' type='submit'>Log In</button>
                 </div>
             </form>
 
