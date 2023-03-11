@@ -133,7 +133,6 @@
   width: 20px;
   height: 20px;
   z-index: 100;
-  /* box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2); */
 }
 
 .tl-item:nth-child(odd) .tl-content .circle {
@@ -181,19 +180,19 @@
   left: 16px;
 }
 
-.memory-category-tag{
+.memory-category-tag {
   position: absolute;
   top: 16px;
   right: 16px;
 }
 
-.memory-likes-button{
+.memory-likes-button {
   position: absolute;
   top: 10px;
   left: 16px;
 }
 
-.memory-status-overlay{
+.memory-status-overlay {
   position: absolute;
   bottom: 16px;
   left: 16px;
@@ -255,15 +254,39 @@
 /* ----------------------------------------------------------------------- MOBILE DISPLAY ------------------------------------- */
 
 @media only screen and (max-width: 1023px) {
-  .tl-content {
+  /* .tl-content {
     max-width: 70%;
+  } */
+
+  /* .tl-content::after{
+    display: none;
+  } */
+  .memory-status-overlay,
+  .memory-likes-button,
+  .date-and-category {
+    display: none;
   }
 }
 
 @media only screen and (max-width: 767px) {
+  .tl-content .circle {
+    background-color: #fff;
+    border: 3px solid #e1b377;
+    border-radius: 50%;
+    position: absolute;
+    top: calc(50% - 10px);
+    right: -78px;
+    width: 15px;
+    height: 15px;
+    z-index: 100;
+  }
+  .tl-item:nth-child(odd) .tl-content .circle {
+    right: auto;
+    left: -77px;
+  }
+
   .tl-container {
-    margin-right: 30%;
-    width: 90%;
+    margin: 0;
   }
 
   button {
@@ -272,17 +295,37 @@
 
   .tl-content,
   .tl-item:nth-child(odd) .tl-content {
-    padding: 15px 10px;
+    /* padding: 15px 10px; */
     text-align: center;
     align-items: center;
-    font-size: 40%;
+    /* font-size: 40%; */
   }
 
   .tl-content img {
     width: 100%;
   }
 
+  .sidenav {
+    background-color: rgba(0, 0, 0, .5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    /* font-size: 30px; */
+    justify-content: space-around;
+  }
+
   .sidenav button {
     font-size: 50%;
+    height: auto;
+  }
+
+  .search {
+    margin-top: 35px;
+    margin-bottom: 0;
   }
 }

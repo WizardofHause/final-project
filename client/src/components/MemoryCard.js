@@ -46,7 +46,7 @@ function MemoryCard({ memory }) {
     }
 
     const showDetails = () => {
-        setDetails(!details)
+        setDetails(prevDetails => !prevDetails)
     }
 
     const actualDate = (date) => {
@@ -59,15 +59,18 @@ function MemoryCard({ memory }) {
         <div className='tl-item'>
             <div className='tl-content'>
                 <Link to={`/memories/${memory.id}`} style={{ textDecoration: 'none' }}>
-                    {/* <span className='tag'/> */}
-                    <div class='flex justify-between items-center pb-2 mb-2'>
-                        <span class={styleCategory(category)}>{format(new Date(actualDate(date)), 'EEEE: MMMM d, yyyy')}</span>
-                        <span class={styleCategory(category)}>{category}</span>
+                    <div class='flex justify-between items-center pb-2 mb-2 text-xs lg:text-lg'>
+                        <span class={styleCategory(category)}>{format(new Date(actualDate(date)), 'MMMM d, yyyy')}</span>
+                        <div className='date-and-category'>
+                            <span class={styleCategory(category)}>{category}</span>
+                        </div>
                     </div>
-                    <h1 class='mb-2 font-black text-stone-700 text-2xl bg-stone-100 p-2 text-center border-4 border-stone-200 rounded-lg px-auto uppercase'>{title} <span class='text-base italic font-semibold capitalize'>by {user.name}</span>
-                    </h1>
+                    <div className='date-and-category'>
+                        <h1 class='mb-2 font-black text-stone-700 text-xs lg:text-2xl bg-stone-100 p-2 text-center border-4 border-stone-200 rounded-lg uppercase'>{title} <span class='text-base italic font-semibold capitalize text-sm lg:text-lg'>by {user.name}</span>
+                        </h1>
+                    </div>
                     <div className='memory-image-container'>
-                        <img class='m-4' src={main_img} alt="Render Error!" onMouseEnter={showDetails} onMouseLeave={showDetails} />
+                        <img class='lg:m-4' src={main_img} alt="Render Error!" onMouseEnter={showDetails} onMouseLeave={showDetails} />
                         <div className='memory-status-overlay'>
                             <span class={styleStatus(status)}>{status}</span>
                         </div>
@@ -80,7 +83,7 @@ function MemoryCard({ memory }) {
                     {details ? // vvv attempt to make the transition to show details smoother
                         <div className='details-container'>
                             <div class='bg-stone-100 p-2 mt-5 border-4 border-stone-200 rounded-lg'>
-                            <p class='text-stone-900 font-semibold rounded-lg'>Click to see more!</p>
+                                <p class='text-stone-900 font-semibold rounded-lg'>Click to see more!</p>
 
                                 {/* <p class='bg-stone-200 text-stone-900 p-3 m-1 border-4 border-stone-300 font-semibold'>{description}</p> */}
                             </div>

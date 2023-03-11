@@ -3,7 +3,7 @@ import React from 'react'
 export default function Search({ search, onSearch }) {
 
     return (
-        <div className='search' class='mx-24 my-2'>
+        <div className='search' class='mx-24 mt-12 lg:my-2'>
             <input
                 id="search"
                 type="text"
