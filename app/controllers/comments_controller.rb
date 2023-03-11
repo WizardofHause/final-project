@@ -14,6 +14,7 @@ class CommentsController < ApplicationController
         render json: comment, status: :created
     end
 
+    # TODO - IMPLEMENT COMMENT EDITING
     # def update
     #     @comment.update!(comment_params)
     #     render json: @comment, status: :accepted

@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
     skip_before_action :authorized_user, only: [:create]
 
+	# UNUSED
 	def index
 		render json: User.all, status: :ok
 	end
@@ -18,14 +19,14 @@ class UsersController < ApplicationController
 		render json: user, status: :created
 	end
 
-	# edit user details 
+	# edit user details - UNUSED
 	def update
 		user = User.find(session[:user_id])
 		user.update!(user_params)
 		render json: user, status: :accepted
 	end
 
-	# delete user & associated data
+	# delete user & associated data - UNUSED
 	def destroy
 		user = User.find(session[:user_id])
 		user.destroy
